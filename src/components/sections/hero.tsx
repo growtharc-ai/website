@@ -8,9 +8,10 @@ export function Hero() {
         background: 'linear-gradient(160deg, #060710 0%, #0A0F20 100%)',
       }}
     >
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0077EE]/8 blur-[120px]" />
-      <div className="pointer-events-none absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full bg-[#00C896]/5 blur-[100px]" />
+      {/* Ambient glow — large blurred gradient circles */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0077EE]/15 blur-[160px]" />
+      <div className="pointer-events-none absolute top-1/4 right-1/4 h-[600px] w-[600px] rounded-full bg-[#00C896]/10 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-1/3 left-1/4 h-[500px] w-[500px] rounded-full bg-[#0077EE]/8 blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <FadeIn>

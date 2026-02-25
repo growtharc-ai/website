@@ -72,7 +72,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-white/25 md:flex-row">
-          <p>&copy; 2025 NextGen AI Marketing Ltd. Trading as Growth Arc.</p>
+          <p>&copy; 2026 NextGen AI Marketing Ltd. Trading as Growth Arc.</p>
           <div className="flex gap-6">
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
