@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+/*
+ * Growth Arc — Brand Theme
+ * Tailwind CSS v4 CSS-based configuration
+ */
+
+@theme {
+  /* Brand colours */
+  --color-ga-blue: #0077EE;
+  --color-ga-green: #00C896;
+  --color-ga-blue-dark: #0088FF;
+  --color-ga-green-dark: #00DFAA;
+  --color-ga-navy: #07080E;
+  --color-ga-text: #0F0F1A;
+  --color-ga-grey-bg: #F5F6F8;
+  --color-ga-grey-border: #E2E4E9;
+  --color-ga-grey-text: #6B7280;
+
+  /* Font family */
+  --font-sans: var(--font-sora), 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/*
+ * CSS custom properties for use outside of Tailwind utilities
+ * (gradients, raw colour references, etc.)
+ */
+:root {
+  --ga-blue: #0077EE;
+  --ga-green: #00C896;
+  --ga-blue-dark: #0088FF;
+  --ga-green-dark: #00DFAA;
+  --ga-navy: #07080E;
+  --ga-text: #0F0F1A;
+  --ga-grey-bg: #F5F6F8;
+  --ga-grey-border: #E2E4E9;
+  --ga-grey-text: #6B7280;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ga-navy);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove select arrow in dark dropdowns */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
