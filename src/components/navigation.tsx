@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
@@ -28,10 +29,14 @@ export function Navigation() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="text-xl font-bold tracking-tight">
-          <span className="bg-gradient-to-r from-ga-blue to-ga-green bg-clip-text text-transparent">
-            Growth Arc
-          </span>
+        <a href="#">
+          <Image
+            src="/logo/logo-primary-dark.svg"
+            alt="Growth Arc"
+            width={170}
+            height={40}
+            priority
+          />
         </a>
 
         {/* Desktop */}

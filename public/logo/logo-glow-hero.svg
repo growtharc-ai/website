@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" width="840" height="192">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="100%" x2="50%" y2="0%"><stop offset="0%" stop-color="#0088FF"/><stop offset="100%" stop-color="#00DFAA"/></linearGradient>
+    <linearGradient id="t" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0088FF"/><stop offset="100%" stop-color="#00DFAA"/></linearGradient>
+    <filter id="glA" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="blur"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
+    <filter id="glT" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5" result="blur"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
+  </defs>
+  <path d="M10 84 C40 84, 56 58, 56 24 L60 24 C60 56, 44 82, 16 84 Z" fill="url(#g)" filter="url(#glA)" opacity="0.35"/>
+  <path d="M10 84 C40 84, 56 58, 56 24 L60 24 C60 56, 44 82, 16 84 Z" fill="url(#g)"/>
+  <polygon points="57,4 70,20 44,20" fill="#00DFAA" filter="url(#glA)" opacity="0.3"/>
+  <polygon points="57,4 70,20 44,20" fill="#00DFAA"/>
+  <text x="88" y="66" font-family="Sora, 'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="700" font-size="42" fill="#FFFFFF" letter-spacing="-1.2">Growth</text>
+  <text x="260" y="66" font-family="Sora, 'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="700" font-size="42" fill="url(#t)" letter-spacing="-1.2" filter="url(#glT)" opacity="0.35">Arc</text>
+  <text x="260" y="66" font-family="Sora, 'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="700" font-size="42" fill="url(#t)" letter-spacing="-1.2">Arc</text>
+</svg>

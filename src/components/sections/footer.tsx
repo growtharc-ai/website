@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Instagram, Twitter, Linkedin, Youtube, Github } from 'lucide-react'
 
 const navLinks = [
@@ -22,10 +23,13 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <a href="#" className="text-xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
-                Growth Arc
-              </span>
+            <a href="#">
+              <Image
+                src="/logo/logo-primary-dark.svg"
+                alt="Growth Arc"
+                width={150}
+                height={36}
+              />
             </a>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/35">
               AI-powered marketing that scales. Helping businesses grow faster

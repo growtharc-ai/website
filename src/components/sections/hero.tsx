@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FadeIn } from '@/components/motion/fade-in'
 
 export function Hero() {
@@ -15,9 +16,14 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <FadeIn>
-          <p className="mb-6 inline-block rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-sm font-medium text-white/50">
-            AI-Driven Growth for Modern Businesses
-          </p>
+          <Image
+            src="/logo/logo-glow-hero.svg"
+            alt="Growth Arc"
+            width={320}
+            height={73}
+            priority
+            className="mx-auto mb-8"
+          />
         </FadeIn>
 
         <FadeIn delay={0.1}>
