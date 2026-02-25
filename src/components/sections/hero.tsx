@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FadeIn } from '@/components/motion/fade-in'
 
 export function Hero() {
@@ -16,17 +15,6 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <FadeIn>
-          <Image
-            src="/logo/logo-glow-hero.svg"
-            alt="Growth Arc"
-            width={320}
-            height={73}
-            priority
-            className="mx-auto mb-8"
-          />
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
           <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.1] tracking-[-1.5px]">
             AI-Powered Marketing
             <br />
@@ -36,14 +24,14 @@ export function Hero() {
           </h1>
         </FadeIn>
 
-        <FadeIn delay={0.2}>
+        <FadeIn delay={0.15}>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50 leading-relaxed md:text-xl">
             We help businesses grow faster with intelligent lead generation,
             sales automation, and data-driven marketing strategy.
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.3}>
+        <FadeIn delay={0.25}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="#contact"
@@ -62,7 +50,7 @@ export function Hero() {
       </div>
 
       {/* Stats bar */}
-      <FadeIn delay={0.45} className="absolute right-0 bottom-0 left-0">
+      <FadeIn delay={0.35} className="absolute right-0 bottom-0 left-0">
         <div className="border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
           <div className="mx-auto grid max-w-5xl grid-cols-3 divide-x divide-white/5 px-6 py-8">
             <div className="text-center">

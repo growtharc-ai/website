@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512">
-  <defs><linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0088FF"/><stop offset="100%" stop-color="#00DFAA"/></linearGradient></defs>
-  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
-  <path d="M7 26 C14 26, 18 19, 18 10 L20 10 C20 18, 16 25, 9 26 Z" fill="white"/>
-  <polygon points="19,3 24,10 14,10" fill="white"/>
-</svg>

@@ -25,7 +25,7 @@ export function Footer() {
           <div>
             <a href="#">
               <Image
-                src="/logo/logo-primary-dark.svg"
+                src="/logo/02-logo-primary-dark.svg"
                 alt="Growth Arc"
                 width={150}
                 height={36}

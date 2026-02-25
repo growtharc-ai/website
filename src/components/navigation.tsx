@@ -31,7 +31,7 @@ export function Navigation() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#">
           <Image
-            src="/logo/logo-primary-dark.svg"
+            src="/logo/02-logo-primary-dark.svg"
             alt="Growth Arc"
             width={170}
             height={40}

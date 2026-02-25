@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 36" width="320" height="72">
+  <defs><linearGradient id="g" x1="0%" y1="100%" x2="50%" y2="0%"><stop offset="0%" stop-color="#0088FF"/><stop offset="100%" stop-color="#00DFAA"/></linearGradient></defs>
+  <path d="M2 30 C10 30, 14 22, 14 10 L16 10 C16 21, 12 29, 4 30 Z" fill="url(#g)"/>
+  <polygon points="15,2 20,8 10,8" fill="#00DFAA"/>
+  <text x="24" y="24" font-family="Sora, 'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" letter-spacing="-0.3">Growth Arc</text>
+</svg>
