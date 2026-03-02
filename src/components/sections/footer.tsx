@@ -11,7 +11,7 @@ const navLinks = [
 const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com/growtharc.ai', label: 'Instagram' },
   { icon: Twitter, href: 'https://x.com/growtharc_ai', label: 'X' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/growtharc', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/growtharc-ai', label: 'LinkedIn' },
   { icon: Youtube, href: 'https://youtube.com/@GrowthArc-Ai', label: 'YouTube' },
   { icon: Github, href: 'https://github.com/growtharc-ai', label: 'GitHub' },
 ]
