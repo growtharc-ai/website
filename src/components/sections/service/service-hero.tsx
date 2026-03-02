@@ -61,7 +61,7 @@ export function ServiceHero({
         <FadeIn delay={0.3}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="/#contact"
+              href="/contact"
               className="rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#0077EE]/20 transition-transform hover:scale-105"
             >
               Get Started

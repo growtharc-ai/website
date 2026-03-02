@@ -165,7 +165,7 @@ export default function AboutPage() {
             <FadeIn delay={0.3}>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
-                  href="/#contact"
+                  href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-7 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
                 >
                   Work With Us
@@ -447,7 +447,7 @@ export default function AboutPage() {
                 </p>
                 <div className="relative mt-8">
                   <a
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-105"
                   >
                     Get Your Free Audit
