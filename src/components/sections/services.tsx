@@ -5,6 +5,7 @@ import {
   CalendarCheck,
   Megaphone,
   BarChart3,
+  ArrowRight,
 } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 import {
@@ -18,6 +19,7 @@ const services = [
     title: 'AI Lead Generation',
     description:
       'Intelligent prospecting and automated outreach with AI-powered lead scoring to fill your pipeline with qualified opportunities.',
+    href: '/services/ai-lead-generation',
   },
   {
     icon: TrendingUp,
@@ -72,8 +74,8 @@ export function Services() {
         </FadeIn>
 
         <StaggerContainer className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <StaggerItem key={service.title}>
+          {services.map((service) => {
+            const card = (
               <div className="group rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04]">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-blue)]/10">
                   <service.icon className="h-6 w-6 text-[var(--ga-blue)]" />
@@ -82,9 +84,26 @@ export function Services() {
                 <p className="mt-3 text-[15px] leading-relaxed text-white/45">
                   {service.description}
                 </p>
+                {service.href && (
+                  <p className="mt-4 flex items-center gap-1.5 text-sm font-medium text-[var(--ga-blue)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    Learn more <ArrowRight className="h-3.5 w-3.5" />
+                  </p>
+                )}
               </div>
-            </StaggerItem>
-          ))}
+            )
+
+            return (
+              <StaggerItem key={service.title}>
+                {service.href ? (
+                  <a href={service.href} className="block">
+                    {card}
+                  </a>
+                ) : (
+                  card
+                )}
+              </StaggerItem>
+            )
+          })}
         </StaggerContainer>
       </div>
     </section>
