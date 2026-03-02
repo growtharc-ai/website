@@ -1,14 +1,12 @@
-import dynamic from 'next/dynamic'
+import { Navigation } from '@/components/navigation'
 import { Hero } from '@/components/sections/hero'
+import { Services } from '@/components/sections/services'
+import { HowItWorks } from '@/components/sections/how-it-works'
+import { Results } from '@/components/sections/results'
+import { About } from '@/components/sections/about'
+import { CTASection } from '@/components/sections/cta-section'
+import { Contact } from '@/components/sections/contact'
 import { Footer } from '@/components/sections/footer'
-
-const Navigation = dynamic(() => import('@/components/navigation').then(m => ({ default: m.Navigation })), { ssr: true })
-const Services = dynamic(() => import('@/components/sections/services').then(m => ({ default: m.Services })))
-const HowItWorks = dynamic(() => import('@/components/sections/how-it-works').then(m => ({ default: m.HowItWorks })))
-const Results = dynamic(() => import('@/components/sections/results').then(m => ({ default: m.Results })))
-const About = dynamic(() => import('@/components/sections/about').then(m => ({ default: m.About })))
-const CTASection = dynamic(() => import('@/components/sections/cta-section').then(m => ({ default: m.CTASection })))
-const Contact = dynamic(() => import('@/components/sections/contact').then(m => ({ default: m.Contact })))
 
 export default function Home() {
   return (
