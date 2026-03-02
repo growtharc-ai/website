@@ -72,7 +72,7 @@ export default function RootLayout({
         <Script
           id="hs-script-loader"
           src="//js-ap1.hs-scripts.com/442455546.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         {children}
       </body>
