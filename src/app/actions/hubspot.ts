@@ -95,7 +95,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
   }
 
   // 4. Create note with service interest + message, associated with both contact and deal
-  const noteBody = `Service Interest: ${service || 'Not specified'}\nMessage: ${message}`
+  const noteBody = `<strong>Service Interest:</strong> ${service || 'Not specified'}<br><br><strong>Message:</strong> ${message}`
 
   const noteRes = await fetch(`${HUBSPOT_API}/notes`, {
     method: 'POST',
