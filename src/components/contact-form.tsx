@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Send } from 'lucide-react'
+import { Send, Loader2 } from 'lucide-react'
+import { submitContactForm } from '@/app/actions/contact'
 
 const serviceOptions = [
   'AI Lead Generation',
@@ -15,6 +16,8 @@ const serviceOptions = [
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   if (submitted) {
     return (
@@ -27,14 +30,24 @@ export function ContactForm() {
     )
   }
 
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setError(null)
+    setSubmitting(true)
+
+    const formData = new FormData(e.currentTarget)
+    const result = await submitContactForm(formData)
+
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError(result.error)
+    }
+    setSubmitting(false)
+  }
+
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault()
-        setSubmitted(true)
-      }}
-      className="space-y-5"
-    >
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-white/60">
@@ -45,7 +58,8 @@ export function ContactForm() {
             id="name"
             name="name"
             required
-            className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50"
+            disabled={submitting}
+            className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50 disabled:opacity-50"
             placeholder="Your name"
           />
         </div>
@@ -58,7 +72,8 @@ export function ContactForm() {
             id="email"
             name="email"
             required
-            className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50"
+            disabled={submitting}
+            className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50 disabled:opacity-50"
             placeholder="you@company.com"
           />
         </div>
@@ -73,7 +88,8 @@ export function ContactForm() {
             type="text"
             id="company"
             name="company"
-            className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50"
+            disabled={submitting}
+            className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50 disabled:opacity-50"
             placeholder="Your company"
           />
         </div>
@@ -84,7 +100,8 @@ export function ContactForm() {
           <select
             id="service"
             name="service"
-            className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50"
+            disabled={submitting}
+            className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50 disabled:opacity-50"
           >
             <option value="" className="bg-[#0D0F18]">
               Select a service...
@@ -107,17 +124,27 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50"
+          disabled={submitting}
+          className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/25 focus:border-[var(--ga-blue)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--ga-blue)]/50 disabled:opacity-50"
           placeholder="Tell us about your goals..."
         />
       </div>
 
+      {error && (
+        <p className="text-sm text-red-400">{error}</p>
+      )}
+
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-base font-semibold text-white transition-transform hover:scale-105"
+        disabled={submitting}
+        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-base font-semibold text-white transition-transform hover:scale-105 disabled:opacity-70 disabled:hover:scale-100"
       >
-        Send Message
-        <Send className="h-4 w-4" />
+        {submitting ? 'Sending...' : 'Send Message'}
+        {submitting ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          <Send className="h-4 w-4" />
+        )}
       </button>
     </form>
   )
