@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 
@@ -47,13 +48,13 @@ export function ServiceCTA({
               </div>
 
               <div className="text-center md:text-right">
-                <a
+                <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-semibold text-[var(--ga-navy)] transition-transform hover:scale-105"
                 >
                   Get Your Free Audit
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
                 <p className="mt-4 text-sm text-white/60">
                   No commitment required. See results in 14 days.
                 </p>

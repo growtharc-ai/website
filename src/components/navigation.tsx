@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   Menu,
   X,
@@ -80,7 +81,7 @@ export function Navigation() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="/">
+        <Link href="/">
           <Image
             src="/logo/02-logo-primary-dark.svg"
             alt="Growth Arc"
@@ -88,7 +89,7 @@ export function Navigation() {
             height={40}
             priority
           />
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden items-center gap-8 md:flex">
@@ -112,34 +113,34 @@ export function Navigation() {
             {servicesOpen && (
               <div className="absolute top-full left-1/2 z-50 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-[#0D0F18]/95 p-2 shadow-2xl backdrop-blur-xl">
                 {serviceLinks.map((service) => (
-                  <a
+                  <Link
                     key={service.href}
                     href={service.href}
                     className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-white"
                   >
                     <service.icon className="h-4 w-4 text-[var(--ga-blue)]" />
                     {service.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
           </div>
 
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-white/60 transition-colors hover:text-white"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
+          <Link
             href="/contact"
             className="rounded-full bg-gradient-to-r from-ga-blue to-ga-green px-5 py-2 text-sm font-semibold text-white transition-transform hover:scale-105"
           >
             Contact
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -170,7 +171,7 @@ export function Navigation() {
             {mobileServicesOpen && (
               <div className="flex flex-col gap-1 pl-4">
                 {serviceLinks.map((service) => (
-                  <a
+                  <Link
                     key={service.href}
                     href={service.href}
                     onClick={() => setMobileOpen(false)}
@@ -178,28 +179,28 @@ export function Navigation() {
                   >
                     <service.icon className="h-4 w-4 text-[var(--ga-blue)]" />
                     {service.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
 
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="text-base font-medium text-white/60 transition-colors hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
+            <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-full bg-gradient-to-r from-ga-blue to-ga-green px-5 py-2.5 text-center text-sm font-semibold text-white"
             >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       )}

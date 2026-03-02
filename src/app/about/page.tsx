@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import {
   Sparkles,
   Brain,
@@ -164,19 +165,19 @@ export default function AboutPage() {
 
             <FadeIn delay={0.3}>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
+                <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-7 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
                 >
                   Work With Us
                   <ArrowRight className="h-4 w-4" />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/#services"
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white/70 transition-colors hover:bg-white/[0.08] hover:text-white"
                 >
                   Our Services
-                </a>
+                </Link>
               </div>
             </FadeIn>
           </div>
@@ -446,13 +447,13 @@ export default function AboutPage() {
                   business? Let&apos;s talk.
                 </p>
                 <div className="relative mt-8">
-                  <a
+                  <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-105"
                   >
                     Get Your Free Audit
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </FadeIn>

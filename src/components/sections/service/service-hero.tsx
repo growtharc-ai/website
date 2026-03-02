@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { LucideIcon } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 
@@ -60,18 +61,18 @@ export function ServiceHero({
 
         <FadeIn delay={0.3}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <Link
               href="/contact"
               className="rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#0077EE]/20 transition-transform hover:scale-105"
             >
               Get Started
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#services"
               className="rounded-full border border-white/10 px-8 py-3.5 text-base font-semibold text-white/70 transition-all hover:border-white/25 hover:text-white"
             >
               View All Services
-            </a>
+            </Link>
           </div>
         </FadeIn>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import {
   Mail,
   MapPin,
@@ -298,13 +299,13 @@ export default function ContactPage() {
               <p className="text-lg text-white/50">
                 Not sure what you need?
               </p>
-              <a
+              <Link
                 href="/#services"
                 className="mt-3 inline-flex items-center gap-2 text-lg font-semibold bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent transition-opacity hover:opacity-80"
               >
                 Explore our services
                 <ArrowRight className="h-5 w-5 text-[var(--ga-green)]" />
-              </a>
+              </Link>
             </FadeIn>
           </div>
         </section>

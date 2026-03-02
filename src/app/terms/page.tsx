@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
 import { FadeIn } from '@/components/motion/fade-in'
 import { Footer } from '@/components/sections/footer'
@@ -155,9 +156,9 @@ export default function TermsPage() {
                     storing your information in our customer relationship management system (HubSpot)
                     and contacting you in response to your enquiry. We will handle your personal
                     information in accordance with our{' '}
-                    <a href="/privacy" className="text-[var(--ga-blue)] hover:underline">
+                    <Link href="/privacy" className="text-[var(--ga-blue)] hover:underline">
                       Privacy Policy
-                    </a>{' '}
+                    </Link>{' '}
                     and the Privacy Act 2020.
                   </p>
                   <p className="mt-3">
@@ -293,9 +294,9 @@ export default function TermsPage() {
                   <h2 className="mb-4 text-xl font-semibold text-white">16. Entire Agreement</h2>
                   <p>
                     These Terms, together with our{' '}
-                    <a href="/privacy" className="text-[var(--ga-blue)] hover:underline">
+                    <Link href="/privacy" className="text-[var(--ga-blue)] hover:underline">
                       Privacy Policy
-                    </a>{' '}
+                    </Link>{' '}
                     and any separate service agreement, constitute the entire agreement between you and
                     Growth Arc regarding your use of the Website and services.
                   </p>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Instagram, Twitter, Linkedin, Youtube, Github } from 'lucide-react'
 
 const navLinks = [
@@ -23,14 +24,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <a href="/">
+            <Link href="/">
               <Image
                 src="/logo/02-logo-primary-dark.svg"
                 alt="Growth Arc"
                 width={150}
                 height={36}
               />
-            </a>
+            </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/35">
               AI-powered marketing that scales. Helping businesses grow faster
               with intelligent automation and data-driven strategy.
@@ -43,12 +44,12 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-white/35 transition-colors hover:text-white/70"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -78,8 +79,8 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-white/25 md:flex-row">
           <p>&copy; 2026 NextGen AI Marketing Ltd. Trading as Growth Arc.</p>
           <div className="flex gap-6">
-            <a href="/privacy" className="transition-colors hover:text-white/50">Privacy Policy</a>
-            <a href="/terms" className="transition-colors hover:text-white/50">Terms of Service</a>
+            <Link href="/privacy" className="transition-colors hover:text-white/50">Privacy Policy</Link>
+            <Link href="/terms" className="transition-colors hover:text-white/50">Terms of Service</Link>
           </div>
         </div>
       </div>

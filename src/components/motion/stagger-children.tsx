@@ -19,7 +19,19 @@ export function StaggerContainer({
     const container = ref.current
     if (!container) return
 
+    // Skip animation if already in viewport on mount
+    const rect = container.getBoundingClientRect()
+    if (rect.top < window.innerHeight + 60) return
+
     const items = container.querySelectorAll<HTMLElement>('[data-stagger-item]')
+
+    // Hide items for animation
+    items.forEach((item) => {
+      item.style.opacity = '0'
+      item.style.transform = 'translateY(24px)'
+      item.style.transition =
+        'opacity 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98), transform 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98)'
+    })
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -55,16 +67,7 @@ export function StaggerItem({
   className?: string
 }) {
   return (
-    <div
-      data-stagger-item
-      className={className}
-      style={{
-        opacity: 0,
-        transform: 'translateY(24px)',
-        transition:
-          'opacity 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98), transform 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98)',
-      }}
-    >
+    <div data-stagger-item className={className}>
       {children}
     </div>
   )

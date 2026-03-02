@@ -29,15 +29,24 @@ export function FadeIn({
     const el = ref.current
     if (!el) return
 
+    // Elements already in viewport on mount — don't animate, leave visible
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight + 80) return
+
+    // Below-fold elements: hide, then reveal on scroll
+    el.style.opacity = '0'
+    el.style.transform = transforms[direction]
+    el.style.transition =
+      'opacity 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98), transform 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98)'
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const timeout = setTimeout(() => {
+          setTimeout(() => {
             el.style.opacity = '1'
             el.style.transform = 'translate(0, 0)'
           }, delay * 1000)
           observer.unobserve(el)
-          return () => clearTimeout(timeout)
         }
       },
       { rootMargin: '-80px' }
@@ -45,19 +54,10 @@ export function FadeIn({
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [delay])
+  }, [delay, direction])
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: 0,
-        transform: transforms[direction],
-        transition:
-          'opacity 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98), transform 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98)',
-      }}
-    >
+    <div ref={ref} className={className}>
       {children}
     </div>
   )

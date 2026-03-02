@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   Radar,
   Globe,
@@ -100,9 +101,9 @@ export function Services() {
             return (
               <StaggerItem key={service.title}>
                 {service.href ? (
-                  <a href={service.href} className="block">
+                  <Link href={service.href} className="block">
                     {card}
-                  </a>
+                  </Link>
                 ) : (
                   card
                 )}
