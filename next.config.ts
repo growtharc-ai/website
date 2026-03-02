@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next'
 
+// CSP is handled by middleware.ts (dynamic nonce per request)
 const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'X-Frame-Options', value: 'DENY' },
@@ -9,18 +10,6 @@ const securityHeaders = [
   {
     key: 'Strict-Transport-Security',
     value: 'max-age=63072000; includeSubDomains; preload',
-  },
-  {
-    key: 'Content-Security-Policy',
-    value: [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://*.hubspot.com https://*.hsforms.com https://*.hsforms.net https://challenges.cloudflare.com",
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: https:",
-      "font-src 'self' data:",
-      "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.google.com https://*.doubleclick.net https://*.hubspot.com https://*.hubapi.com https://*.hs-analytics.net https://*.hscollectedforms.net https://*.hsforms.net https://challenges.cloudflare.com",
-      "frame-src https://challenges.cloudflare.com https://*.hubspot.com https://*.doubleclick.net",
-    ].join('; '),
   },
 ]
 

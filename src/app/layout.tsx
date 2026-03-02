@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import { Sora } from 'next/font/google'
 import Script from 'next/script'
 import { Navigation } from '@/components/navigation'
@@ -51,11 +52,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const headersList = await headers()
+  const nonce = headersList.get('x-nonce') ?? ''
+
   return (
     <html lang="en" className={sora.variable}>
       <head>
@@ -68,8 +72,9 @@ export default function RootLayout({
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Y82ZN9TM4Z"
           strategy="lazyOnload"
+          nonce={nonce}
         />
-        <Script id="ga4-init" strategy="lazyOnload">
+        <Script id="ga4-init" strategy="lazyOnload" nonce={nonce}>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -81,6 +86,7 @@ export default function RootLayout({
           id="hs-script-loader"
           src="//js-ap1.hs-scripts.com/442455546.js"
           strategy="lazyOnload"
+          nonce={nonce}
         />
         {children}
         <Footer />
