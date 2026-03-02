@@ -24,7 +24,7 @@ export function ContactForm() {
       <div className="rounded-2xl border border-[var(--ga-green)]/20 bg-[var(--ga-green)]/5 p-10 text-center">
         <p className="text-2xl font-semibold text-white">Thanks!</p>
         <p className="mt-2 text-white/50">
-          We&apos;ll be in touch within 24 hours.
+          We&apos;ll be in touch within 4 hours.
         </p>
       </div>
     )

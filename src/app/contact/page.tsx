@@ -21,11 +21,11 @@ import { Footer } from '@/components/sections/footer'
 export const metadata: Metadata = {
   title: 'Contact — Growth Arc',
   description:
-    'Get in touch with Growth Arc. Tell us about your business goals and we\'ll get back to you within 24 hours with a tailored AI marketing strategy.',
+    'Get in touch with Growth Arc. Tell us about your business goals and we\'ll get back to you within 4 hours with a tailored AI marketing strategy.',
   openGraph: {
     title: 'Contact — Growth Arc',
     description:
-      'Get in touch with Growth Arc. Tell us about your goals and we\'ll reply within 24 hours.',
+      'Get in touch with Growth Arc. Tell us about your goals and we\'ll reply within 4 hours.',
     url: 'https://growtharc.ai/contact',
     siteName: 'Growth Arc',
     images: [
@@ -111,7 +111,7 @@ export default function ContactPage() {
             <FadeIn delay={0.2}>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
                 Tell us about your business and goals. We&apos;ll get back to
-                you within 24 hours with a tailored plan to accelerate your
+                you within 4 hours with a tailored plan to accelerate your
                 growth.
               </p>
             </FadeIn>
@@ -181,7 +181,7 @@ export default function ContactPage() {
                         <p className="text-xs font-medium text-white/30 uppercase">
                           Response Time
                         </p>
-                        <p className="text-sm">Within 24 hours</p>
+                        <p className="text-sm">Within 4 hours</p>
                       </div>
                     </div>
 

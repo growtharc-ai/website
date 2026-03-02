@@ -21,7 +21,7 @@ export function Contact() {
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-white/50">
                 Tell us about your business and goals. We&apos;ll get back to
-                you within 24 hours with a tailored plan.
+                you within 4 hours with a tailored plan.
               </p>
 
               <div className="mt-10 space-y-4">
