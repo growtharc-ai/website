@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic'
-import { Navigation } from '@/components/navigation'
 import { Hero } from '@/components/sections/hero'
-import { Services } from '@/components/sections/services'
 import { Footer } from '@/components/sections/footer'
 
+const Navigation = dynamic(() => import('@/components/navigation').then(m => ({ default: m.Navigation })), { ssr: true })
+const Services = dynamic(() => import('@/components/sections/services').then(m => ({ default: m.Services })))
 const HowItWorks = dynamic(() => import('@/components/sections/how-it-works').then(m => ({ default: m.HowItWorks })))
 const Results = dynamic(() => import('@/components/sections/results').then(m => ({ default: m.Results })))
 const About = dynamic(() => import('@/components/sections/about').then(m => ({ default: m.About })))

@@ -1,5 +1,3 @@
-import { FadeIn } from '@/components/motion/fade-in'
-
 export function Hero() {
   return (
     <section
@@ -8,12 +6,11 @@ export function Hero() {
         background: 'linear-gradient(160deg, #060710 0%, #0A0F20 100%)',
       }}
     >
-      {/* Ambient glow — two large blurred gradient circles behind heading */}
-      <div className="pointer-events-none absolute top-[40%] left-[35%] h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0077EE]/20 blur-[150px]" />
-      <div className="pointer-events-none absolute top-[35%] left-[60%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00C896]/15 blur-[140px]" />
+      {/* Ambient glow — smaller on mobile to reduce GPU paint cost */}
+      <div className="pointer-events-none absolute top-[40%] left-[35%] h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0077EE]/20 blur-[80px] md:h-[700px] md:w-[700px] md:blur-[150px]" />
+      <div className="pointer-events-none absolute top-[35%] left-[60%] h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00C896]/15 blur-[70px] md:h-[600px] md:w-[600px] md:blur-[140px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
-        {/* LCP element — render immediately without FadeIn wrapper */}
         <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.1] tracking-[-1.5px]">
           AI-Powered Marketing
           <br />
@@ -22,29 +19,25 @@ export function Hero() {
           </span>
         </h1>
 
-        <FadeIn delay={0.05}>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50 leading-relaxed md:text-xl">
-            We help businesses grow faster with intelligent lead generation,
-            sales automation, and data-driven marketing strategy.
-          </p>
-        </FadeIn>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50 leading-relaxed md:text-xl animate-[fadeUp_0.6s_ease_0.1s_both]">
+          We help businesses grow faster with intelligent lead generation,
+          sales automation, and data-driven marketing strategy.
+        </p>
 
-        <FadeIn delay={0.15}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#contact"
-              className="rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#0077EE]/20 transition-transform hover:scale-105"
-            >
-              Get Started
-            </a>
-            <a
-              href="#services"
-              className="rounded-full border border-white/10 px-8 py-3.5 text-base font-semibold text-white/70 transition-all hover:border-white/25 hover:text-white"
-            >
-              Our Services
-            </a>
-          </div>
-        </FadeIn>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-[fadeUp_0.6s_ease_0.2s_both]">
+          <a
+            href="#contact"
+            className="rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#0077EE]/20 transition-transform hover:scale-105"
+          >
+            Get Started
+          </a>
+          <a
+            href="#services"
+            className="rounded-full border border-white/10 px-8 py-3.5 text-base font-semibold text-white/70 transition-all hover:border-white/25 hover:text-white"
+          >
+            Our Services
+          </a>
+        </div>
       </div>
 
       {/* Stats bar */}
