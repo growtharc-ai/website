@@ -1,7 +1,28 @@
-import { Users } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 
-export function LeadGenHero() {
+interface Stat {
+  value: string
+  label: string
+}
+
+interface ServiceHeroProps {
+  icon: LucideIcon
+  label: string
+  headline: string
+  gradientText: string
+  subheadline: string
+  stats: Stat[]
+}
+
+export function ServiceHero({
+  icon: Icon,
+  label,
+  headline,
+  gradientText,
+  subheadline,
+  stats,
+}: ServiceHeroProps) {
   return (
     <section
       className="relative flex min-h-[65vh] flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-32"
@@ -16,27 +37,24 @@ export function LeadGenHero() {
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <FadeIn>
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5">
-            <Users className="h-4 w-4 text-[var(--ga-green)]" />
-            <span className="text-sm font-medium text-white/70">
-              AI Lead Generation
-            </span>
+            <Icon className="h-4 w-4 text-[var(--ga-green)]" />
+            <span className="text-sm font-medium text-white/70">{label}</span>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <h1 className="mt-6 text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.1] tracking-[-1.5px]">
-            Fill Your Pipeline with
+            {headline}
             <br />
             <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
-              Qualified Opportunities
+              {gradientText}
             </span>
           </h1>
         </FadeIn>
 
         <FadeIn delay={0.2}>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50 leading-relaxed md:text-xl">
-            Our AI identifies, engages, and qualifies your ideal prospects
-            automatically — so your team only talks to leads ready to buy.
+            {subheadline}
           </p>
         </FadeIn>
 
@@ -62,30 +80,16 @@ export function LeadGenHero() {
       <FadeIn delay={0.4} className="absolute right-0 bottom-0 left-0">
         <div className="border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
           <div className="mx-auto grid max-w-5xl grid-cols-3 divide-x divide-white/5 px-6 py-8">
-            <div className="text-center">
-              <p className="text-xl font-bold text-white md:text-2xl">
-                AI-Scored
-              </p>
-              <p className="mt-1 text-xs text-white/35 md:text-sm">
-                Lead Qualification
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-xl font-bold text-white md:text-2xl">
-                Multi-Channel
-              </p>
-              <p className="mt-1 text-xs text-white/35 md:text-sm">
-                Outreach Engine
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-xl font-bold text-white md:text-2xl">
-                Always-On
-              </p>
-              <p className="mt-1 text-xs text-white/35 md:text-sm">
-                24/7 Prospecting
-              </p>
-            </div>
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-xl font-bold text-white md:text-2xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-xs text-white/35 md:text-sm">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </FadeIn>

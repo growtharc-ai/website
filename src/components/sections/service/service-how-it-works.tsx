@@ -1,38 +1,26 @@
-import { Target, Search, Mail, TrendingUp } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 
-const steps = [
-  {
-    number: '01',
-    icon: Target,
-    title: 'Define ICP',
-    description:
-      'We work with you to define your ideal customer profile — industry, company size, job titles, pain points, and buying signals.',
-  },
-  {
-    number: '02',
-    icon: Search,
-    title: 'AI Discovery',
-    description:
-      'Our AI scans multiple data sources to build a targeted prospect list that matches your ICP with high accuracy.',
-  },
-  {
-    number: '03',
-    icon: Mail,
-    title: 'Automated Outreach',
-    description:
-      'Personalised multi-channel sequences engage prospects via email and LinkedIn with messaging that resonates.',
-  },
-  {
-    number: '04',
-    icon: TrendingUp,
-    title: 'Qualify & Convert',
-    description:
-      'AI scores every response and routes qualified leads to your team — ready for a conversation, not a cold pitch.',
-  },
-]
+interface Step {
+  number: string
+  icon: LucideIcon
+  title: string
+  description: string
+}
 
-export function LeadGenHowItWorks() {
+interface ServiceHowItWorksProps {
+  headlinePrefix: string
+  gradientText: string
+  description: string
+  steps: Step[]
+}
+
+export function ServiceHowItWorks({
+  headlinePrefix,
+  gradientText,
+  description,
+  steps,
+}: ServiceHowItWorksProps) {
   return (
     <section
       className="px-6 py-24 md:py-32"
@@ -46,15 +34,12 @@ export function LeadGenHowItWorks() {
             How It Works
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            From ICP to{' '}
+            {headlinePrefix}{' '}
             <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
-              Booked Meetings
+              {gradientText}
             </span>
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-white/50">
-            A four-step process that turns your ideal customer profile into a
-            steady stream of qualified sales conversations.
-          </p>
+          <p className="mt-4 max-w-2xl text-lg text-white/50">{description}</p>
         </FadeIn>
 
         <div className="relative mt-16 grid gap-8 md:grid-cols-4">
