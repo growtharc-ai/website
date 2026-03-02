@@ -14,11 +14,11 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://js-ap1.hs-scripts.com https://challenges.cloudflare.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://js-ap1.hs-scripts.com https://js-ap1.hs-analytics.net https://js-ap1.hs-banner.com https://js-ap1.hscollectedforms.net https://*.hubspot.com https://*.hsforms.com https://*.hs-banner.com https://*.hs-analytics.net https://*.hscollectedforms.net https://challenges.cloudflare.com",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: https:",
-      "connect-src 'self' https://www.google-analytics.com https://api.hubapi.com https://challenges.cloudflare.com",
-      "frame-src https://challenges.cloudflare.com",
+      "img-src 'self' data: https: https://*.hubspot.com https://*.hsforms.net",
+      "connect-src 'self' https://www.google-analytics.com https://api.hubapi.com https://*.hubspot.com https://*.hubapi.com https://*.hs-analytics.net https://*.hscollectedforms.net https://challenges.cloudflare.com",
+      "frame-src https://challenges.cloudflare.com https://*.hubspot.com",
     ].join('; '),
   },
 ]

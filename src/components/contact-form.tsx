@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Send, Loader2 } from 'lucide-react'
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 import { submitContactForm } from '@/app/actions/hubspot'
@@ -19,7 +19,24 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [showTurnstile, setShowTurnstile] = useState(false)
   const turnstileRef = useRef<TurnstileInstance>(null)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    if (!formRef.current) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowTurnstile(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+    observer.observe(formRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   if (submitted) {
     return (
@@ -50,7 +67,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-white/60">
@@ -138,12 +155,14 @@ export function ContactForm() {
         <input type="text" name="website" tabIndex={-1} autoComplete="off" />
       </div>
 
-      {/* Cloudflare Turnstile */}
-      <Turnstile
-        ref={turnstileRef}
-        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-        options={{ theme: 'dark' }}
-      />
+      {/* Cloudflare Turnstile — lazy loaded when form scrolls into view */}
+      {showTurnstile && (
+        <Turnstile
+          ref={turnstileRef}
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          options={{ theme: 'dark' }}
+        />
+      )}
 
       {error && (
         <p className="text-sm text-red-400">{error}</p>
