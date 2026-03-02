@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Send, Loader2 } from 'lucide-react'
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 import { submitContactForm } from '@/app/actions/hubspot'
 
 const serviceOptions = [
@@ -18,6 +19,7 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const turnstileRef = useRef<TurnstileInstance>(null)
 
   if (submitted) {
     return (
@@ -42,6 +44,7 @@ export function ContactForm() {
       setSubmitted(true)
     } else {
       setError(result.error)
+      turnstileRef.current?.reset()
     }
     setSubmitting(false)
   }
@@ -129,6 +132,18 @@ export function ContactForm() {
           placeholder="Tell us about your goals..."
         />
       </div>
+
+      {/* Honeypot — hidden from humans, visible to bots */}
+      <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+
+      {/* Cloudflare Turnstile */}
+      <Turnstile
+        ref={turnstileRef}
+        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+        options={{ theme: 'dark' }}
+      />
 
       {error && (
         <p className="text-sm text-red-400">{error}</p>

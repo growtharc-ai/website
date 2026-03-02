@@ -1,10 +1,63 @@
 'use server'
 
+import { headers } from 'next/headers'
+
 const HUBSPOT_API = 'https://api.hubapi.com/crm/v3/objects'
 
 type Result = { success: true } | { success: false; error: string }
 
+// --- Rate limiting (in-memory, per-IP, 5 requests/hour) ---
+const rateMap = new Map<string, number[]>()
+const RATE_LIMIT = 5
+const RATE_WINDOW = 60 * 60 * 1000 // 1 hour
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const timestamps = rateMap.get(ip)?.filter((t) => now - t < RATE_WINDOW) ?? []
+  rateMap.set(ip, timestamps)
+  if (timestamps.length >= RATE_LIMIT) return true
+  timestamps.push(now)
+  return false
+}
+
 export async function submitContactForm(formData: FormData): Promise<Result> {
+  // --- Rate limiting ---
+  const headersList = await headers()
+  const ip = headersList.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
+  if (isRateLimited(ip)) {
+    return { success: false, error: 'Too many submissions. Please try again later.' }
+  }
+
+  // --- Honeypot check ---
+  const honeypot = (formData.get('website') as string) ?? ''
+  if (honeypot) {
+    // Bot filled the hidden field — silently fake success
+    return { success: true }
+  }
+
+  // --- Turnstile verification ---
+  const turnstileToken = formData.get('cf-turnstile-response') as string
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY
+  if (!turnstileToken || !turnstileSecret) {
+    return { success: false, error: 'Please complete the verification check.' }
+  }
+
+  const turnstileRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      secret: turnstileSecret,
+      response: turnstileToken,
+      remoteip: ip,
+    }),
+  })
+
+  const turnstileData = await turnstileRes.json()
+  if (!turnstileData.success) {
+    return { success: false, error: 'Verification failed. Please try again.' }
+  }
+
+  // --- HubSpot submission ---
   const token = process.env.HUBSPOT_ACCESS_TOKEN
   if (!token) {
     return { success: false, error: 'Server configuration error. Please try again later.' }
@@ -24,7 +77,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
   const firstname = nameParts[0]
   const lastname = nameParts.length > 1 ? nameParts.slice(1).join(' ') : ''
 
-  const headers = {
+  const hubspotHeaders = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${token}`,
   }
@@ -34,7 +87,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
 
   const contactRes = await fetch(`${HUBSPOT_API}/contacts`, {
     method: 'POST',
-    headers,
+    headers: hubspotHeaders,
     body: JSON.stringify({
       properties: {
         email,
@@ -66,7 +119,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
 
   const dealRes = await fetch(`${HUBSPOT_API}/deals`, {
     method: 'POST',
-    headers,
+    headers: hubspotHeaders,
     body: JSON.stringify({
       properties: {
         dealname,
@@ -87,7 +140,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
   // 3. Associate deal → contact
   const assocRes = await fetch(
     `${HUBSPOT_API}/deals/${dealId}/associations/contacts/${contactId}/deal_to_contact`,
-    { method: 'PUT', headers }
+    { method: 'PUT', headers: hubspotHeaders }
   )
 
   if (!assocRes.ok) {
@@ -99,7 +152,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
 
   const noteRes = await fetch(`${HUBSPOT_API}/notes`, {
     method: 'POST',
-    headers,
+    headers: hubspotHeaders,
     body: JSON.stringify({
       properties: {
         hs_note_body: noteBody,
