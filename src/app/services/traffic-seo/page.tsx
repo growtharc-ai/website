@@ -10,13 +10,11 @@ import {
   Pencil,
   Rocket,
 } from 'lucide-react'
-import { Navigation } from '@/components/navigation'
 import { ServiceHero } from '@/components/sections/service/service-hero'
 import { ServiceFeatures } from '@/components/sections/service/service-features'
 import { ServiceHowItWorks } from '@/components/sections/service/service-how-it-works'
 import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
-import { Footer } from '@/components/sections/footer'
 
 export const metadata: Metadata = {
   title: 'Traffic & SEO — Growth Arc',
@@ -133,8 +131,6 @@ const proofPoints = [
 
 export default function TrafficSEOPage() {
   return (
-    <>
-      <Navigation />
       <main>
         <ServiceHero
           icon={Globe}
@@ -171,7 +167,5 @@ export default function TrafficSEOPage() {
           proofPoints={proofPoints}
         />
       </main>
-      <Footer />
-    </>
   )
 }

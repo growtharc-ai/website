@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Navigation } from '@/components/navigation'
 import { FadeIn } from '@/components/motion/fade-in'
-import { Footer } from '@/components/sections/footer'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Growth Arc',
@@ -20,7 +18,6 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <Navigation />
       <main className="min-h-screen bg-[var(--ga-navy)]">
         {/* Hero */}
         <section className="px-6 pt-32 pb-16 md:pt-40 md:pb-20">
@@ -328,7 +325,6 @@ export default function TermsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

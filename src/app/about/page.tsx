@@ -13,13 +13,11 @@ import {
   Layers,
   ArrowRight,
 } from 'lucide-react'
-import { Navigation } from '@/components/navigation'
 import { FadeIn } from '@/components/motion/fade-in'
 import {
   StaggerContainer,
   StaggerItem,
 } from '@/components/motion/stagger-children'
-import { Footer } from '@/components/sections/footer'
 
 export const metadata: Metadata = {
   title: 'About — Growth Arc',
@@ -124,9 +122,7 @@ const differentiators = [
 
 export default function AboutPage() {
   return (
-    <>
-      <Navigation />
-      <main>
+    <main>
         {/* ─── Hero ─── */}
         <section
           className="relative flex min-h-[60vh] items-center overflow-hidden px-6 pt-32 pb-20"
@@ -459,8 +455,6 @@ export default function AboutPage() {
             </FadeIn>
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+    </main>
   )
 }

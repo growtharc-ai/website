@@ -16,14 +16,12 @@ import {
   TrendingUp,
   ShieldCheck,
 } from 'lucide-react'
-import { Navigation } from '@/components/navigation'
 import { FadeIn } from '@/components/motion/fade-in'
 import {
   StaggerContainer,
   StaggerItem,
 } from '@/components/motion/stagger-children'
 import { Counter } from '@/components/motion/counter'
-import { Footer } from '@/components/sections/footer'
 
 export const metadata: Metadata = {
   title: 'How It Works — Growth Arc',
@@ -159,9 +157,7 @@ const metrics = [
 
 export default function HowItWorksPage() {
   return (
-    <>
-      <Navigation />
-      <main>
+    <main>
         {/* ─── Hero ─── */}
         <section
           className="relative flex min-h-[50vh] items-center overflow-hidden px-6 pt-32 pb-20"
@@ -457,8 +453,6 @@ export default function HowItWorksPage() {
             </FadeIn>
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+    </main>
   )
 }

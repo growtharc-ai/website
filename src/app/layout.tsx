@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 import { Sora } from 'next/font/google'
 import Script from 'next/script'
+import { Navigation } from '@/components/navigation'
+import { Footer } from '@/components/sections/footer'
 import './globals.css'
 
 const sora = Sora({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-sora',
-  display: 'swap',
+  display: 'optional',
 })
 
 export const metadata: Metadata = {
@@ -57,11 +59,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={sora.variable}>
       <body className="font-sans">
+        <Navigation />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Y82ZN9TM4Z"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script id="ga4-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -75,6 +78,7 @@ export default function RootLayout({
           strategy="lazyOnload"
         />
         {children}
+        <Footer />
       </body>
     </html>
   )

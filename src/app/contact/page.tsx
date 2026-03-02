@@ -10,14 +10,12 @@ import {
   FileText,
   ShieldCheck,
 } from 'lucide-react'
-import { Navigation } from '@/components/navigation'
 import { FadeIn } from '@/components/motion/fade-in'
 import {
   StaggerContainer,
   StaggerItem,
 } from '@/components/motion/stagger-children'
 import { ContactForm } from '@/components/contact-form'
-import { Footer } from '@/components/sections/footer'
 
 export const metadata: Metadata = {
   title: 'Contact — Growth Arc',
@@ -75,9 +73,7 @@ const expectations = [
 
 export default function ContactPage() {
   return (
-    <>
-      <Navigation />
-      <main>
+    <main>
         {/* ─── Hero ─── */}
         <section
           className="relative flex min-h-[50vh] items-center overflow-hidden px-6 pt-32 pb-20"
@@ -309,8 +305,6 @@ export default function ContactPage() {
             </FadeIn>
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+    </main>
   )
 }

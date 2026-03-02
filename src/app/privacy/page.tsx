@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
-import { Navigation } from '@/components/navigation'
 import { FadeIn } from '@/components/motion/fade-in'
-import { Footer } from '@/components/sections/footer'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — Growth Arc',
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <Navigation />
       <main className="min-h-screen bg-[var(--ga-navy)]">
         {/* Hero */}
         <section className="px-6 pt-32 pb-16 md:pt-40 md:pb-20">
@@ -315,7 +312,6 @@ export default function PrivacyPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }
