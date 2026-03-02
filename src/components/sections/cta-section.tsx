@@ -14,8 +14,8 @@ export function CTASection() {
             }}
           >
             {/* Decorative elements */}
-            <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full bg-white/10 blur-[80px]" />
-            <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 rounded-full bg-white/10 blur-[60px]" />
+            <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full bg-white/10 blur-[40px] md:blur-[80px]" />
+            <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 rounded-full bg-white/10 blur-[30px] md:blur-[60px]" />
 
             <div className="relative z-10">
               <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">

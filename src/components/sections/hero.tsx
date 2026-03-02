@@ -7,8 +7,8 @@ export function Hero() {
       }}
     >
       {/* Ambient glow — smaller on mobile to reduce GPU paint cost */}
-      <div className="pointer-events-none absolute top-[40%] left-[35%] h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0077EE]/20 blur-[80px] md:h-[700px] md:w-[700px] md:blur-[150px]" />
-      <div className="pointer-events-none absolute top-[35%] left-[60%] h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00C896]/15 blur-[70px] md:h-[600px] md:w-[600px] md:blur-[140px]" />
+      <div className="pointer-events-none absolute top-[40%] left-[35%] h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0077EE]/20 blur-[40px] md:h-[700px] md:w-[700px] md:blur-[150px]" />
+      <div className="pointer-events-none absolute top-[35%] left-[60%] h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00C896]/15 blur-[35px] md:h-[600px] md:w-[600px] md:blur-[140px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.1] tracking-[-1.5px]">
@@ -42,7 +42,7 @@ export function Hero() {
 
       {/* Stats bar */}
       <div className="absolute right-0 bottom-0 left-0">
-        <div className="border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
+        <div className="border-t border-white/5 bg-[#07080E]/80 md:bg-white/[0.02] md:backdrop-blur-sm">
           <div className="mx-auto grid max-w-5xl grid-cols-3 divide-x divide-white/5 px-6 py-8">
             <div className="text-center">
               <p className="text-xl font-bold text-white md:text-2xl">

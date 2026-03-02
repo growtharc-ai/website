@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Instagram, Twitter, Linkedin, Youtube, Github } from 'lucide-react'
 
@@ -25,11 +24,13 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/logo/02-logo-primary-dark.svg"
                 alt="Growth Arc"
                 width={150}
                 height={36}
+                loading="lazy"
               />
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/35">

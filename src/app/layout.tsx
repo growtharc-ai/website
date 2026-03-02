@@ -58,6 +58,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={sora.variable}>
+      <head>
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://js-ap1.hs-scripts.com" />
+        <link rel="dns-prefetch" href="https://challenges.cloudflare.com" />
+      </head>
       <body className="font-sans">
         <Navigation />
         <Script
