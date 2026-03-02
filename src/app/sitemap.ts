@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://growtharc.ai/how-it-works',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: 'https://growtharc.ai/services/ai-lead-generation',
       lastModified: new Date(),
       changeFrequency: 'monthly',
