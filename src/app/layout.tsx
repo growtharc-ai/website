@@ -69,6 +69,11 @@ export default function RootLayout({
             gtag('config', 'G-Y82ZN9TM4Z');
           `}
         </Script>
+        <Script
+          id="hs-script-loader"
+          src="//js-ap1.hs-scripts.com/442455546.js"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>

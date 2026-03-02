@@ -62,9 +62,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
   }
 
   // 2. Create deal
-  const dealname = company
-    ? `${company} — ${service || 'Website Enquiry'}`
-    : `${name} — ${service || 'Website Enquiry'}`
+  const dealname = `Growth Arc — ${company || name}`
 
   const dealRes = await fetch(`${HUBSPOT_API}/deals`, {
     method: 'POST',
@@ -74,7 +72,7 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
         dealname,
         pipeline: '1609755080',
         dealstage: '2685118914',
-        description: message,
+        description: `Service Interest: ${service || 'Not specified'}\n\n${message}`,
       },
     }),
   })

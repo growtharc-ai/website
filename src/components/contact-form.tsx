@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Send, Loader2 } from 'lucide-react'
-import { submitContactForm } from '@/app/actions/contact'
+import { submitContactForm } from '@/app/actions/hubspot'
 
 const serviceOptions = [
   'AI Lead Generation',
