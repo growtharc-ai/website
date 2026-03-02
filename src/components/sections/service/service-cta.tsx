@@ -1,14 +1,17 @@
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 
-const proofPoints = [
-  'No long-term contracts — month-to-month',
-  'Leads delivered directly to your CRM',
-  'Dedicated strategist for your account',
-  'Full transparency on performance metrics',
-]
+interface ServiceCTAProps {
+  headline: string
+  description: string
+  proofPoints: string[]
+}
 
-export function LeadGenCTA() {
+export function ServiceCTA({
+  headline,
+  description,
+  proofPoints,
+}: ServiceCTAProps) {
   return (
     <section className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
@@ -27,12 +30,9 @@ export function LeadGenCTA() {
             <div className="relative z-10 grid items-center gap-12 md:grid-cols-2">
               <div>
                 <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-                  Ready to Fill Your Pipeline?
+                  {headline}
                 </h2>
-                <p className="mt-4 text-lg text-white/80">
-                  Book a free strategy call and we&apos;ll show you exactly how
-                  our AI lead generation engine can work for your business.
-                </p>
+                <p className="mt-4 text-lg text-white/80">{description}</p>
                 <ul className="mt-8 space-y-3">
                   {proofPoints.map((point) => (
                     <li

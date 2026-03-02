@@ -26,30 +26,35 @@ const services = [
     title: 'Traffic & SEO',
     description:
       'Data-driven content strategy and technical SEO that drives sustainable organic growth at scale.',
+    href: '/services/traffic-seo',
   },
   {
     icon: Zap,
     title: 'Sales Automation',
     description:
       'CRM setup, pipeline automation, and smart follow-up sequences that convert leads while you sleep.',
+    href: '/services/sales-automation',
   },
   {
     icon: CalendarCheck,
     title: 'Smart Appointment Booking',
     description:
       'AI-powered scheduling with automated qualification and reminders to keep your calendar full.',
+    href: '/services/appointment-booking',
   },
   {
     icon: Megaphone,
     title: 'Ads Management',
     description:
       'Google, Meta, and LinkedIn campaigns with AI optimisation that maximises every dollar of ad spend.',
+    href: '/services/ads-management',
   },
   {
     icon: BarChart3,
     title: 'Analytics & Reporting',
     description:
       'Real-time dashboards with clear attribution and ROI tracking so you always know what\'s working.',
+    href: '/services/analytics-reporting',
   },
 ]
 
