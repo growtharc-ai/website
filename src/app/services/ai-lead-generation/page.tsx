@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import {
-  Users,
+  Radar,
   Brain,
   Filter,
   Mail,
@@ -137,7 +137,7 @@ export default function AILeadGenerationPage() {
       <Navigation />
       <main>
         <ServiceHero
-          icon={Users}
+          icon={Radar}
           label="AI Lead Generation"
           headline="Fill Your Pipeline with"
           gradientText="Qualified Opportunities"

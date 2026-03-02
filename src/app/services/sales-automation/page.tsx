@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import {
-  Zap,
+  Workflow,
   GitBranch,
   Mail,
   RefreshCw,
@@ -138,7 +138,7 @@ export default function SalesAutomationPage() {
       <Navigation />
       <main>
         <ServiceHero
-          icon={Zap}
+          icon={Workflow}
           label="Sales Automation"
           headline="Close More Deals with"
           gradientText="Intelligent Automation"

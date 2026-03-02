@@ -1,10 +1,10 @@
 import {
-  Users,
-  TrendingUp,
-  Zap,
-  CalendarCheck,
-  Megaphone,
-  BarChart3,
+  Radar,
+  Globe,
+  Workflow,
+  CalendarClock,
+  MousePointerClick,
+  ChartNoAxesCombined,
   ArrowRight,
 } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
@@ -15,42 +15,42 @@ import {
 
 const services = [
   {
-    icon: Users,
+    icon: Radar,
     title: 'AI Lead Generation',
     description:
       'Intelligent prospecting and automated outreach with AI-powered lead scoring to fill your pipeline with qualified opportunities.',
     href: '/services/ai-lead-generation',
   },
   {
-    icon: TrendingUp,
+    icon: Globe,
     title: 'Traffic & SEO',
     description:
       'Data-driven content strategy and technical SEO that drives sustainable organic growth at scale.',
     href: '/services/traffic-seo',
   },
   {
-    icon: Zap,
+    icon: Workflow,
     title: 'Sales Automation',
     description:
       'CRM setup, pipeline automation, and smart follow-up sequences that convert leads while you sleep.',
     href: '/services/sales-automation',
   },
   {
-    icon: CalendarCheck,
+    icon: CalendarClock,
     title: 'Smart Appointment Booking',
     description:
       'AI-powered scheduling with automated qualification and reminders to keep your calendar full.',
     href: '/services/appointment-booking',
   },
   {
-    icon: Megaphone,
+    icon: MousePointerClick,
     title: 'Ads Management',
     description:
       'Google, Meta, and LinkedIn campaigns with AI optimisation that maximises every dollar of ad spend.',
     href: '/services/ads-management',
   },
   {
-    icon: BarChart3,
+    icon: ChartNoAxesCombined,
     title: 'Analytics & Reporting',
     description:
       'Real-time dashboards with clear attribution and ROI tracking so you always know what\'s working.',

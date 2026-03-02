@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import {
-  TrendingUp,
+  Globe,
   Search,
   FileText,
-  Globe,
   Link2,
   BarChart3,
   ClipboardCheck,
@@ -138,7 +137,7 @@ export default function TrafficSEOPage() {
       <Navigation />
       <main>
         <ServiceHero
-          icon={TrendingUp}
+          icon={Globe}
           label="Traffic & SEO"
           headline="Dominate Search with"
           gradientText="AI-Powered SEO"

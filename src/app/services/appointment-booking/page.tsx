@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import {
+  CalendarClock,
   CalendarCheck,
   Bot,
   Clock,
@@ -138,7 +139,7 @@ export default function AppointmentBookingPage() {
       <Navigation />
       <main>
         <ServiceHero
-          icon={CalendarCheck}
+          icon={CalendarClock}
           label="Smart Appointment Booking"
           headline="Keep Your Calendar Full of"
           gradientText="Qualified Meetings"

@@ -6,40 +6,40 @@ import {
   Menu,
   X,
   ChevronDown,
-  Users,
-  TrendingUp,
-  Zap,
-  CalendarCheck,
-  Megaphone,
-  BarChart3,
+  Radar,
+  Globe,
+  Workflow,
+  CalendarClock,
+  MousePointerClick,
+  ChartNoAxesCombined,
 } from 'lucide-react'
 
 const serviceLinks = [
   {
     label: 'AI Lead Generation',
     href: '/services/ai-lead-generation',
-    icon: Users,
+    icon: Radar,
   },
-  { label: 'Traffic & SEO', href: '/services/traffic-seo', icon: TrendingUp },
+  { label: 'Traffic & SEO', href: '/services/traffic-seo', icon: Globe },
   {
     label: 'Sales Automation',
     href: '/services/sales-automation',
-    icon: Zap,
+    icon: Workflow,
   },
   {
     label: 'Appointment Booking',
     href: '/services/appointment-booking',
-    icon: CalendarCheck,
+    icon: CalendarClock,
   },
   {
     label: 'Ads Management',
     href: '/services/ads-management',
-    icon: Megaphone,
+    icon: MousePointerClick,
   },
   {
     label: 'Analytics & Reporting',
     href: '/services/analytics-reporting',
-    icon: BarChart3,
+    icon: ChartNoAxesCombined,
   },
 ]
 

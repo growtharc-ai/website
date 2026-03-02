@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import {
-  Megaphone,
+  MousePointerClick,
   Target,
   PenTool,
   BarChart3,
@@ -138,7 +138,7 @@ export default function AdsManagementPage() {
       <Navigation />
       <main>
         <ServiceHero
-          icon={Megaphone}
+          icon={MousePointerClick}
           label="Ads Management"
           headline="Maximise Every Dollar with"
           gradientText="AI-Optimised Ads"

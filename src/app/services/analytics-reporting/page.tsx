@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import {
+  ChartNoAxesCombined,
   BarChart3,
   PieChart,
   Eye,
@@ -138,7 +139,7 @@ export default function AnalyticsReportingPage() {
       <Navigation />
       <main>
         <ServiceHero
-          icon={BarChart3}
+          icon={ChartNoAxesCombined}
           label="Analytics & Reporting"
           headline="Make Smarter Decisions with"
           gradientText="Clear Data"
