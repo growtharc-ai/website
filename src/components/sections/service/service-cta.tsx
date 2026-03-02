@@ -48,7 +48,7 @@ export function ServiceCTA({
 
               <div className="text-center md:text-right">
                 <a
-                  href="/#contact"
+                  href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-semibold text-[var(--ga-navy)] transition-transform hover:scale-105"
                 >
                   Get Your Free Audit
