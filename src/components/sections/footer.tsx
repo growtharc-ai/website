@@ -78,8 +78,8 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-white/25 md:flex-row">
           <p>&copy; 2026 NextGen AI Marketing Ltd. Trading as Growth Arc.</p>
           <div className="flex gap-6">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <a href="/privacy" className="transition-colors hover:text-white/50">Privacy Policy</a>
+            <a href="/terms" className="transition-colors hover:text-white/50">Terms of Service</a>
           </div>
         </div>
       </div>
