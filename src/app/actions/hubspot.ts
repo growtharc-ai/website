@@ -91,8 +91,35 @@ export async function submitContactForm(formData: FormData): Promise<Result> {
   )
 
   if (!assocRes.ok) {
-    // Deal was created but association failed — not critical, don't fail the user
     console.error('HubSpot association failed:', assocRes.status)
+  }
+
+  // 4. Create note with service interest + message, associated with both contact and deal
+  const noteBody = `Service Interest: ${service || 'Not specified'}\nMessage: ${message}`
+
+  const noteRes = await fetch(`${HUBSPOT_API}/notes`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      properties: {
+        hs_note_body: noteBody,
+        hs_timestamp: new Date().toISOString(),
+      },
+      associations: [
+        {
+          to: { id: contactId },
+          types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 202 }],
+        },
+        {
+          to: { id: dealId },
+          types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 214 }],
+        },
+      ],
+    }),
+  })
+
+  if (!noteRes.ok) {
+    console.error('HubSpot note creation failed:', noteRes.status)
   }
 
   return { success: true }
