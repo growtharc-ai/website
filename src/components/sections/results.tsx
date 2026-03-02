@@ -3,24 +3,24 @@ import { Counter } from '@/components/motion/counter'
 
 const metrics = [
   {
-    value: 300,
-    suffix: '%',
-    label: 'Average increase in qualified leads',
+    value: 500,
+    suffix: '+',
+    label: 'Leads Generated',
   },
   {
     value: 10,
     suffix: 'x',
-    label: 'ROI on managed ad spend',
+    label: 'Average ROI',
   },
   {
-    value: 50,
+    value: 98,
     suffix: '%',
-    label: 'Time saved through automation',
+    label: 'Client Retention',
   },
   {
     value: 24,
     suffix: '/7',
-    label: 'Campaigns running non-stop',
+    label: 'AI Automation',
   },
 ]
 
