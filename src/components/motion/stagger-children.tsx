@@ -1,7 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 
 interface StaggerContainerProps {
   children: ReactNode
@@ -14,18 +13,37 @@ export function StaggerContainer({
   className,
   staggerDelay = 0.1,
 }: StaggerContainerProps) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const container = ref.current
+    if (!container) return
+
+    const items = container.querySelectorAll<HTMLElement>('[data-stagger-item]')
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          items.forEach((item, i) => {
+            setTimeout(() => {
+              item.style.opacity = '1'
+              item.style.transform = 'translateY(0)'
+            }, i * staggerDelay * 1000)
+          })
+          observer.unobserve(container)
+        }
+      },
+      { rootMargin: '-60px' }
+    )
+
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [staggerDelay])
+
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
-      variants={{
-        visible: { transition: { staggerChildren: staggerDelay } },
-      }}
-      className={className}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   )
 }
 
@@ -37,18 +55,17 @@ export function StaggerItem({
   className?: string
 }) {
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
-        },
-      }}
+    <div
+      data-stagger-item
       className={className}
+      style={{
+        opacity: 0,
+        transform: 'translateY(24px)',
+        transition:
+          'opacity 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98), transform 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98)',
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }
