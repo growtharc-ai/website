@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Sora } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const sora = Sora({
@@ -56,6 +57,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={sora.variable}>
       <body className="font-sans">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y82ZN9TM4Z"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Y82ZN9TM4Z');
+          `}
+        </Script>
         {children}
       </body>
     </html>

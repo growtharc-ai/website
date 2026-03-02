@@ -4,7 +4,7 @@ import { FadeIn } from '@/components/motion/fade-in'
 export function LeadGenHero() {
   return (
     <section
-      className="relative flex min-h-[65vh] flex-col items-center justify-center overflow-hidden px-6 pt-24"
+      className="relative flex min-h-[65vh] flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-32"
       style={{
         background: 'linear-gradient(160deg, #060710 0%, #0A0F20 100%)',
       }}
