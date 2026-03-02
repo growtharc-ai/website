@@ -2,10 +2,10 @@ import Image from 'next/image'
 import { Instagram, Twitter, Linkedin, Youtube, Github } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Services', href: '/#services' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'About', href: '/#about' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 const socialLinks = [
@@ -23,7 +23,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <a href="#">
+            <a href="/">
               <Image
                 src="/logo/02-logo-primary-dark.svg"
                 alt="Growth Arc"
