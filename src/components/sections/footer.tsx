@@ -4,7 +4,7 @@ import { Instagram, Twitter, Linkedin, Youtube, Github } from 'lucide-react'
 const navLinks = [
   { label: 'Services', href: '/#services' },
   { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'About', href: '/#about' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/#contact' },
 ]
 
