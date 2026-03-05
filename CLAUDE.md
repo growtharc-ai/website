@@ -95,6 +95,77 @@ The logo is "Growth Arc" — two words, capital G and A, with a tapered arc + up
 
 ## Site Structure
 
+## Messaging & Positioning (REVISED — March 2026)
+
+The website is being repositioned from a marketing-only agency to a broader
+AI solutions company. Marketing remains the lead vertical, but the site now
+signals the broader AI capability.
+
+**Full messaging brief:** See `/docs/messaging-brief.md` for all revised copy,
+new sections, and implementation priorities.
+
+### Key Changes Summary
+
+- **Hero**: "AI That Grows Your Business" (replaces "AI-Powered Marketing That Scales")
+- **Services**: Expanded from 6 marketing services to 15 across four tiers:
+  Tier 1 AI Marketing (6), Tier 2 AI Solutions (3 — merged BPA into AI Agents,
+  added Chatbots), Tier 3 CRM Solutions (4), Tier 4 Development & Data (2)
+- **How It Works**: Discover → Design → Build → Scale (replaces Audit → Strategy → Build → Scale)
+- **New Section**: "AI Across Your Business" — use cases for operations, customer
+  service, finance, HR
+- **About**: Repositioned as "AI solutions company" not "marketing agency"
+- **CTA**: "AI-powered growth engine" (replaces "marketing engine")
+- **Contact Form**: 4 new service options in dropdown
+- **Meta/SEO**: Updated title and description
+
+### Service Categories
+
+#### AI Marketing (Tier 1)
+1. AI Lead Generation
+2. Traffic & SEO
+3. Sales Automation
+4. Smart Appointment Booking
+5. Ads Management
+6. Analytics & Reporting
+
+#### AI Solutions (Tier 2 — NEW)
+7. Custom AI Agents & Automation (merged with Business Process Automation)
+8. AI Chatbots & Virtual Assistants
+9. AI Strategy & Consulting
+
+#### CRM Solutions (Tier 3 — NEW)
+10. Custom CRM Development
+11. HubSpot Implementation
+12. Salesforce Implementation
+13. Microsoft Dynamics 365
+
+#### Development & Data (Tier 4 — NEW)
+14. Website & App Development
+15. Data & Analytics / BI Dashboards
+
+### Stat Pills (Hero)
+- AI-First → Strategy & Execution
+- End-to-End → Marketing to Operations (was "Full-Funnel → Lead to Close")
+- Always-On → 24/7 Automation
+
+### Implementation Priority
+1. Hero headline + sub-headline (low effort)
+2. Add 3 new AI Solutions service cards (medium effort)
+3. Update "How It Works" copy (low effort)
+4. Add "AI Across Your Business" section (medium effort)
+5. Revise About section copy (low effort)
+6. Update CTA copy (low effort)
+7. Update contact form dropdown (low effort)
+8. Update meta/SEO tags (low effort)
+9. Services section header update (low effort)
+
+### What NOT to Change
+- Brand identity (logo, colors, typography)
+- Single-page layout structure
+- 4-step process flow structure
+- Footer / navigation
+- Overall tone (professional, data-driven, results-focused)
+
 ### Pages (Phase 1 — Launch)
 ```
 /                   — Homepage (single page, multiple sections)
