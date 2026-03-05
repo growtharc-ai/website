@@ -68,18 +68,21 @@ const aiServices = [
     title: 'Custom AI Agents & Automation',
     description:
       'Purpose-built AI agents that handle repetitive tasks, automate workflows, and execute business processes autonomously — tailored to your business, running 24/7.',
+    href: '/services/ai-agents',
   },
   {
     icon: MessageSquare,
     title: 'AI Chatbots & Virtual Assistants',
     description:
       'Intelligent conversational AI for your website, app, or internal tools. Handle enquiries, qualify leads, and provide instant support — without adding headcount.',
+    href: '/services/ai-chatbots',
   },
   {
     icon: Compass,
     title: 'AI Strategy & Consulting',
     description:
       'Not sure where AI fits in your business? We audit your operations, identify high-impact opportunities, and build a roadmap to get you there.',
+    href: '/services/ai-consulting',
   },
 ]
 
@@ -147,7 +150,9 @@ export function Services() {
         <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {aiServices.map((service) => (
             <StaggerItem key={service.title}>
-              <ServiceCard service={service} />
+              <Link href={service.href} className="block">
+                <ServiceCard service={service} />
+              </Link>
             </StaggerItem>
           ))}
         </StaggerContainer>
