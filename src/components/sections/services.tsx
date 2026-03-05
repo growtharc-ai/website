@@ -9,6 +9,12 @@ import {
   Bot,
   MessageSquare,
   Compass,
+  Database,
+  CircleDot,
+  Cloud,
+  Grid3X3,
+  Code,
+  BarChart3,
   ArrowRight,
 } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
@@ -86,6 +92,54 @@ const aiServices = [
   },
 ]
 
+const crmServices = [
+  {
+    icon: Database,
+    title: 'Custom CRM Development',
+    description:
+      'A CRM built from the ground up around your sales process — no compromises, no workarounds. Designed to fit the way your team actually works.',
+    href: '/services/crm-custom',
+  },
+  {
+    icon: CircleDot,
+    title: 'HubSpot Implementation',
+    description:
+      'Full HubSpot setup, migration, and optimisation — from CRM and marketing hub to sales automation and reporting. Hands-on from day one.',
+    href: '/services/crm-hubspot',
+  },
+  {
+    icon: Cloud,
+    title: 'Salesforce Implementation',
+    description:
+      'Enterprise-grade Salesforce deployment, customisation, and integration. Built for complex sales teams that need power and flexibility.',
+    href: '/services/crm-salesforce',
+  },
+  {
+    icon: Grid3X3,
+    title: 'Microsoft Dynamics 365',
+    description:
+      'Dynamics 365 setup and customisation for businesses in the Microsoft ecosystem. Seamless integration with Outlook, Teams, and Azure.',
+    href: '/services/crm-dynamics',
+  },
+]
+
+const devServices = [
+  {
+    icon: Code,
+    title: 'Website & App Development',
+    description:
+      'Custom websites, web apps, and mobile applications built with modern frameworks. From landing pages to full-stack platforms — designed to convert, built to scale.',
+    href: '/services/web-development',
+  },
+  {
+    icon: BarChart3,
+    title: 'Data & Analytics / BI Dashboards',
+    description:
+      'Turn your business data into clear, actionable insights. Custom dashboards that connect your tools, visualise KPIs, and surface the metrics that drive decisions.',
+    href: '/services/data-analytics',
+  },
+]
+
 function ServiceCard({ service }: { service: { icon: React.ComponentType<{ className?: string }>; title: string; description: string; href?: string } }) {
   return (
     <div className="group rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04]">
@@ -149,6 +203,38 @@ export function Services() {
         </FadeIn>
         <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {aiServices.map((service) => (
+            <StaggerItem key={service.title}>
+              <Link href={service.href} className="block">
+                <ServiceCard service={service} />
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        {/* CRM Solutions */}
+        <FadeIn className="mt-16">
+          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+            CRM Solutions
+          </p>
+        </FadeIn>
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {crmServices.map((service) => (
+            <StaggerItem key={service.title}>
+              <Link href={service.href} className="block">
+                <ServiceCard service={service} />
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        {/* Development & Data */}
+        <FadeIn className="mt-16">
+          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+            Development & Data
+          </p>
+        </FadeIn>
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2">
+          {devServices.map((service) => (
             <StaggerItem key={service.title}>
               <Link href={service.href} className="block">
                 <ServiceCard service={service} />
