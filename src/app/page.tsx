@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import { Hero } from '@/components/sections/hero'
 import { Services } from '@/components/sections/services'
+import { AiAcross } from '@/components/sections/ai-across'
 import { HowItWorks } from '@/components/sections/how-it-works'
 import { Results } from '@/components/sections/results'
 import { About } from '@/components/sections/about'
@@ -15,6 +16,7 @@ export default function Home() {
     <main>
       <Hero />
       <Services />
+      <AiAcross />
       <HowItWorks />
       <Results />
       <About />
