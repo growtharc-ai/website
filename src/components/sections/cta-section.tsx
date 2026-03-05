@@ -22,7 +22,7 @@ export function CTASection() {
                 Ready to Grow Faster?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
-                Let&apos;s build an AI-powered marketing engine for your
+                Let&apos;s build an AI-powered growth engine for your
                 business. Book a free strategy call and see what&apos;s possible.
               </p>
               <a

@@ -6,7 +6,7 @@ const differentiators = [
     icon: Brain,
     title: 'AI-Native',
     description:
-      'We don\'t bolt AI onto old methods. Every strategy, tool, and workflow is built AI-first from the ground up.',
+      'We don\'t bolt AI onto old methods. Every solution — from marketing campaigns to business automation — is built AI-first from the ground up.',
   },
   {
     icon: LineChart,
@@ -24,7 +24,7 @@ const differentiators = [
     icon: Layers,
     title: 'Full-Stack',
     description:
-      'From lead gen to close, SEO to ads, CRM to analytics — one integrated team replaces a dozen tools.',
+      'From marketing to operations, lead gen to automation — one integrated partner replaces a dozen tools and agencies.',
   },
 ]
 
@@ -50,13 +50,18 @@ export function About() {
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-white/50">
               Growth Arc was founded on a simple belief: every business deserves
-              access to the same AI-powered marketing tools that drive the
+              access to the AI tools and automation that drive the
               world&apos;s fastest-growing companies.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-white/50">
+              We&apos;re not a traditional agency. We&apos;re an AI solutions
+              company — building intelligent systems that help businesses market
+              smarter, operate leaner, and scale faster.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-white/50">
               Based in New Zealand and serving clients globally, we combine
-              deep marketing expertise with cutting-edge AI to deliver
-              strategies that don&apos;t just work — they scale.
+              deep technical expertise with practical business thinking to
+              deliver AI that doesn&apos;t just work — it compounds.
             </p>
           </FadeIn>
 

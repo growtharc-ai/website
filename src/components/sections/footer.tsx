@@ -34,8 +34,8 @@ export function Footer() {
               />
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/35">
-              AI-powered marketing that scales. Helping businesses grow faster
-              with intelligent automation and data-driven strategy.
+              AI-powered solutions that scale. Helping businesses grow faster
+              with intelligent automation, CRM, and data-driven strategy.
             </p>
           </div>
 

@@ -12,6 +12,15 @@ const serviceOptions = [
   'Smart Appointment Booking',
   'Ads Management',
   'Analytics & Reporting',
+  'Custom AI Agents & Automation',
+  'AI Chatbots & Virtual Assistants',
+  'AI Strategy & Consulting',
+  'CRM — Custom Build',
+  'CRM — HubSpot',
+  'CRM — Salesforce',
+  'CRM — Microsoft Dynamics 365',
+  'Website & App Development',
+  'Data & Analytics / BI Dashboards',
   'Not Sure / Multiple',
 ]
 
