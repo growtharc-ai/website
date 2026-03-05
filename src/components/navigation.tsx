@@ -80,8 +80,8 @@ export function Navigation() {
           backdrop-filter: blur(16px);
           border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .nav-dropdown { display: none; }
-        .nav-services:hover .nav-dropdown { display: block; }
+        .nav-dropdown { display: none; opacity: 0; transition: opacity 0.15s ease; }
+        .nav-services:hover .nav-dropdown { display: block; opacity: 1; }
         .nav-mobile-toggle:checked ~ .nav-mobile-menu { display: flex; }
         .nav-mobile-toggle:checked ~ .nav-mobile-label .nav-icon-menu { display: none; }
         .nav-mobile-toggle:checked ~ .nav-mobile-label .nav-icon-close { display: block; }
@@ -105,7 +105,7 @@ export function Navigation() {
           {/* Desktop */}
           <div className="hidden items-center gap-8 md:flex">
             {/* Services dropdown */}
-            <div className="nav-services relative">
+            <div className="nav-services relative -mx-3 px-3 -my-2 py-2">
               <button
                 className="flex items-center gap-1 text-sm font-medium text-white/60 transition-colors hover:text-white"
               >
@@ -113,7 +113,8 @@ export function Navigation() {
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
 
-              <div className="nav-dropdown absolute top-full left-1/2 z-50 mt-3 -translate-x-1/2 rounded-xl border border-white/10 bg-[#0D0F18]/95 p-4 shadow-2xl backdrop-blur-xl">
+              <div className="nav-dropdown absolute top-full left-1/2 z-50 -translate-x-1/2 pt-3">
+                <div className="rounded-xl border border-white/10 bg-[#0D0F18]/95 p-4 shadow-2xl backdrop-blur-xl">
                 <div className="grid grid-cols-2 gap-x-6 gap-y-4" style={{ width: '520px' }}>
                   {serviceCategories.map((category) => (
                     <div key={category.label}>
@@ -132,6 +133,7 @@ export function Navigation() {
                       ))}
                     </div>
                   ))}
+                </div>
                 </div>
               </div>
             </div>
