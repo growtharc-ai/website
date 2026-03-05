@@ -9,34 +9,59 @@ import {
   CalendarClock,
   MousePointerClick,
   ChartNoAxesCombined,
+  Bot,
+  MessageSquare,
+  Compass,
+  Database,
+  CircleDot,
+  Cloud,
+  Grid3X3,
+  Code,
+  BarChart3,
 } from 'lucide-react'
 
-const serviceLinks = [
+import type { LucideIcon } from 'lucide-react'
+
+type ServiceCategory = {
+  label: string
+  items: { label: string; href: string; icon: LucideIcon }[]
+}
+
+const serviceCategories: ServiceCategory[] = [
   {
-    label: 'AI Lead Generation',
-    href: '/services/ai-lead-generation',
-    icon: Radar,
-  },
-  { label: 'Traffic & SEO', href: '/services/traffic-seo', icon: Globe },
-  {
-    label: 'Sales Automation',
-    href: '/services/sales-automation',
-    icon: Workflow,
-  },
-  {
-    label: 'Appointment Booking',
-    href: '/services/appointment-booking',
-    icon: CalendarClock,
-  },
-  {
-    label: 'Ads Management',
-    href: '/services/ads-management',
-    icon: MousePointerClick,
+    label: 'AI Marketing',
+    items: [
+      { label: 'AI Lead Generation', href: '/services/ai-lead-generation', icon: Radar },
+      { label: 'Traffic & SEO', href: '/services/traffic-seo', icon: Globe },
+      { label: 'Sales Automation', href: '/services/sales-automation', icon: Workflow },
+      { label: 'Appointment Booking', href: '/services/appointment-booking', icon: CalendarClock },
+      { label: 'Ads Management', href: '/services/ads-management', icon: MousePointerClick },
+      { label: 'Analytics & Reporting', href: '/services/analytics-reporting', icon: ChartNoAxesCombined },
+    ],
   },
   {
-    label: 'Analytics & Reporting',
-    href: '/services/analytics-reporting',
-    icon: ChartNoAxesCombined,
+    label: 'AI Solutions',
+    items: [
+      { label: 'Custom AI Agents & Automation', href: '/services/ai-agents', icon: Bot },
+      { label: 'AI Chatbots & Virtual Assistants', href: '/services/ai-chatbots', icon: MessageSquare },
+      { label: 'AI Strategy & Consulting', href: '/services/ai-consulting', icon: Compass },
+    ],
+  },
+  {
+    label: 'CRM Solutions',
+    items: [
+      { label: 'Custom CRM Development', href: '/services/crm-custom', icon: Database },
+      { label: 'HubSpot Implementation', href: '/services/crm-hubspot', icon: CircleDot },
+      { label: 'Salesforce Implementation', href: '/services/crm-salesforce', icon: Cloud },
+      { label: 'Microsoft Dynamics 365', href: '/services/crm-dynamics', icon: Grid3X3 },
+    ],
+  },
+  {
+    label: 'Development & Data',
+    items: [
+      { label: 'Website & App Development', href: '/services/web-development', icon: Code },
+      { label: 'Data & Analytics / BI Dashboards', href: '/services/data-analytics', icon: BarChart3 },
+    ],
   },
 ]
 
@@ -88,17 +113,26 @@ export function Navigation() {
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
 
-              <div className="nav-dropdown absolute top-full left-1/2 z-50 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-[#0D0F18]/95 p-2 shadow-2xl backdrop-blur-xl">
-                {serviceLinks.map((service) => (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-white"
-                  >
-                    <service.icon className="h-4 w-4 text-[var(--ga-blue)]" />
-                    {service.label}
-                  </Link>
-                ))}
+              <div className="nav-dropdown absolute top-full left-1/2 z-50 mt-3 -translate-x-1/2 rounded-xl border border-white/10 bg-[#0D0F18]/95 p-4 shadow-2xl backdrop-blur-xl">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4" style={{ width: '520px' }}>
+                  {serviceCategories.map((category) => (
+                    <div key={category.label}>
+                      <p className="mb-1.5 px-3 text-[11px] font-semibold tracking-[0.15em] text-white/25 uppercase">
+                        {category.label}
+                      </p>
+                      {category.items.map((service) => (
+                        <Link
+                          key={service.href}
+                          href={service.href}
+                          className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                        >
+                          <service.icon className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
+                          {service.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -151,17 +185,24 @@ export function Navigation() {
               <ChevronDown className="nav-chevron h-4 w-4 transition-transform duration-200" />
             </label>
 
-            <div className="nav-mobile-services-list hidden flex-col gap-1 pl-4">
-              {serviceLinks.map((service) => (
-                <label key={service.href} htmlFor="nav-toggle">
-                  <Link
-                    href={service.href}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/50 transition-colors hover:bg-white/5 hover:text-white"
-                  >
-                    <service.icon className="h-4 w-4 text-[var(--ga-blue)]" />
-                    {service.label}
-                  </Link>
-                </label>
+            <div className="nav-mobile-services-list hidden max-h-[60vh] flex-col gap-1 overflow-y-auto pl-4">
+              {serviceCategories.map((category) => (
+                <div key={category.label} className="mt-2 first:mt-0">
+                  <p className="px-3 py-1.5 text-[11px] font-semibold tracking-[0.15em] text-white/25 uppercase">
+                    {category.label}
+                  </p>
+                  {category.items.map((service) => (
+                    <label key={service.href} htmlFor="nav-toggle">
+                      <Link
+                        href={service.href}
+                        className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/50 transition-colors hover:bg-white/5 hover:text-white"
+                      >
+                        <service.icon className="h-4 w-4 shrink-0 text-[var(--ga-blue)]" />
+                        {service.label}
+                      </Link>
+                    </label>
+                  ))}
+                </div>
               ))}
             </div>
 
