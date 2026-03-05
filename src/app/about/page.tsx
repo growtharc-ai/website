@@ -22,11 +22,11 @@ import {
 export const metadata: Metadata = {
   title: 'About — Growth Arc',
   description:
-    'Growth Arc is an AI-first marketing agency helping businesses grow with intelligent automation, data-driven strategy, and cutting-edge AI tools. Based in New Zealand, serving globally.',
+    'Growth Arc is an AI solutions company helping businesses grow with intelligent automation, CRM, custom AI agents, and data-driven strategy. Based in New Zealand, serving globally.',
   openGraph: {
     title: 'About — Growth Arc',
     description:
-      'AI-first marketing agency helping businesses grow with intelligent automation and data-driven strategy.',
+      'AI solutions company helping businesses grow with intelligent automation, CRM, and data-driven strategy.',
     url: 'https://growtharc.ai/about',
     siteName: 'Growth Arc',
     images: [
@@ -88,7 +88,7 @@ const values = [
     icon: Lightbulb,
     title: 'Continuous Innovation',
     description:
-      'AI evolves weekly. We stay ahead of every breakthrough so your marketing never falls behind.',
+      'AI evolves weekly. We stay ahead of every breakthrough so your business never falls behind.',
     tint: 'green' as const,
   },
 ]
@@ -98,7 +98,7 @@ const differentiators = [
     icon: Brain,
     title: 'AI-Native',
     description:
-      'Every strategy, tool, and workflow is built AI-first from the ground up.',
+      'Every solution — from marketing campaigns to business automation — is built AI-first from the ground up.',
   },
   {
     icon: LineChart,
@@ -116,7 +116,7 @@ const differentiators = [
     icon: Layers,
     title: 'Full-Stack',
     description:
-      'From lead gen to close, SEO to ads — one integrated team replaces a dozen tools.',
+      'From marketing to operations, lead gen to automation — one integrated partner replaces a dozen tools and agencies.',
   },
 ]
 
@@ -154,8 +154,8 @@ export default function AboutPage() {
             <FadeIn delay={0.2}>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
                 We started Growth Arc because we believe every business deserves
-                marketing that&apos;s intelligent, measurable, and built to scale
-                — powered by AI from day one.
+                access to the AI tools and automation that drive the world&apos;s
+                fastest-growing companies.
               </p>
             </FadeIn>
 
@@ -196,26 +196,25 @@ export default function AboutPage() {
                 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl"
                 style={{ letterSpacing: '-0.5px' }}
               >
-                Marketing, Reimagined with{' '}
+                Growth, Powered by{' '}
                 <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
                   AI
                 </span>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-white/50">
                 Growth Arc was founded on a simple belief: every business
-                deserves access to the same AI-powered marketing tools that drive
+                deserves access to the AI tools and automation that drive
                 the world&apos;s fastest-growing companies.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-white/50">
-                Based in New Zealand and serving clients globally, we combine
-                deep marketing expertise with cutting-edge artificial
-                intelligence to deliver strategies that don&apos;t just work —
-                they scale.
+                We&apos;re not a traditional agency. We&apos;re an AI solutions
+                company — building intelligent systems that help businesses
+                market smarter, operate leaner, and scale faster.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-white/50">
-                From AI-powered lead generation to automated sales pipelines, we
-                build the marketing infrastructure that turns growth from a goal
-                into a system.
+                Based in New Zealand and serving clients globally, we combine
+                deep technical expertise with practical business thinking to
+                deliver AI that doesn&apos;t just work — it compounds.
               </p>
             </FadeIn>
 
@@ -288,7 +287,7 @@ export default function AboutPage() {
                   <h3 className="mt-5 text-xl font-semibold">Our Vision</h3>
                   <p className="mt-3 text-lg leading-relaxed text-white/50">
                     A world where every business — regardless of size or budget —
-                    can grow with the power of AI marketing.
+                    can grow with the power of AI.
                   </p>
                 </div>
               </FadeIn>
@@ -301,7 +300,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="mt-5 text-xl font-semibold">Our Mission</h3>
                   <p className="mt-3 text-lg leading-relaxed text-white/50">
-                    Make AI-powered marketing accessible, effective, and
+                    Make AI-powered solutions accessible, effective, and
                     transparent — so businesses can focus on what they do best
                     while their growth runs on autopilot.
                   </p>
@@ -439,7 +438,7 @@ export default function AboutPage() {
                   </span>
                 </h2>
                 <p className="relative mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/50">
-                  Ready to see what AI-powered marketing can do for your
+                  Ready to see what AI-powered solutions can do for your
                   business? Let&apos;s talk.
                 </p>
                 <div className="relative mt-8">
