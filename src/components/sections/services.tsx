@@ -6,6 +6,9 @@ import {
   CalendarClock,
   MousePointerClick,
   ChartNoAxesCombined,
+  Bot,
+  MessageSquare,
+  Compass,
   ArrowRight,
 } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
@@ -14,50 +17,90 @@ import {
   StaggerItem,
 } from '@/components/motion/stagger-children'
 
-const services = [
+const marketingServices = [
   {
     icon: Radar,
     title: 'AI Lead Generation',
     description:
-      'Intelligent prospecting and automated outreach with AI-powered lead scoring to fill your pipeline with qualified opportunities.',
+      'AI agents that research, qualify, and engage prospects around the clock — filling your pipeline while you sleep.',
     href: '/services/ai-lead-generation',
   },
   {
     icon: Globe,
     title: 'Traffic & SEO',
     description:
-      'Data-driven content strategy and technical SEO that drives sustainable organic growth at scale.',
+      'AI-driven content strategy and technical SEO that compounds organic traffic month after month.',
     href: '/services/traffic-seo',
   },
   {
     icon: Workflow,
     title: 'Sales Automation',
     description:
-      'CRM setup, pipeline automation, and smart follow-up sequences that convert leads while you sleep.',
+      'End-to-end pipeline automation — from first touch to closed deal — with AI handling the follow-ups.',
     href: '/services/sales-automation',
   },
   {
     icon: CalendarClock,
     title: 'Smart Appointment Booking',
     description:
-      'AI-powered scheduling with automated qualification and reminders to keep your calendar full.',
+      'AI-powered scheduling that qualifies leads, books meetings, and sends reminders — no manual coordination.',
     href: '/services/appointment-booking',
   },
   {
     icon: MousePointerClick,
     title: 'Ads Management',
     description:
-      'Google, Meta, and LinkedIn campaigns with AI optimisation that maximises every dollar of ad spend.',
+      'Google, Meta, and LinkedIn campaigns managed by AI — optimising bids, budgets, and creative in real time.',
     href: '/services/ads-management',
   },
   {
     icon: ChartNoAxesCombined,
     title: 'Analytics & Reporting',
     description:
-      'Real-time dashboards with clear attribution and ROI tracking so you always know what\'s working.',
+      'Live dashboards with clear attribution and ROI tracking. Always know what\'s working and where to invest.',
     href: '/services/analytics-reporting',
   },
 ]
+
+const aiServices = [
+  {
+    icon: Bot,
+    title: 'Custom AI Agents & Automation',
+    description:
+      'Purpose-built AI agents that handle repetitive tasks, automate workflows, and execute business processes autonomously — tailored to your business, running 24/7.',
+  },
+  {
+    icon: MessageSquare,
+    title: 'AI Chatbots & Virtual Assistants',
+    description:
+      'Intelligent conversational AI for your website, app, or internal tools. Handle enquiries, qualify leads, and provide instant support — without adding headcount.',
+  },
+  {
+    icon: Compass,
+    title: 'AI Strategy & Consulting',
+    description:
+      'Not sure where AI fits in your business? We audit your operations, identify high-impact opportunities, and build a roadmap to get you there.',
+  },
+]
+
+function ServiceCard({ service }: { service: { icon: React.ComponentType<{ className?: string }>; title: string; description: string; href?: string } }) {
+  return (
+    <div className="group rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04]">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-blue)]/10">
+        <service.icon className="h-6 w-6 text-[var(--ga-blue)]" />
+      </div>
+      <h3 className="mt-5 text-xl font-semibold">{service.title}</h3>
+      <p className="mt-3 text-[15px] leading-relaxed text-white/45">
+        {service.description}
+      </p>
+      {service.href && (
+        <p className="mt-4 flex items-center gap-1.5 text-sm font-medium text-[var(--ga-blue)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          Learn more <ArrowRight className="h-3.5 w-3.5" />
+        </p>
+      )}
+    </div>
+  )
+}
 
 export function Services() {
   return (
@@ -74,42 +117,39 @@ export function Services() {
             </span>
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-white/50">
-            Six core services, one integrated strategy. We combine AI tools
-            with proven marketing frameworks to drive measurable results.
+            AI-powered solutions across marketing, operations, and automation.
+            One integrated partner.
           </p>
         </FadeIn>
 
-        <StaggerContainer className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => {
-            const card = (
-              <div className="group rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04]">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-blue)]/10">
-                  <service.icon className="h-6 w-6 text-[var(--ga-blue)]" />
-                </div>
-                <h3 className="mt-5 text-xl font-semibold">{service.title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-white/45">
-                  {service.description}
-                </p>
-                {service.href && (
-                  <p className="mt-4 flex items-center gap-1.5 text-sm font-medium text-[var(--ga-blue)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    Learn more <ArrowRight className="h-3.5 w-3.5" />
-                  </p>
-                )}
-              </div>
-            )
+        {/* AI Marketing */}
+        <FadeIn className="mt-16">
+          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+            AI Marketing
+          </p>
+        </FadeIn>
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {marketingServices.map((service) => (
+            <StaggerItem key={service.title}>
+              <Link href={service.href} className="block">
+                <ServiceCard service={service} />
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-            return (
-              <StaggerItem key={service.title}>
-                {service.href ? (
-                  <Link href={service.href} className="block">
-                    {card}
-                  </Link>
-                ) : (
-                  card
-                )}
-              </StaggerItem>
-            )
-          })}
+        {/* AI Solutions */}
+        <FadeIn className="mt-16">
+          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+            AI Solutions
+          </p>
+        </FadeIn>
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {aiServices.map((service) => (
+            <StaggerItem key={service.title}>
+              <ServiceCard service={service} />
+            </StaggerItem>
+          ))}
         </StaggerContainer>
       </div>
     </section>
