@@ -5,30 +5,30 @@ const steps = [
   {
     number: '01',
     icon: Search,
-    title: 'Audit',
+    title: 'Discover',
     description:
-      'We analyse your current marketing, tech stack, and data to find gaps and quick wins.',
+      'We learn your business inside out — your goals, pain points, tech stack, and untapped opportunities.',
   },
   {
     number: '02',
     icon: Lightbulb,
-    title: 'Strategy',
+    title: 'Design',
     description:
-      'We build a custom AI-powered growth plan tailored to your goals, market, and budget.',
+      'We architect a custom AI solution tailored to your goals — whether that\'s a marketing engine, an automation workflow, or a purpose-built AI agent.',
   },
   {
     number: '03',
     icon: Wrench,
     title: 'Build',
     description:
-      'We implement automations, launch campaigns, and connect your tools into one system.',
+      'We develop, integrate, and deploy your AI-powered systems — connecting seamlessly with your existing tools and processes.',
   },
   {
     number: '04',
     icon: Rocket,
     title: 'Scale',
     description:
-      'We optimise, expand, and compound your results with continuous AI-driven iteration.',
+      'We optimise, expand, and compound your results with continuous AI-driven iteration. What works gets amplified. What doesn\'t gets fixed.',
   },
 ]
 
@@ -45,7 +45,7 @@ export function HowItWorks() {
             Our Process
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            From Audit to{' '}
+            From Discovery to{' '}
             <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
               Scale
             </span>

@@ -26,11 +26,11 @@ import { Counter } from '@/components/motion/counter'
 export const metadata: Metadata = {
   title: 'How It Works — Growth Arc',
   description:
-    'Our proven 4-step process takes you from audit to scale — powered by AI at every stage. Discover how Growth Arc drives measurable growth for your business.',
+    'Our proven 4-step process takes you from discovery to scale — powered by AI at every stage. Discover how Growth Arc drives measurable growth for your business.',
   openGraph: {
     title: 'How It Works — Growth Arc',
     description:
-      'A proven 4-step AI-powered process: Audit, Strategy, Build, Scale. See how we drive measurable growth.',
+      'A proven 4-step AI-powered process: Discover, Design, Build, Scale. See how we drive measurable growth.',
     url: 'https://growtharc.ai/how-it-works',
     siteName: 'Growth Arc',
     images: [
@@ -50,23 +50,23 @@ const steps = [
   {
     number: '01',
     icon: Search,
-    title: 'Audit',
+    title: 'Discover',
     description:
-      'We start by understanding where you are. A deep dive into your current marketing, tech stack, and data reveals gaps, inefficiencies, and quick wins that set the foundation for everything that follows.',
+      'We learn your business inside out — your goals, pain points, tech stack, and untapped opportunities. A deep dive that sets the foundation for everything that follows.',
     bullets: [
-      'Full marketing & tech stack review',
+      'Full business & tech stack review',
       'Competitor and market analysis',
-      'Quick-win opportunities identified',
+      'High-impact opportunities identified',
     ],
   },
   {
     number: '02',
     icon: Lightbulb,
-    title: 'Strategy',
+    title: 'Design',
     description:
-      'Armed with data, we build a custom AI-powered growth plan tailored to your goals, market, and budget. Every recommendation is backed by numbers, not guesswork.',
+      'We architect a custom AI solution tailored to your goals — whether that\'s a marketing engine, an automation workflow, or a purpose-built AI agent. Every recommendation is backed by data, not guesswork.',
     bullets: [
-      'Custom growth roadmap & KPIs',
+      'Custom solution roadmap & KPIs',
       'Channel and audience prioritisation',
       'AI tool selection & integration plan',
     ],
@@ -76,9 +76,9 @@ const steps = [
     icon: Wrench,
     title: 'Build',
     description:
-      'We roll up our sleeves and execute. Automations go live, campaigns launch, and your tools are connected into one seamless system that works around the clock.',
+      'We develop, integrate, and deploy your AI-powered systems — connecting seamlessly with your existing tools and processes. Everything works around the clock from day one.',
     bullets: [
-      'Campaign creation & launch',
+      'System development & deployment',
       'Automation & CRM setup',
       'Tracking, attribution & dashboards',
     ],
@@ -88,10 +88,10 @@ const steps = [
     icon: Rocket,
     title: 'Scale',
     description:
-      'Growth doesn\'t stop at launch. We continuously optimise, expand into new channels, and compound your results with AI-driven iteration and testing.',
+      'We optimise, expand, and compound your results with continuous AI-driven iteration. What works gets amplified. What doesn\'t gets fixed.',
     bullets: [
       'Continuous A/B testing & optimisation',
-      'New channel expansion',
+      'New channel and capability expansion',
       'Monthly reporting & strategy refinement',
     ],
   },
@@ -182,7 +182,7 @@ export default function HowItWorksPage() {
                 className="mt-8 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl"
                 style={{ lineHeight: 1.1, letterSpacing: '-1.5px' }}
               >
-                From Audit to{' '}
+                From Discovery to{' '}
                 <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
                   Scale
                 </span>
