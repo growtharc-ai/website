@@ -14,13 +14,13 @@ const sora = Sora({
 })
 
 export const metadata: Metadata = {
-  title: 'Growth Arc — AI-Powered Marketing That Scales',
+  title: 'Growth Arc — AI Solutions That Grow Your Business',
   description:
-    'Growth Arc helps businesses grow faster with AI-driven lead generation, SEO, sales automation, and marketing strategy. Based in New Zealand, serving globally.',
+    'Growth Arc builds AI-powered marketing, CRM solutions, custom AI agents, and business automation that help companies grow faster. Based in NZ, serving globally.',
   openGraph: {
-    title: 'Growth Arc — AI-Powered Marketing That Scales',
+    title: 'Growth Arc — AI Solutions That Grow Your Business',
     description:
-      'Growth Arc helps businesses grow faster with AI-driven lead generation, SEO, sales automation, and marketing strategy. Based in New Zealand, serving globally.',
+      'Growth Arc builds AI-powered marketing, CRM solutions, custom AI agents, and business automation that help companies grow faster. Based in NZ, serving globally.',
     url: 'https://growtharc.ai',
     siteName: 'Growth Arc',
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: '/og-image-1200x630.png',
         width: 1200,
         height: 630,
-        alt: 'Growth Arc — AI-Powered Marketing That Scales',
+        alt: 'Growth Arc — AI Solutions That Grow Your Business',
       },
     ],
     locale: 'en_NZ',
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Growth Arc — AI-Powered Marketing That Scales',
+    title: 'Growth Arc — AI Solutions That Grow Your Business',
     description:
-      'Growth Arc helps businesses grow faster with AI-driven lead generation, SEO, sales automation, and marketing strategy.',
+      'Growth Arc builds AI-powered marketing, CRM solutions, custom AI agents, and business automation that help companies grow faster.',
     images: ['/og-image-1200x630.png'],
   },
   metadataBase: new URL('https://growtharc.ai'),

@@ -12,16 +12,16 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.1] tracking-[-1.5px]">
-          AI-Powered Marketing
+          AI That Grows
           <br />
           <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
-            That Scales
+            Your Business
           </span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50 leading-relaxed md:text-xl animate-[fadeUp_0.6s_ease_0.1s_both]">
-          We help businesses grow faster with intelligent lead generation,
-          sales automation, and data-driven marketing strategy.
+          We build intelligent systems that automate your marketing, streamline
+          your operations, and unlock growth — so you can focus on what matters.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-[fadeUp_0.6s_ease_0.2s_both]">
@@ -54,10 +54,10 @@ export function Hero() {
             </div>
             <div className="text-center">
               <p className="text-xl font-bold text-white md:text-2xl">
-                Full-Funnel
+                End-to-End
               </p>
               <p className="mt-1 text-xs text-white/35 md:text-sm">
-                Lead to Close
+                Marketing to Operations
               </p>
             </div>
             <div className="text-center">
