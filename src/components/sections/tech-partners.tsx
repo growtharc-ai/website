@@ -11,7 +11,7 @@ const partners = [
 
 export function TechPartners() {
   return (
-    <section className="overflow-hidden bg-[#060710] px-6 py-10">
+    <section className="overflow-hidden border-t border-white/[0.03] bg-[#0D0E14] px-6 py-10">
       <p className="mb-6 text-center text-[11px] font-semibold tracking-[0.2em] text-white/25 uppercase">
         Our Technology Partners
       </p>

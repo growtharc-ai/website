@@ -37,7 +37,7 @@ export function HowItWorks() {
     <section
       id="how-it-works"
       className="px-6 py-24 md:py-32"
-      style={{ background: 'linear-gradient(180deg, #07080E 0%, #0A0D16 100%)' }}
+      style={{ background: '#050508' }}
     >
       <div className="mx-auto max-w-7xl">
         <FadeIn>
@@ -63,7 +63,7 @@ export function HowItWorks() {
           {steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 0.1}>
               <div className="relative text-center md:text-left">
-                <div className="relative z-10 mx-auto flex h-20 w-20 items-center justify-center rounded-2xl border border-white/5 bg-[#0D0F18] md:mx-0">
+                <div className="relative z-10 mx-auto flex h-20 w-20 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] shadow-lg shadow-black/20 backdrop-blur-sm md:mx-0">
                   <step.icon className="h-8 w-8 text-[var(--ga-blue)]" />
                 </div>
                 <p className="mt-5 text-xs font-bold tracking-wider text-[var(--ga-green)]/60 uppercase">
