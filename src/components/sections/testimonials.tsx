@@ -30,7 +30,14 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="px-6 py-24 md:py-32">
+    <section
+      className="px-6 py-24 md:py-32"
+      style={{
+        background: '#090B12',
+        backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+      }}
+    >
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">

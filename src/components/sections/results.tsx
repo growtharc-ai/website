@@ -26,7 +26,9 @@ const metrics = [
 
 export function Results() {
   return (
-    <section className="px-6 py-24 md:py-32">
+    <section className="relative px-6 py-24 md:py-32" style={{ background: '#07080E' }}>
+      {/* Gradient accent bar */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--ga-blue)] to-transparent opacity-40" />
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">
@@ -48,7 +50,7 @@ export function Results() {
           {metrics.map((metric, i) => (
             <FadeIn key={metric.label} delay={i * 0.1}>
               <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-8 text-center">
-                <p className="text-5xl font-bold tracking-tight text-white md:text-6xl">
+                <p className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-6xl">
                   <Counter target={metric.value} suffix={metric.suffix} />
                 </p>
                 <p className="mt-3 text-sm text-white/40">{metric.label}</p>

@@ -185,87 +185,113 @@ function ServiceCard({ service }: { service: { icon: React.ComponentType<{ class
 
 export function Services() {
   return (
-    <section id="services" className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-7xl">
-        <FadeIn>
-          <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">
-            What We Do
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Everything You Need to{' '}
-            <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
-              Grow
-            </span>
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-white/50">
-            AI-powered solutions across marketing, operations, and automation.
-            One integrated partner.
-          </p>
-        </FadeIn>
+    <section id="services" className="relative overflow-hidden">
+      {/* AI Solutions — blue-tinted zone */}
+      <div
+        className="px-6 pt-24 pb-16 md:pt-32 md:pb-20"
+        style={{ background: 'linear-gradient(180deg, #080A16 0%, #0A0E1A 100%)' }}
+      >
+        <div className="mx-auto max-w-7xl">
+          <FadeIn>
+            <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">
+              What We Do
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+              Everything You Need to{' '}
+              <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
+                Grow
+              </span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg text-white/50">
+              AI-powered solutions across marketing, operations, and automation.
+              One integrated partner.
+            </p>
+          </FadeIn>
 
-        {/* AI Solutions */}
-        <FadeIn className="mt-16">
-          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
-            AI Solutions
-          </p>
-        </FadeIn>
-        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {aiServices.map((service) => (
-            <StaggerItem key={service.title}>
-              <Link href={service.href} className="block">
-                <ServiceCard service={service} />
-              </Link>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+          {/* AI Solutions */}
+          <FadeIn className="mt-16">
+            <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+              AI Solutions
+            </p>
+          </FadeIn>
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {aiServices.map((service) => (
+              <StaggerItem key={service.title}>
+                <Link href={service.href} className="block">
+                  <ServiceCard service={service} />
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </div>
 
-        {/* AI Marketing */}
-        <FadeIn className="mt-16">
-          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
-            AI Marketing
-          </p>
-        </FadeIn>
-        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {marketingServices.map((service) => (
-            <StaggerItem key={service.title}>
-              <Link href={service.href} className="block">
-                <ServiceCard service={service} />
-              </Link>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+      {/* AI Marketing — grid pattern zone */}
+      <div
+        className="relative px-6 py-16 md:py-20"
+        style={{
+          background: '#07080E',
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      >
+        <div className="mx-auto max-w-7xl">
+          <FadeIn>
+            <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+              AI Marketing
+            </p>
+          </FadeIn>
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {marketingServices.map((service) => (
+              <StaggerItem key={service.title}>
+                <Link href={service.href} className="block">
+                  <ServiceCard service={service} />
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </div>
 
-        {/* CRM Solutions */}
-        <FadeIn className="mt-16">
-          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
-            CRM Solutions
-          </p>
-        </FadeIn>
-        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {crmServices.map((service) => (
-            <StaggerItem key={service.title}>
-              <Link href={service.href} className="block">
-                <ServiceCard service={service} />
-              </Link>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+      {/* CRM Solutions */}
+      <div className="bg-[#090B14] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <FadeIn>
+            <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+              CRM Solutions
+            </p>
+          </FadeIn>
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {crmServices.map((service) => (
+              <StaggerItem key={service.title}>
+                <Link href={service.href} className="block">
+                  <ServiceCard service={service} />
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </div>
 
-        {/* Development & Data */}
-        <FadeIn className="mt-16">
-          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
-            Development & Data
-          </p>
-        </FadeIn>
-        <StaggerContainer className="grid gap-6 sm:grid-cols-2">
-          {devServices.map((service) => (
-            <StaggerItem key={service.title}>
-              <Link href={service.href} className="block">
-                <ServiceCard service={service} />
-              </Link>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+      {/* Development & Data */}
+      <div className="bg-[#07080E] px-6 pt-16 pb-24 md:pt-20 md:pb-32">
+        <div className="mx-auto max-w-7xl">
+          <FadeIn>
+            <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+              Development & Data
+            </p>
+          </FadeIn>
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2">
+            {devServices.map((service) => (
+              <StaggerItem key={service.title}>
+                <Link href={service.href} className="block">
+                  <ServiceCard service={service} />
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
       </div>
     </section>
   )

@@ -33,7 +33,7 @@ export function About() {
     <section
       id="about"
       className="px-6 py-24 md:py-32"
-      style={{ background: 'linear-gradient(180deg, #07080E 0%, #0A0D16 100%)' }}
+      style={{ background: '#0C0E16' }}
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid items-start gap-16 lg:grid-cols-2">

@@ -31,10 +31,12 @@ const useCases = [
 export function AiAcross() {
   return (
     <section
-      className="px-6 py-24 md:py-32"
-      style={{ background: 'linear-gradient(180deg, #07080E 0%, #0A0D16 100%)' }}
+      className="relative overflow-hidden px-6 py-24 md:py-32"
+      style={{ background: 'linear-gradient(180deg, #0A0D16 0%, #07080E 100%)' }}
     >
-      <div className="mx-auto max-w-7xl">
+      {/* Ambient glow behind cards */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--ga-blue)]/[0.04] blur-[100px]" />
+      <div className="relative mx-auto max-w-7xl">
         <FadeIn>
           <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">
             Beyond Marketing
