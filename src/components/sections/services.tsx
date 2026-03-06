@@ -166,19 +166,23 @@ const devServices = [
 
 function ServiceCard({ service }: { service: { icon: React.ComponentType<{ className?: string }>; title: string; description: string; href?: string } }) {
   return (
-    <div className="group rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04]">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-blue)]/10">
-        <service.icon className="h-6 w-6 text-[var(--ga-blue)]" />
-      </div>
-      <h3 className="mt-5 text-xl font-semibold">{service.title}</h3>
-      <p className="mt-3 text-[15px] leading-relaxed text-white/45">
-        {service.description}
-      </p>
-      {service.href && (
-        <p className="mt-4 flex items-center gap-1.5 text-sm font-medium text-[var(--ga-blue)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          Learn more <ArrowRight className="h-3.5 w-3.5" />
+    <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--ga-blue)]/25 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-[var(--ga-blue)]/[0.08]">
+      {/* Shimmer sweep on hover */}
+      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-none group-hover:animate-[shimmer_0.8s_ease_forwards]" />
+      <div className="relative">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-blue)]/10">
+          <service.icon className="h-6 w-6 text-[var(--ga-blue)] transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <h3 className="mt-5 text-xl font-semibold">{service.title}</h3>
+        <p className="mt-3 text-[15px] leading-relaxed text-white/45">
+          {service.description}
         </p>
-      )}
+        {service.href && (
+          <p className="mt-4 flex items-center gap-1.5 text-sm font-medium text-[var(--ga-blue)] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+            Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </p>
+        )}
+      </div>
     </div>
   )
 }
