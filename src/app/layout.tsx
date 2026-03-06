@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { Sora } from 'next/font/google'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/sections/footer'
 import './globals.css'
@@ -90,6 +91,7 @@ export default async function RootLayout({
         />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
