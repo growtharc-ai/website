@@ -6,8 +6,11 @@ import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 import { submitContactForm } from '@/app/actions/hubspot'
 
 const serviceOptions = [
-  'Custom AI Agents & Automation',
-  'AI Chatbots & Virtual Assistants',
+  'AI Agents',
+  'AI Chatbots',
+  'AI Virtual Assistants',
+  'AI Customer Service & Support',
+  'AI Content Creation & Management',
   'AI Strategy & Consulting',
   'AI Lead Generation',
   'Traffic & SEO',
