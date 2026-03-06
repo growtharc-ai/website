@@ -8,6 +8,9 @@ import {
   ChartNoAxesCombined,
   Bot,
   MessageSquare,
+  Sparkles,
+  Headphones,
+  PenTool,
   Compass,
   Database,
   CircleDot,
@@ -71,17 +74,38 @@ const marketingServices = [
 const aiServices = [
   {
     icon: Bot,
-    title: 'Custom AI Agents & Automation',
+    title: 'AI Agents',
     description:
-      'Purpose-built AI agents that handle repetitive tasks, automate workflows, and execute business processes autonomously — tailored to your business, running 24/7.',
+      'Autonomous AI agents that execute business processes, automate workflows, and handle repetitive tasks independently — purpose-built for your business, running 24/7.',
     href: '/services/ai-agents',
   },
   {
     icon: MessageSquare,
-    title: 'AI Chatbots & Virtual Assistants',
+    title: 'AI Chatbots',
     description:
-      'Intelligent conversational AI for your website, app, or internal tools. Handle enquiries, qualify leads, and provide instant support — without adding headcount.',
+      'Intelligent conversational AI for your website, apps, and messaging platforms. Handle customer enquiries, qualify leads, and book appointments — instantly, around the clock.',
     href: '/services/ai-chatbots',
+  },
+  {
+    icon: Sparkles,
+    title: 'AI Virtual Assistants',
+    description:
+      'Smart digital assistants for your team — managing schedules, drafting communications, summarising documents, answering internal questions, and streamlining daily workflows.',
+    href: '/services/ai-virtual-assistants',
+  },
+  {
+    icon: Headphones,
+    title: 'AI Customer Service & Support',
+    description:
+      'Transform your support operations with AI that handles tickets, routes enquiries, analyses customer sentiment, and resolves issues instantly — 24/7. Escalate to humans only when it matters.',
+    href: '/services/ai-customer-service',
+  },
+  {
+    icon: PenTool,
+    title: 'AI Content Creation & Management',
+    description:
+      'AI-powered content at scale — blog posts, social media, email campaigns, product descriptions, and brand-consistent copy. Created faster, published smarter, optimised continuously.',
+    href: '/services/ai-content',
   },
   {
     icon: Compass,

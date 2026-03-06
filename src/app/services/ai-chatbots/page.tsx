@@ -18,13 +18,13 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'AI Chatbots & Virtual Assistants — Growth Arc',
+  title: 'AI Chatbots — Growth Arc',
   description:
-    'Intelligent conversational AI for your website, app, or internal tools. Handle customer enquiries, qualify leads, book appointments, and provide instant support — without adding headcount.',
+    'Intelligent conversational AI for your website, apps, and messaging platforms. Handle customer enquiries, qualify leads, and book appointments — instantly, around the clock.',
   openGraph: {
-    title: 'AI Chatbots & Virtual Assistants — Growth Arc',
+    title: 'AI Chatbots — Growth Arc',
     description:
-      'Intelligent conversational AI that handles customer enquiries, qualifies leads, and provides instant support — without adding headcount.',
+      'Intelligent conversational AI for your website and messaging platforms. Handle enquiries, qualify leads, and book appointments around the clock.',
     url: 'https://growtharc.ai/services/ai-chatbots',
     siteName: 'Growth Arc',
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: '/og-image-1200x630.png',
         width: 1200,
         height: 630,
-        alt: 'Growth Arc — AI Chatbots & Virtual Assistants',
+        alt: 'Growth Arc — AI Chatbots',
       },
     ],
     locale: 'en_NZ',
@@ -135,7 +135,7 @@ export default function AIChatbotsPage() {
       <main>
         <ServiceHero
           icon={MessageSquare}
-          label="AI Chatbots & Virtual Assistants"
+          label="AI Chatbots"
           headline="Instant, Intelligent Conversations"
           gradientText="Around the Clock"
           subheadline="Conversational AI that handles customer enquiries, qualifies leads, books appointments, and provides instant support — on your website and every messaging channel your customers use."

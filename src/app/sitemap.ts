@@ -75,6 +75,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://growtharc.ai/services/ai-virtual-assistants',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://growtharc.ai/services/ai-customer-service',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://growtharc.ai/services/ai-content',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: 'https://growtharc.ai/services/ai-consulting',
       lastModified: new Date(),
       changeFrequency: 'monthly',

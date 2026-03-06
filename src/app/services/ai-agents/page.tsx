@@ -18,13 +18,13 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Custom AI Agents & Automation — Growth Arc',
+  title: 'AI Agents — Growth Arc',
   description:
-    'Purpose-built AI agents that handle repetitive tasks, automate workflows, and execute business processes autonomously. From data entry to document processing, invoicing to onboarding — tailored to your business, running 24/7.',
+    'Autonomous AI agents that execute business processes, automate workflows, and handle repetitive tasks independently — purpose-built for your business, running 24/7.',
   openGraph: {
-    title: 'Custom AI Agents & Automation — Growth Arc',
+    title: 'AI Agents — Growth Arc',
     description:
-      'Purpose-built AI agents that automate workflows and execute business processes autonomously. Tailored to your business, running 24/7.',
+      'Autonomous AI agents that execute business processes and automate workflows independently. Purpose-built for your business, running 24/7.',
     url: 'https://growtharc.ai/services/ai-agents',
     siteName: 'Growth Arc',
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: '/og-image-1200x630.png',
         width: 1200,
         height: 630,
-        alt: 'Growth Arc — Custom AI Agents & Automation',
+        alt: 'Growth Arc — AI Agents',
       },
     ],
     locale: 'en_NZ',
@@ -135,10 +135,10 @@ export default function AIAgentsPage() {
       <main>
         <ServiceHero
           icon={Bot}
-          label="Custom AI Agents & Automation"
+          label="AI Agents"
           headline="Automate Your Operations with"
           gradientText="Intelligent AI Agents"
-          subheadline="Purpose-built AI agents that handle repetitive tasks, automate workflows, and execute business processes autonomously — so your team focuses on work that actually matters."
+          subheadline="Autonomous AI agents that execute business processes, automate workflows, and handle repetitive tasks independently — so your team focuses on work that actually matters."
           stats={[
             { value: 'Custom-Built', label: 'For Your Business' },
             { value: 'Multi-Step', label: 'Workflow Automation' },

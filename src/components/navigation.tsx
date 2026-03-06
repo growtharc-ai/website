@@ -11,6 +11,9 @@ import {
   ChartNoAxesCombined,
   Bot,
   MessageSquare,
+  Sparkles,
+  Headphones,
+  PenTool,
   Compass,
   Database,
   CircleDot,
@@ -31,8 +34,11 @@ const serviceCategories: ServiceCategory[] = [
   {
     label: 'AI Solutions',
     items: [
-      { label: 'Custom AI Agents & Automation', href: '/services/ai-agents', icon: Bot },
-      { label: 'AI Chatbots & Virtual Assistants', href: '/services/ai-chatbots', icon: MessageSquare },
+      { label: 'AI Agents', href: '/services/ai-agents', icon: Bot },
+      { label: 'AI Chatbots', href: '/services/ai-chatbots', icon: MessageSquare },
+      { label: 'AI Virtual Assistants', href: '/services/ai-virtual-assistants', icon: Sparkles },
+      { label: 'AI Customer Service & Support', href: '/services/ai-customer-service', icon: Headphones },
+      { label: 'AI Content Creation', href: '/services/ai-content', icon: PenTool },
       { label: 'AI Strategy & Consulting', href: '/services/ai-consulting', icon: Compass },
     ],
   },
