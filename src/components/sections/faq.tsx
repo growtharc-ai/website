@@ -48,7 +48,7 @@ export function FAQ() {
   }
 
   return (
-    <section className="px-6 py-24 md:py-32" style={{ background: '#0A0C14' }}>
+    <section className="px-6 py-16 md:py-20" style={{ background: '#0A0C14' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -69,7 +69,7 @@ export function FAQ() {
           </p>
         </FadeIn>
 
-        <FadeIn className="mt-12">
+        <FadeIn className="mt-8">
           <div className="divide-y divide-white/5 rounded-2xl border border-white/5 bg-white/[0.01]">
             {faqs.map((faq, i) => (
               <div key={i} className="group/faq">
@@ -82,7 +82,7 @@ export function FAQ() {
                 />
                 <label
                   htmlFor={`faq-${i}`}
-                  className="flex cursor-pointer items-center justify-between gap-4 p-6 transition-colors hover:bg-white/[0.02]"
+                  className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-white/[0.02]"
                 >
                   <span className="text-[15px] font-medium text-white/70 transition-colors group-has-[:checked]/faq:text-white">
                     {faq.question}
@@ -94,7 +94,7 @@ export function FAQ() {
                 </label>
                 <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out group-has-[:checked]/faq:grid-rows-[1fr]">
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-6 text-[15px] leading-relaxed text-white/45">
+                    <p className="px-6 pb-4 text-[15px] leading-relaxed text-white/45">
                       {faq.answer}
                     </p>
                   </div>
