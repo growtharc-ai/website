@@ -4,7 +4,7 @@ import { FadeIn } from '@/components/motion/fade-in'
 export function CTASection() {
   return (
     <section
-      className="relative overflow-hidden px-6 py-24 md:py-32"
+      className="relative overflow-hidden px-6 py-16 md:py-20"
       style={{ background: 'linear-gradient(135deg, var(--ga-blue), var(--ga-green))' }}
     >
       {/* Decorative elements */}

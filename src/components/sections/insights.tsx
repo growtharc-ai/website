@@ -38,7 +38,7 @@ const posts = [
 
 export function Insights() {
   return (
-    <section className="px-6 py-24 md:py-32" style={{ background: '#070910' }}>
+    <section className="px-6 py-16 md:py-20" style={{ background: '#070910' }}>
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">

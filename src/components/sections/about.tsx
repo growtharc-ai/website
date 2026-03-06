@@ -42,7 +42,7 @@ export function About() {
             <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">
               About Us
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
               Why{' '}
               <span className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-transparent">
                 Growth Arc

@@ -31,7 +31,7 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section
-      className="px-6 py-24 md:py-32"
+      className="px-6 py-16 md:py-20"
       style={{
         background: '#090B12',
         backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
