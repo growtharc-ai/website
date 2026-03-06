@@ -4,7 +4,11 @@ import OpenAI from 'openai'
 let _openai: OpenAI | null = null
 function getOpenAI() {
   if (!_openai) {
-    _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+    const apiKey = process.env.OPENAI_API_KEY
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY environment variable is not set')
+    }
+    _openai = new OpenAI({ apiKey })
   }
   return _openai
 }
@@ -24,6 +28,9 @@ Be professional, friendly, concise — under 3 sentences unless detail needed. F
 
 const LEAD_CAPTURE_PROMPT = `The visitor has asked several questions and seems engaged. If you haven't already, naturally and briefly ask for their name and email so the team can follow up with more details. Keep it conversational — don't be pushy.`
 
+const PRIMARY_MODEL = 'gpt-5.4'
+const FALLBACK_MODEL = 'gpt-4o'
+
 // Rate limiting: 100 messages per IP per hour (5 sessions × 20 messages)
 const RATE_LIMIT = 100
 const RATE_WINDOW = 3_600_000
@@ -41,6 +48,19 @@ function isRateLimited(ip: string): boolean {
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string }
 
+async function createChatStream(
+  chatMessages: OpenAI.ChatCompletionMessageParam[],
+  model: string
+) {
+  return getOpenAI().chat.completions.create({
+    model,
+    messages: chatMessages,
+    stream: true,
+    max_completion_tokens: 300,
+    temperature: 0.7,
+  })
+}
+
 export async function POST(request: Request) {
   try {
     const headersList = await headers()
@@ -54,13 +74,24 @@ export async function POST(request: Request) {
       )
     }
 
-    const body = await request.json()
-    const messages: ChatMessage[] = body.messages ?? []
-    const sessionMessageCount: number = body.sessionMessageCount ?? 0
+    let body: Record<string, unknown>
+    try {
+      body = await request.json()
+    } catch {
+      return Response.json({ error: 'Invalid request body.' }, { status: 400 })
+    }
+
+    const messages: ChatMessage[] = Array.isArray(body.messages) ? body.messages : []
+    const sessionMessageCount: number =
+      typeof body.sessionMessageCount === 'number' ? body.sessionMessageCount : 0
 
     // Validate last user message
     const lastMessage = messages[messages.length - 1]
-    if (!lastMessage || lastMessage.role !== 'user') {
+    if (
+      !lastMessage ||
+      lastMessage.role !== 'user' ||
+      typeof lastMessage.content !== 'string'
+    ) {
       return Response.json({ error: 'Invalid message.' }, { status: 400 })
     }
     if (lastMessage.content.length > 500) {
@@ -88,24 +119,55 @@ export async function POST(request: Request) {
       })),
     ]
 
-    const stream = await getOpenAI().chat.completions.create({
-      model: 'gpt-5.4',
-      messages: chatMessages,
-      stream: true,
-      max_tokens: 300,
-      temperature: 0.7,
-    })
+    // Try primary model, fall back if it fails
+    let stream
+    try {
+      stream = await createChatStream(chatMessages, PRIMARY_MODEL)
+    } catch (primaryError) {
+      console.error(
+        `[Chat API] ${PRIMARY_MODEL} failed:`,
+        primaryError instanceof OpenAI.APIError
+          ? { status: primaryError.status, message: primaryError.message, code: primaryError.code }
+          : primaryError
+      )
+      console.log(`[Chat API] Falling back to ${FALLBACK_MODEL}`)
+      try {
+        stream = await createChatStream(chatMessages, FALLBACK_MODEL)
+      } catch (fallbackError) {
+        console.error(
+          `[Chat API] ${FALLBACK_MODEL} also failed:`,
+          fallbackError instanceof OpenAI.APIError
+            ? { status: fallbackError.status, message: fallbackError.message, code: fallbackError.code }
+            : fallbackError
+        )
+        throw fallbackError
+      }
+    }
 
     const encoder = new TextEncoder()
     const readable = new ReadableStream({
       async start(controller) {
-        for await (const chunk of stream) {
-          const text = chunk.choices[0]?.delta?.content
-          if (text) {
-            controller.enqueue(encoder.encode(text))
+        try {
+          for await (const chunk of stream) {
+            const text = chunk.choices[0]?.delta?.content
+            if (text) {
+              controller.enqueue(encoder.encode(text))
+            }
           }
+          controller.close()
+        } catch (streamError) {
+          console.error(
+            '[Chat API] Streaming error:',
+            streamError instanceof OpenAI.APIError
+              ? { status: streamError.status, message: streamError.message }
+              : streamError
+          )
+          // Send error text to client before closing
+          controller.enqueue(
+            encoder.encode('\n\n[Sorry, an error occurred. Please try again.]')
+          )
+          controller.close()
         }
-        controller.close()
       },
     })
 
@@ -116,10 +178,18 @@ export async function POST(request: Request) {
       },
     })
   } catch (error) {
-    console.error('Chat API error:', error)
-    return Response.json(
-      { error: 'Something went wrong. Please try again.' },
-      { status: 500 }
-    )
+    const isApiError = error instanceof OpenAI.APIError
+    console.error('[Chat API] Unhandled error:', {
+      name: isApiError ? 'OpenAI.APIError' : (error as Error).name,
+      message: (error as Error).message,
+      ...(isApiError && { status: error.status, code: error.code }),
+    })
+
+    const message =
+      (error as Error).message === 'OPENAI_API_KEY environment variable is not set'
+        ? 'Chat is temporarily unavailable.'
+        : 'Something went wrong. Please try again.'
+
+    return Response.json({ error: message }, { status: 500 })
   }
 }
