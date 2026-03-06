@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { MessageSquare, X, Send, ArrowDown } from 'lucide-react'
+import { MessageSquare, X, Send } from 'lucide-react'
 
 type Message = { role: 'user' | 'assistant'; content: string }
 
@@ -21,8 +21,11 @@ export function ChatWidget() {
   const [isStreaming, setIsStreaming] = useState(false)
   const [messageCount, setMessageCount] = useState(0)
   const [error, setError] = useState('')
+  const [hasAutoOpened, setHasAutoOpened] = useState(false)
+  const [showPulse, setShowPulse] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
+  const userInteracted = useRef(false)
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -38,9 +41,53 @@ export function ChatWidget() {
     }
   }, [open])
 
+  // Auto-open after 5s, auto-close after 8s more
+  useEffect(() => {
+    const openTimer = setTimeout(() => {
+      if (!userInteracted.current) {
+        setOpen(true)
+        setHasAutoOpened(true)
+      }
+    }, 5000)
+
+    return () => clearTimeout(openTimer)
+  }, [])
+
+  useEffect(() => {
+    if (!hasAutoOpened || userInteracted.current) return
+    const closeTimer = setTimeout(() => {
+      if (!userInteracted.current) {
+        setOpen(false)
+      }
+    }, 8000)
+    return () => clearTimeout(closeTimer)
+  }, [hasAutoOpened])
+
+  // Pulse glow every 10 seconds when closed
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!open) {
+        setShowPulse(true)
+        setTimeout(() => setShowPulse(false), 1500)
+      }
+    }, 10000)
+    return () => clearInterval(interval)
+  }, [open])
+
+  function handleUserOpen() {
+    userInteracted.current = true
+    setOpen(true)
+  }
+
+  function handleUserClose() {
+    userInteracted.current = true
+    setOpen(false)
+  }
+
   async function handleSend() {
     const trimmed = input.trim()
     if (!trimmed || isStreaming) return
+    userInteracted.current = true
     if (messageCount >= MAX_MESSAGES) {
       setError('Message limit reached. Book a free call to continue the conversation!')
       return
@@ -118,12 +165,12 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Chat panel */}
+      {/* Chat panel — bottom-left */}
       <div
-        className={`fixed z-50 transition-all duration-300 ${
+        className={`fixed z-50 transition-all duration-300 ease-out ${
           open
-            ? 'md:bottom-24 md:right-8 md:h-[500px] md:w-[400px] inset-x-0 bottom-0 h-[70vh] md:inset-x-auto md:rounded-2xl'
-            : 'pointer-events-none scale-95 opacity-0 md:bottom-24 md:right-8 md:h-[500px] md:w-[400px] inset-x-0 bottom-0 h-[70vh] md:inset-x-auto'
+            ? 'md:bottom-8 md:left-8 md:h-[500px] md:w-[400px] inset-x-0 bottom-0 h-[70vh] md:inset-x-auto md:rounded-2xl translate-y-0 opacity-100'
+            : 'pointer-events-none translate-y-4 scale-95 opacity-0 md:bottom-8 md:left-8 md:h-[500px] md:w-[400px] inset-x-0 bottom-0 h-[70vh] md:inset-x-auto'
         }`}
       >
         <div className="flex h-full flex-col overflow-hidden border border-white/10 bg-[#0D0F18]/95 shadow-2xl shadow-black/40 backdrop-blur-xl md:rounded-2xl">
@@ -139,7 +186,7 @@ export function ChatWidget() {
               </div>
             </div>
             <button
-              onClick={() => setOpen(false)}
+              onClick={handleUserClose}
               className="rounded-lg p-1.5 text-white/40 transition-colors hover:bg-white/5 hover:text-white"
               aria-label="Close chat"
             >
@@ -230,25 +277,29 @@ export function ChatWidget() {
         </div>
       </div>
 
-      {/* Floating toggle button */}
+      {/* Floating toggle button — bottom-left */}
       <button
-        onClick={() => setOpen((o) => !o)}
-        className={`fixed z-50 transition-all duration-300 ${
+        onClick={handleUserOpen}
+        className={`fixed bottom-8 left-8 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] py-3 pr-5 pl-4 text-sm font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-105 hover:shadow-xl ${
           open
-            ? 'pointer-events-none scale-90 opacity-0'
-            : 'scale-100 opacity-100'
-        } bottom-24 right-8 flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] py-3 pr-5 pl-4 text-sm font-semibold text-white shadow-lg shadow-black/20 hover:scale-105 hover:shadow-xl md:bottom-24 md:right-8`}
+            ? 'pointer-events-none translate-y-2 scale-90 opacity-0'
+            : 'translate-y-0 scale-100 opacity-100'
+        } ${hasAutoOpened && !open && !userInteracted.current ? 'animate-[bounce_0.6s_ease-in-out]' : ''}`}
         aria-label="Open chat"
       >
-        <MessageSquare className="h-4 w-4" />
-        Ask our AI
+        {/* Pulse glow ring */}
+        {showPulse && (
+          <span className="absolute inset-0 animate-ping rounded-full bg-[var(--ga-blue)]/30" />
+        )}
+        <MessageSquare className="relative h-4 w-4" />
+        <span className="relative">Ask our AI</span>
       </button>
 
       {/* Mobile close overlay */}
       {open && (
         <div
           className="fixed inset-0 z-40 bg-black/50 md:hidden"
-          onClick={() => setOpen(false)}
+          onClick={handleUserClose}
         />
       )}
     </>
