@@ -4,6 +4,7 @@ import { Sora } from 'next/font/google'
 import Script from 'next/script'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/sections/footer'
+import { ChatWidget } from '@/components/chat-widget'
 import './globals.css'
 
 const sora = Sora({
@@ -90,6 +91,7 @@ export default async function RootLayout({
         />
         {children}
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   )
