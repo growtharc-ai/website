@@ -179,22 +179,6 @@ export function Services() {
           </p>
         </FadeIn>
 
-        {/* AI Marketing */}
-        <FadeIn className="mt-16">
-          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
-            AI Marketing
-          </p>
-        </FadeIn>
-        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {marketingServices.map((service) => (
-            <StaggerItem key={service.title}>
-              <Link href={service.href} className="block">
-                <ServiceCard service={service} />
-              </Link>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
         {/* AI Solutions */}
         <FadeIn className="mt-16">
           <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
@@ -203,6 +187,22 @@ export function Services() {
         </FadeIn>
         <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {aiServices.map((service) => (
+            <StaggerItem key={service.title}>
+              <Link href={service.href} className="block">
+                <ServiceCard service={service} />
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        {/* AI Marketing */}
+        <FadeIn className="mt-16">
+          <p className="mb-6 text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+            AI Marketing
+          </p>
+        </FadeIn>
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {marketingServices.map((service) => (
             <StaggerItem key={service.title}>
               <Link href={service.href} className="block">
                 <ServiceCard service={service} />
