@@ -8,6 +8,7 @@ import { Results } from '@/components/sections/results'
 import { Testimonials } from '@/components/sections/testimonials'
 import { About } from '@/components/sections/about'
 import { Comparison } from '@/components/sections/comparison'
+import { FAQ } from '@/components/sections/faq'
 import { CTASection } from '@/components/sections/cta-section'
 import { StickyCTA } from '@/components/sticky-cta'
 
@@ -27,6 +28,7 @@ export default function Home() {
       <Testimonials />
       <About />
       <Comparison />
+      <FAQ />
       <CTASection />
       <Contact />
       <StickyCTA />
