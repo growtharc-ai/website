@@ -1,6 +1,8 @@
 import { headers } from 'next/headers'
 import OpenAI from 'openai'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 let _openai: OpenAI | null = null
 function getOpenAI() {
   if (!_openai) {
@@ -8,6 +10,7 @@ function getOpenAI() {
     if (!apiKey) {
       throw new Error('OPENAI_API_KEY environment variable is not set')
     }
+    console.log('[Chat API] Initialising OpenAI client (key starts with:', apiKey.slice(0, 7) + '...)')
     _openai = new OpenAI({ apiKey })
   }
   return _openai
@@ -28,8 +31,8 @@ Be professional, friendly, concise — under 3 sentences unless detail needed. F
 
 const LEAD_CAPTURE_PROMPT = `The visitor has asked several questions and seems engaged. If you haven't already, naturally and briefly ask for their name and email so the team can follow up with more details. Keep it conversational — don't be pushy.`
 
-const PRIMARY_MODEL = 'gpt-5.4'
-const FALLBACK_MODEL = 'gpt-4o'
+// Model cascade: try each in order until one works
+const MODELS = ['gpt-5.4', 'gpt-5.4-2026-03-05', 'gpt-4o']
 
 // Rate limiting: 100 messages per IP per hour (5 sessions × 20 messages)
 const RATE_LIMIT = 100
@@ -46,12 +49,41 @@ function isRateLimited(ip: string): boolean {
   return false
 }
 
+function logError(label: string, error: unknown) {
+  if (error instanceof OpenAI.APIError) {
+    console.error(`[Chat API] ${label}:`, {
+      status: error.status,
+      message: error.message,
+      code: error.code,
+      type: error.type,
+    })
+  } else if (error instanceof Error) {
+    console.error(`[Chat API] ${label}:`, {
+      name: error.name,
+      message: error.message,
+    })
+  } else {
+    console.error(`[Chat API] ${label}:`, error)
+  }
+}
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof OpenAI.APIError) {
+    return `OpenAI ${error.status}: ${error.message}`
+  }
+  if (error instanceof Error) {
+    return error.message
+  }
+  return String(error)
+}
+
 type ChatMessage = { role: 'user' | 'assistant'; content: string }
 
 async function createChatStream(
   chatMessages: OpenAI.ChatCompletionMessageParam[],
   model: string
 ) {
+  console.log(`[Chat API] Trying model: ${model}`)
   return getOpenAI().chat.completions.create({
     model,
     messages: chatMessages,
@@ -119,29 +151,31 @@ export async function POST(request: Request) {
       })),
     ]
 
-    // Try primary model, fall back if it fails
+    // Try models in cascade order
     let stream
-    try {
-      stream = await createChatStream(chatMessages, PRIMARY_MODEL)
-    } catch (primaryError) {
-      console.error(
-        `[Chat API] ${PRIMARY_MODEL} failed:`,
-        primaryError instanceof OpenAI.APIError
-          ? { status: primaryError.status, message: primaryError.message, code: primaryError.code }
-          : primaryError
-      )
-      console.log(`[Chat API] Falling back to ${FALLBACK_MODEL}`)
+    let lastError: unknown = null
+    for (const model of MODELS) {
       try {
-        stream = await createChatStream(chatMessages, FALLBACK_MODEL)
-      } catch (fallbackError) {
-        console.error(
-          `[Chat API] ${FALLBACK_MODEL} also failed:`,
-          fallbackError instanceof OpenAI.APIError
-            ? { status: fallbackError.status, message: fallbackError.message, code: fallbackError.code }
-            : fallbackError
-        )
-        throw fallbackError
+        stream = await createChatStream(chatMessages, model)
+        console.log(`[Chat API] Success with model: ${model}`)
+        break
+      } catch (err) {
+        lastError = err
+        logError(`${model} failed`, err)
       }
+    }
+
+    if (!stream) {
+      const errorDetail = getErrorMessage(lastError)
+      console.error(`[Chat API] All models failed. Last error: ${errorDetail}`)
+      return Response.json(
+        {
+          error: isDev
+            ? `All models failed: ${errorDetail}`
+            : 'Chat is temporarily unavailable. Please try again later.',
+        },
+        { status: 502 }
+      )
     }
 
     const encoder = new TextEncoder()
@@ -156,13 +190,7 @@ export async function POST(request: Request) {
           }
           controller.close()
         } catch (streamError) {
-          console.error(
-            '[Chat API] Streaming error:',
-            streamError instanceof OpenAI.APIError
-              ? { status: streamError.status, message: streamError.message }
-              : streamError
-          )
-          // Send error text to client before closing
+          logError('Streaming error', streamError)
           controller.enqueue(
             encoder.encode('\n\n[Sorry, an error occurred. Please try again.]')
           )
@@ -178,18 +206,15 @@ export async function POST(request: Request) {
       },
     })
   } catch (error) {
-    const isApiError = error instanceof OpenAI.APIError
-    console.error('[Chat API] Unhandled error:', {
-      name: isApiError ? 'OpenAI.APIError' : (error as Error).name,
-      message: (error as Error).message,
-      ...(isApiError && { status: error.status, code: error.code }),
-    })
+    logError('Unhandled error', error)
 
-    const message =
+    const userMessage =
       (error as Error).message === 'OPENAI_API_KEY environment variable is not set'
         ? 'Chat is temporarily unavailable.'
-        : 'Something went wrong. Please try again.'
+        : isDev
+          ? getErrorMessage(error)
+          : 'Something went wrong. Please try again.'
 
-    return Response.json({ error: message }, { status: 500 })
+    return Response.json({ error: userMessage }, { status: 500 })
   }
 }
