@@ -8,6 +8,7 @@ import { Results } from '@/components/sections/results'
 import { Testimonials } from '@/components/sections/testimonials'
 import { About } from '@/components/sections/about'
 import { CTASection } from '@/components/sections/cta-section'
+import { StickyCTA } from '@/components/sticky-cta'
 
 const Contact = dynamic(() =>
   import('@/components/sections/contact').then((m) => m.Contact)
@@ -26,6 +27,7 @@ export default function Home() {
       <About />
       <CTASection />
       <Contact />
+      <StickyCTA />
     </main>
   )
 }
