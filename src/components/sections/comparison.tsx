@@ -41,7 +41,7 @@ const rows = [
 
 export function Comparison() {
   return (
-    <section className="px-6 py-24 md:py-32" style={{ background: '#080A12' }}>
+    <section className="px-6 py-16 md:py-20" style={{ background: '#080A12' }}>
       <div className="mx-auto max-w-5xl">
         <FadeIn>
           <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">
@@ -59,15 +59,15 @@ export function Comparison() {
         </FadeIn>
 
         {/* Desktop table */}
-        <FadeIn className="mt-12 hidden md:block">
+        <FadeIn className="mt-8 hidden md:block">
           <div className="overflow-hidden rounded-2xl border border-white/5">
             {/* Table header */}
             <div className="grid grid-cols-[1fr_1fr_1fr] border-b border-white/5 bg-white/[0.02]">
-              <div className="p-5" />
-              <div className="border-x border-white/5 p-5 text-center">
+              <div className="px-5 py-3.5" />
+              <div className="border-x border-white/5 px-5 py-3.5 text-center">
                 <p className="text-sm font-semibold text-white/30">Traditional Agency</p>
               </div>
-              <div className="p-5 text-center">
+              <div className="px-5 py-3.5 text-center">
                 <p className="bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] bg-clip-text text-sm font-semibold text-transparent">
                   Growth Arc
                 </p>
@@ -80,14 +80,14 @@ export function Comparison() {
                 key={row.feature}
                 className={`grid grid-cols-[1fr_1fr_1fr] ${i < rows.length - 1 ? 'border-b border-white/5' : ''} transition-colors duration-200 hover:bg-white/[0.02]`}
               >
-                <div className="flex items-center p-5">
+                <div className="flex items-center px-5 py-3">
                   <p className="text-sm font-medium text-white/70">{row.feature}</p>
                 </div>
-                <div className="flex items-center justify-center gap-2.5 border-x border-white/5 p-5">
+                <div className="flex items-center justify-center gap-2.5 border-x border-white/5 px-5 py-3">
                   <X className="h-4 w-4 shrink-0 text-red-400/50" />
                   <p className="text-sm text-white/30">{row.traditional}</p>
                 </div>
-                <div className="flex items-center justify-center gap-2.5 p-5">
+                <div className="flex items-center justify-center gap-2.5 px-5 py-3">
                   <Check className="h-4 w-4 shrink-0 text-[var(--ga-green)]" />
                   <p className="text-sm text-white/60">{row.growthArc}</p>
                 </div>
@@ -97,7 +97,7 @@ export function Comparison() {
         </FadeIn>
 
         {/* Mobile cards */}
-        <div className="mt-12 flex flex-col gap-4 md:hidden">
+        <div className="mt-8 flex flex-col gap-3 md:hidden">
           {rows.map((row) => (
             <FadeIn key={row.feature}>
               <div className="rounded-xl border border-white/5 bg-white/[0.02] p-5">

@@ -32,11 +32,11 @@ export function About() {
   return (
     <section
       id="about"
-      className="px-6 py-24 md:py-32"
+      className="px-6 py-16 md:py-20"
       style={{ background: '#0C0E16' }}
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-start gap-16 lg:grid-cols-2">
+        <div className="grid items-start gap-10 lg:grid-cols-2">
           {/* Story */}
           <FadeIn>
             <p className="text-sm font-semibold tracking-wider text-[var(--ga-green)] uppercase">
@@ -48,7 +48,7 @@ export function About() {
                 Growth Arc
               </span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-white/50">
+            <p className="mt-4 text-lg leading-relaxed text-white/50">
               Growth Arc was founded on a simple belief: every business deserves
               access to the AI tools and automation that drive the
               world&apos;s fastest-growing companies.
