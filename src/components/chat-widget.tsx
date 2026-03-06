@@ -8,7 +8,7 @@ type Message = { role: 'user' | 'assistant'; content: string }
 const WELCOME_MESSAGE: Message = {
   role: 'assistant',
   content:
-    "Hi! I'm the Growth Arc AI assistant, powered by GPT-5.4. Ask me anything about our services, or tell me about your business and I'll recommend the best solutions for you.",
+    "Hi! I'm Arc, your Growth Arc AI assistant. Ask me anything about our services, or tell me about your business and I'll recommend the best solutions for you.",
 }
 
 const MAX_MESSAGES = 20
@@ -62,6 +62,20 @@ export function ChatWidget() {
     }, 8000)
     return () => clearTimeout(closeTimer)
   }, [hasAutoOpened])
+
+  // Listen for [data-open-arc] clicks (e.g. FAQ "Ask Arc" link)
+  useEffect(() => {
+    function handleOpenArc(e: MouseEvent) {
+      const target = e.target as HTMLElement
+      if (target.closest('[data-open-arc]')) {
+        e.preventDefault()
+        userInteracted.current = true
+        setOpen(true)
+      }
+    }
+    document.addEventListener('click', handleOpenArc)
+    return () => document.removeEventListener('click', handleOpenArc)
+  }, [])
 
   // Pulse glow every 10 seconds when closed
   useEffect(() => {
@@ -181,7 +195,7 @@ export function ChatWidget() {
                 <MessageSquare className="h-4 w-4 text-white" />
               </div>
               <div>
-                <p className="text-sm font-semibold">Growth Arc AI</p>
+                <p className="text-sm font-semibold">Arc</p>
                 <p className="text-[11px] text-white/30">Powered by GPT-5.4</p>
               </div>
             </div>
@@ -250,7 +264,7 @@ export function ChatWidget() {
                 placeholder={
                   messageCount >= MAX_MESSAGES
                     ? 'Message limit reached'
-                    : 'Ask about our services...'
+                    : 'Ask Arc anything...'
                 }
                 disabled={isStreaming || messageCount >= MAX_MESSAGES}
                 rows={1}
@@ -292,7 +306,7 @@ export function ChatWidget() {
           <span className="absolute inset-0 animate-ping rounded-full bg-[var(--ga-blue)]/30" />
         )}
         <MessageSquare className="relative h-4 w-4" />
-        <span className="relative">Ask our AI</span>
+        <span className="relative">Ask Arc</span>
       </button>
 
       {/* Mobile close overlay */}

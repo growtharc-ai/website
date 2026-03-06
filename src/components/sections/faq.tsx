@@ -103,6 +103,20 @@ export function FAQ() {
             ))}
           </div>
         </FadeIn>
+
+        <FadeIn className="mt-8 text-center">
+          <p className="text-[15px] text-white/40">
+            Have more questions?{' '}
+            <a
+              href="#"
+              className="font-semibold text-[var(--ga-blue)] transition-colors hover:text-[var(--ga-green)]"
+              data-open-arc=""
+            >
+              Ask Arc
+            </a>
+            {' '}— our AI assistant knows everything about Growth Arc.
+          </p>
+        </FadeIn>
       </div>
     </section>
   )
