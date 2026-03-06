@@ -57,9 +57,9 @@ export function AiAcross() {
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {useCases.map((item, i) => (
             <FadeIn key={item.title} delay={i * 0.1}>
-              <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/10 hover:bg-white/[0.04]">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-green)]/10">
-                  <item.icon className="h-6 w-6 text-[var(--ga-green)]" />
+              <div className="group rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--ga-green)]/20 hover:bg-white/[0.04] hover:shadow-md hover:shadow-[var(--ga-green)]/[0.06]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-green)]/10 transition-colors duration-300 group-hover:bg-[var(--ga-green)]/15">
+                  <item.icon className="h-6 w-6 text-[var(--ga-green)] transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-white/45">
