@@ -31,7 +31,7 @@ const useCases = [
 export function AiAcross() {
   return (
     <section
-      className="relative overflow-hidden px-6 py-24 md:py-32"
+      className="relative overflow-hidden px-6 py-16 md:py-20"
       style={{ background: 'linear-gradient(180deg, #0A0D16 0%, #07080E 100%)' }}
     >
       {/* Ambient glow behind cards */}

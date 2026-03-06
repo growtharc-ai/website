@@ -36,7 +36,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="px-6 py-24 md:py-32"
+      className="px-6 py-16 md:py-20"
       style={{ background: '#050508' }}
     >
       <div className="mx-auto max-w-7xl">

@@ -26,7 +26,7 @@ const metrics = [
 
 export function Results() {
   return (
-    <section className="relative px-6 py-24 md:py-32" style={{ background: '#07080E' }}>
+    <section className="relative px-6 py-16 md:py-20" style={{ background: '#07080E' }}>
       {/* Gradient accent bar */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--ga-blue)] to-transparent opacity-40" />
       <div className="mx-auto max-w-7xl">
