@@ -80,14 +80,26 @@ export function Navigation() {
           backdrop-filter: blur(16px);
           border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .nav-dropdown { display: none; opacity: 0; transition: opacity 0.15s ease; }
-        .nav-services:hover .nav-dropdown { display: block; opacity: 1; }
+        /* Desktop mega-menu: visible + opacity for 150ms close delay */
+        .nav-mega {
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.15s ease, visibility 0s linear 0.15s;
+        }
+        .nav-services:hover .nav-mega {
+          visibility: visible;
+          opacity: 1;
+          transition: opacity 0.15s ease, visibility 0s linear 0s;
+        }
+        /* Mobile menu */
         .nav-mobile-toggle:checked ~ .nav-mobile-menu { display: flex; }
         .nav-mobile-toggle:checked ~ .nav-mobile-label .nav-icon-menu { display: none; }
         .nav-mobile-toggle:checked ~ .nav-mobile-label .nav-icon-close { display: block; }
         .nav-mobile-toggle:not(:checked) ~ .nav-mobile-label .nav-icon-close { display: none; }
-        .nav-mobile-services:checked ~ .nav-mobile-services-list { display: flex; }
-        .nav-mobile-services:checked ~ .nav-mobile-services-label .nav-chevron { transform: rotate(180deg); }
+        /* Mobile accordion — one checkbox per category */
+        .nav-cat-toggle { display: none; }
+        .nav-cat-toggle:checked + .nav-cat-label .nav-chevron { transform: rotate(180deg); }
+        .nav-cat-toggle:checked ~ .nav-cat-list { display: flex; }
       `}</style>
       <header className="nav-header fixed top-0 left-0 right-0 z-50">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -104,8 +116,8 @@ export function Navigation() {
 
           {/* Desktop */}
           <div className="hidden items-center gap-8 md:flex">
-            {/* Services dropdown */}
-            <div className="nav-services relative -mx-3 px-3 -my-2 py-2">
+            {/* Services mega-menu trigger */}
+            <div className="nav-services -mx-3 px-3 -my-2 py-2">
               <button
                 className="flex items-center gap-1 text-sm font-medium text-white/60 transition-colors hover:text-white"
               >
@@ -113,27 +125,30 @@ export function Navigation() {
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
 
-              <div className="nav-dropdown absolute top-full left-1/2 z-50 -translate-x-1/2 pt-3">
-                <div className="rounded-xl border border-white/10 bg-[#0D0F18]/95 p-4 shadow-2xl backdrop-blur-xl">
-                <div className="grid grid-cols-2 gap-x-6 gap-y-4" style={{ width: '520px' }}>
-                  {serviceCategories.map((category) => (
-                    <div key={category.label}>
-                      <p className="mb-1.5 px-3 text-[11px] font-semibold tracking-[0.15em] text-white/25 uppercase">
-                        {category.label}
-                      </p>
-                      {category.items.map((service) => (
-                        <Link
-                          key={service.href}
-                          href={service.href}
-                          className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
-                        >
-                          <service.icon className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
-                          {service.label}
-                        </Link>
-                      ))}
-                    </div>
-                  ))}
-                </div>
+              {/* Full-width mega-menu panel */}
+              <div className="nav-mega fixed inset-x-0 top-[72px] z-50">
+                <div className="border-t border-white/5 bg-[#0D0F18]/95 shadow-2xl backdrop-blur-xl">
+                  <div className="mx-auto grid max-w-7xl grid-cols-4 gap-8 px-6 py-8">
+                    {serviceCategories.map((category) => (
+                      <div key={category.label}>
+                        <p className="mb-3 text-[11px] font-semibold tracking-[0.15em] text-white/25 uppercase">
+                          {category.label}
+                        </p>
+                        <div className="flex flex-col gap-0.5">
+                          {category.items.map((service) => (
+                            <Link
+                              key={service.href}
+                              href={service.href}
+                              className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                            >
+                              <service.icon className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
+                              {service.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -172,27 +187,24 @@ export function Navigation() {
           </label>
 
           {/* Mobile menu */}
-          <div className="nav-mobile-menu fixed inset-x-0 top-[72px] hidden flex-col gap-4 border-t border-white/5 bg-[#07080E]/95 px-6 py-6 backdrop-blur-xl md:hidden">
-            {/* Services expandable — checkbox hack */}
-            <input
-              type="checkbox"
-              id="nav-services-toggle"
-              className="nav-mobile-services sr-only"
-            />
-            <label
-              htmlFor="nav-services-toggle"
-              className="nav-mobile-services-label flex cursor-pointer items-center justify-between text-base font-medium text-white/60 transition-colors hover:text-white"
-            >
-              Services
-              <ChevronDown className="nav-chevron h-4 w-4 transition-transform duration-200" />
-            </label>
-
-            <div className="nav-mobile-services-list hidden max-h-[60vh] flex-col gap-1 overflow-y-auto pl-4">
-              {serviceCategories.map((category) => (
-                <div key={category.label} className="mt-2 first:mt-0">
-                  <p className="px-3 py-1.5 text-[11px] font-semibold tracking-[0.15em] text-white/25 uppercase">
-                    {category.label}
-                  </p>
+          <div className="nav-mobile-menu fixed inset-x-0 top-[72px] hidden max-h-[calc(100dvh-72px)] flex-col gap-2 overflow-y-auto border-t border-white/5 bg-[#07080E]/95 px-6 py-6 backdrop-blur-xl md:hidden">
+            {/* Services accordion — one checkbox per category */}
+            <p className="mb-1 text-xs font-semibold tracking-wider text-white/30 uppercase">Services</p>
+            {serviceCategories.map((category, i) => (
+              <div key={category.label}>
+                <input
+                  type="checkbox"
+                  id={`nav-cat-${i}`}
+                  className="nav-cat-toggle"
+                />
+                <label
+                  htmlFor={`nav-cat-${i}`}
+                  className="nav-cat-label flex cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {category.label}
+                  <ChevronDown className="nav-chevron h-3.5 w-3.5 transition-transform duration-200" />
+                </label>
+                <div className="nav-cat-list hidden flex-col pl-3">
                   {category.items.map((service) => (
                     <label key={service.href} htmlFor="nav-toggle">
                       <Link
@@ -205,14 +217,16 @@ export function Navigation() {
                     </label>
                   ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+
+            <div className="my-2 border-t border-white/5" />
 
             {navLinks.map((link) => (
               <label key={link.href} htmlFor="nav-toggle">
                 <Link
                   href={link.href}
-                  className="block text-base font-medium text-white/60 transition-colors hover:text-white"
+                  className="block rounded-lg px-3 py-2.5 text-base font-medium text-white/60 transition-colors hover:bg-white/5 hover:text-white"
                 >
                   {link.label}
                 </Link>
