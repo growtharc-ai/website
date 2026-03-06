@@ -32,7 +32,7 @@ Be professional, friendly, concise — under 3 sentences unless detail needed. F
 const LEAD_CAPTURE_PROMPT = `The visitor has asked several questions and seems engaged. If you haven't already, naturally and briefly ask for their name and email so the team can follow up with more details. Keep it conversational — don't be pushy.`
 
 // Model cascade: try each in order until one works
-const MODELS = ['gpt-5.4', 'gpt-5.4-2026-03-05', 'gpt-4o']
+const MODELS = ['gpt-4o', 'gpt-4o-mini']
 
 // Rate limiting: 100 messages per IP per hour (5 sessions × 20 messages)
 const RATE_LIMIT = 100

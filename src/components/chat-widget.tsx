@@ -23,6 +23,8 @@ export function ChatWidget() {
   const [error, setError] = useState('')
   const [hasAutoOpened, setHasAutoOpened] = useState(false)
   const [showPulse, setShowPulse] = useState(false)
+  // Controls CSS visibility — stays true briefly after close for exit animation
+  const [mounted, setMounted] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const userInteracted = useRef(false)
@@ -38,6 +40,16 @@ export function ChatWidget() {
   useEffect(() => {
     if (open && inputRef.current) {
       inputRef.current.focus()
+    }
+  }, [open])
+
+  // Mount/unmount with animation delay
+  useEffect(() => {
+    if (open) {
+      setMounted(true)
+    } else {
+      const timer = setTimeout(() => setMounted(false), 300)
+      return () => clearTimeout(timer)
     }
   }, [open])
 
@@ -76,6 +88,29 @@ export function ChatWidget() {
     document.addEventListener('click', handleOpenArc)
     return () => document.removeEventListener('click', handleOpenArc)
   }, [])
+
+  // Escape key to close
+  useEffect(() => {
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape' && open) {
+        handleUserClose()
+      }
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [open])
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   // Pulse glow every 10 seconds when closed
   useEffect(() => {
@@ -179,117 +214,136 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Chat panel — bottom-left */}
-      <div
-        className={`fixed z-50 transition-all duration-300 ease-out ${
-          open
-            ? 'md:bottom-8 md:left-8 md:h-[500px] md:w-[400px] inset-x-0 bottom-0 h-[70vh] md:inset-x-auto md:rounded-2xl translate-y-0 opacity-100'
-            : 'pointer-events-none translate-y-4 scale-95 opacity-0 md:bottom-8 md:left-8 md:h-[500px] md:w-[400px] inset-x-0 bottom-0 h-[70vh] md:inset-x-auto'
-        }`}
-      >
-        <div className="flex h-full flex-col overflow-hidden border border-white/10 bg-[#0D0F18]/95 shadow-2xl shadow-black/40 backdrop-blur-xl md:rounded-2xl">
-          {/* Header */}
-          <div className="flex items-center justify-between border-b border-white/5 px-4 py-3">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)]">
-                <MessageSquare className="h-4 w-4 text-white" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Arc</p>
-                <p className="text-[11px] text-white/30">Powered by GPT-5.4</p>
-              </div>
-            </div>
-            <button
-              onClick={handleUserClose}
-              className="rounded-lg p-1.5 text-white/40 transition-colors hover:bg-white/5 hover:text-white"
-              aria-label="Close chat"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
+      {/* Modal overlay + panel */}
+      {mounted && (
+        <div
+          className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-300 ${
+            open ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={handleUserClose}
+          />
 
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-4 py-4">
-            <div className="flex flex-col gap-3">
-              {messages.map((msg, i) => (
-                <div
-                  key={i}
-                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-[14px] leading-relaxed ${
-                      msg.role === 'user'
-                        ? 'bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-blue)] text-white'
-                        : 'bg-white/[0.05] text-white/70'
-                    }`}
-                  >
-                    {msg.content}
-                    {/* Streaming cursor */}
-                    {isStreaming && i === messages.length - 1 && msg.role === 'assistant' && (
-                      <span className="ml-0.5 inline-block h-4 w-0.5 animate-pulse bg-white/50" />
-                    )}
+          {/* Modal */}
+          <div
+            className={`relative flex flex-col overflow-hidden transition-all duration-300 ease-out
+              w-full h-full
+              md:w-[600px] md:h-[600px] md:rounded-2xl
+              ${open ? 'scale-100 translate-y-0' : 'scale-95 translate-y-4'}
+            `}
+          >
+            {/* Gradient border glow */}
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[var(--ga-blue)]/40 via-transparent to-[var(--ga-green)]/40 hidden md:block" />
+
+            {/* Inner container */}
+            <div className="relative flex h-full flex-col overflow-hidden bg-[#0D0F18]/98 shadow-2xl shadow-black/60 backdrop-blur-xl md:rounded-[15px] md:m-px">
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-white/5 px-5 py-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)]">
+                    <MessageSquare className="h-4.5 w-4.5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-[15px] font-semibold">Arc</p>
+                    <p className="text-[11px] text-white/30">Powered by GPT-5.4</p>
                   </div>
                 </div>
-              ))}
+                <button
+                  onClick={handleUserClose}
+                  className="rounded-lg p-2 text-white/40 transition-colors hover:bg-white/5 hover:text-white"
+                  aria-label="Close chat"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
 
-              {/* Typing indicator */}
-              {isStreaming && messages[messages.length - 1]?.content === '' && (
-                <div className="flex justify-start">
-                  <div className="flex gap-1.5 rounded-2xl bg-white/[0.05] px-4 py-3">
-                    <span className="h-2 w-2 animate-[pulse_1s_ease-in-out_infinite] rounded-full bg-white/30" />
-                    <span className="h-2 w-2 animate-[pulse_1s_ease-in-out_0.2s_infinite] rounded-full bg-white/30" />
-                    <span className="h-2 w-2 animate-[pulse_1s_ease-in-out_0.4s_infinite] rounded-full bg-white/30" />
-                  </div>
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto px-5 py-5">
+                <div className="flex flex-col gap-3">
+                  {messages.map((msg, i) => (
+                    <div
+                      key={i}
+                      className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-[14px] leading-relaxed ${
+                          msg.role === 'user'
+                            ? 'bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-blue)] text-white'
+                            : 'bg-white/[0.05] text-white/70'
+                        }`}
+                      >
+                        {msg.content}
+                        {/* Streaming cursor */}
+                        {isStreaming && i === messages.length - 1 && msg.role === 'assistant' && (
+                          <span className="ml-0.5 inline-block h-4 w-0.5 animate-pulse bg-white/50" />
+                        )}
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Typing indicator */}
+                  {isStreaming && messages[messages.length - 1]?.content === '' && (
+                    <div className="flex justify-start">
+                      <div className="flex gap-1.5 rounded-2xl bg-white/[0.05] px-4 py-3">
+                        <span className="h-2 w-2 animate-[pulse_1s_ease-in-out_infinite] rounded-full bg-white/30" />
+                        <span className="h-2 w-2 animate-[pulse_1s_ease-in-out_0.2s_infinite] rounded-full bg-white/30" />
+                        <span className="h-2 w-2 animate-[pulse_1s_ease-in-out_0.4s_infinite] rounded-full bg-white/30" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Error */}
+              {error && (
+                <div className="px-5 pb-2">
+                  <p className="text-xs text-red-400">{error}</p>
                 </div>
               )}
-            </div>
-            <div ref={messagesEndRef} />
-          </div>
 
-          {/* Error */}
-          {error && (
-            <div className="px-4 pb-2">
-              <p className="text-xs text-red-400">{error}</p>
-            </div>
-          )}
-
-          {/* Input */}
-          <div className="border-t border-white/5 px-4 py-3">
-            <div className="flex items-end gap-2">
-              <textarea
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value.slice(0, MAX_CHARS))}
-                onKeyDown={handleKeyDown}
-                placeholder={
-                  messageCount >= MAX_MESSAGES
-                    ? 'Message limit reached'
-                    : 'Ask Arc anything...'
-                }
-                disabled={isStreaming || messageCount >= MAX_MESSAGES}
-                rows={1}
-                className="flex-1 resize-none rounded-xl border border-white/5 bg-white/[0.03] px-3.5 py-2.5 text-[14px] text-white placeholder-white/25 outline-none transition-colors focus:border-white/15 disabled:opacity-40"
-              />
-              <button
-                onClick={handleSend}
-                disabled={!input.trim() || isStreaming || messageCount >= MAX_MESSAGES}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] text-white transition-all hover:scale-105 disabled:opacity-30 disabled:hover:scale-100"
-                aria-label="Send message"
-              >
-                <Send className="h-4 w-4" />
-              </button>
-            </div>
-            <div className="mt-2 flex items-center justify-between">
-              <p className="text-[11px] text-white/20">
-                {input.length > 0 && `${input.length}/${MAX_CHARS}`}
-              </p>
-              <p className="text-[11px] text-white/20">
-                {messageCount}/{MAX_MESSAGES} messages
-              </p>
+              {/* Input */}
+              <div className="border-t border-white/5 px-5 py-4">
+                <div className="flex items-end gap-2">
+                  <textarea
+                    ref={inputRef}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value.slice(0, MAX_CHARS))}
+                    onKeyDown={handleKeyDown}
+                    placeholder={
+                      messageCount >= MAX_MESSAGES
+                        ? 'Message limit reached'
+                        : 'Ask Arc anything...'
+                    }
+                    disabled={isStreaming || messageCount >= MAX_MESSAGES}
+                    rows={1}
+                    className="flex-1 resize-none rounded-xl border border-white/5 bg-white/[0.03] px-4 py-3 text-[14px] text-white placeholder-white/25 outline-none transition-colors focus:border-white/15 disabled:opacity-40"
+                  />
+                  <button
+                    onClick={handleSend}
+                    disabled={!input.trim() || isStreaming || messageCount >= MAX_MESSAGES}
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] text-white transition-all hover:scale-105 disabled:opacity-30 disabled:hover:scale-100"
+                    aria-label="Send message"
+                  >
+                    <Send className="h-4 w-4" />
+                  </button>
+                </div>
+                <div className="mt-2 flex items-center justify-between">
+                  <p className="text-[11px] text-white/20">
+                    {input.length > 0 && `${input.length}/${MAX_CHARS}`}
+                  </p>
+                  <p className="text-[11px] text-white/20">
+                    {messageCount}/{MAX_MESSAGES} messages
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Floating toggle button — bottom-left */}
       <button
@@ -299,7 +353,7 @@ export function ChatWidget() {
             ? 'pointer-events-none translate-y-2 scale-90 opacity-0'
             : 'translate-y-0 scale-100 opacity-100'
         } ${hasAutoOpened && !open && !userInteracted.current ? 'animate-[bounce_0.6s_ease-in-out]' : ''}`}
-        aria-label="Open chat"
+        aria-label="Open Arc AI assistant"
       >
         {/* Pulse glow ring */}
         {showPulse && (
@@ -308,14 +362,6 @@ export function ChatWidget() {
         <MessageSquare className="relative h-4 w-4" />
         <span className="relative">Ask Arc</span>
       </button>
-
-      {/* Mobile close overlay */}
-      {open && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50 md:hidden"
-          onClick={handleUserClose}
-        />
-      )}
     </>
   )
 }
