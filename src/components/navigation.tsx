@@ -29,6 +29,14 @@ type ServiceCategory = {
 
 const serviceCategories: ServiceCategory[] = [
   {
+    label: 'AI Solutions',
+    items: [
+      { label: 'Custom AI Agents & Automation', href: '/services/ai-agents', icon: Bot },
+      { label: 'AI Chatbots & Virtual Assistants', href: '/services/ai-chatbots', icon: MessageSquare },
+      { label: 'AI Strategy & Consulting', href: '/services/ai-consulting', icon: Compass },
+    ],
+  },
+  {
     label: 'AI Marketing',
     items: [
       { label: 'AI Lead Generation', href: '/services/ai-lead-generation', icon: Radar },
@@ -37,14 +45,6 @@ const serviceCategories: ServiceCategory[] = [
       { label: 'Appointment Booking', href: '/services/appointment-booking', icon: CalendarClock },
       { label: 'Ads Management', href: '/services/ads-management', icon: MousePointerClick },
       { label: 'Analytics & Reporting', href: '/services/analytics-reporting', icon: ChartNoAxesCombined },
-    ],
-  },
-  {
-    label: 'AI Solutions',
-    items: [
-      { label: 'Custom AI Agents & Automation', href: '/services/ai-agents', icon: Bot },
-      { label: 'AI Chatbots & Virtual Assistants', href: '/services/ai-chatbots', icon: MessageSquare },
-      { label: 'AI Strategy & Consulting', href: '/services/ai-consulting', icon: Compass },
     ],
   },
   {
