@@ -33,6 +33,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['AI', 'Automation', 'Strategy', 'SMB'],
     status: 'published',
     publishedAt: '2026-03-07',
+    heroImage: '/blog/images/signs-ready-for-ai.png',
     content: `AI automation is transforming how businesses operate — but not every company is ready to make the leap. Timing matters, and implementing AI too early (or without the right foundations) can waste resources.
 
 So how do you know when your business is actually ready? Here are five signals that suggest it's time to explore AI-powered automation.
@@ -89,6 +90,7 @@ If two or more of these signs resonate, your business is primed for AI. The ques
     tags: ['CRM', 'HubSpot', 'Salesforce', 'Dynamics 365', 'Comparison'],
     status: 'published',
     publishedAt: '2026-03-07',
+    heroImage: '/blog/images/crm-comparison.png',
     content: `Choosing the right CRM is one of the most impactful decisions a growing business can make. The right platform streamlines your sales pipeline, improves customer relationships, and gives you data-driven clarity on what's working.
 
 But with HubSpot, Salesforce, and Microsoft Dynamics 365 all competing for your attention, it's not always obvious which one is the best fit. Let's break it down.
@@ -187,6 +189,7 @@ You can also **[try our AI ROI Calculator](/tools/roi-calculator)** to estimate 
     tags: ['AI', 'Lead Generation', 'Marketing', 'Sales', 'Automation'],
     status: 'published',
     publishedAt: '2026-03-07',
+    heroImage: '/blog/images/ai-lead-generation-vs-outbound.png',
     content: `Traditional outbound relies on manual effort — cold calls, mass emails, and follow-up spreadsheets. It works, but it doesn't scale. And it burns out your sales team in the process.
 
 AI-powered lead generation flips the model. Intelligent agents prospect, qualify, and nurture leads around the clock — learning from every interaction and improving over time.
