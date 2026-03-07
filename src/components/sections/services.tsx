@@ -166,15 +166,15 @@ const devServices = [
 
 function ServiceCard({ service }: { service: { icon: React.ComponentType<{ className?: string }>; title: string; description: string; href?: string } }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--ga-blue)]/25 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-[var(--ga-blue)]/[0.08]">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--ga-blue)]/25 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-[var(--ga-blue)]/[0.08]">
       {/* Shimmer sweep on hover */}
       <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-none group-hover:animate-[shimmer_0.8s_ease_forwards]" />
-      <div className="relative">
+      <div className="relative flex flex-1 flex-col">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--ga-blue)]/10">
           <service.icon className="h-6 w-6 text-[var(--ga-blue)] transition-transform duration-300 group-hover:scale-110" />
         </div>
         <h3 className="mt-5 text-xl font-semibold">{service.title}</h3>
-        <p className="mt-3 text-[15px] leading-relaxed text-white/45">
+        <p className="mt-3 flex-1 text-[15px] leading-relaxed text-white/45">
           {service.description}
         </p>
         {service.href && (
@@ -220,8 +220,8 @@ export function Services() {
           </FadeIn>
           <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {aiServices.map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={service.href} className="block">
+              <StaggerItem key={service.title} className="h-full">
+                <Link href={service.href} className="block h-full">
                   <ServiceCard service={service} />
                 </Link>
               </StaggerItem>
@@ -248,8 +248,8 @@ export function Services() {
           </FadeIn>
           <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {marketingServices.map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={service.href} className="block">
+              <StaggerItem key={service.title} className="h-full">
+                <Link href={service.href} className="block h-full">
                   <ServiceCard service={service} />
                 </Link>
               </StaggerItem>
@@ -268,8 +268,8 @@ export function Services() {
           </FadeIn>
           <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {crmServices.map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={service.href} className="block">
+              <StaggerItem key={service.title} className="h-full">
+                <Link href={service.href} className="block h-full">
                   <ServiceCard service={service} />
                 </Link>
               </StaggerItem>
@@ -288,8 +288,8 @@ export function Services() {
           </FadeIn>
           <StaggerContainer className="grid gap-6 sm:grid-cols-2">
             {devServices.map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={service.href} className="block">
+              <StaggerItem key={service.title} className="h-full">
+                <Link href={service.href} className="block h-full">
                   <ServiceCard service={service} />
                 </Link>
               </StaggerItem>
