@@ -23,7 +23,7 @@ import {
   BarChart3,
 } from 'lucide-react'
 
-import { Calculator, ClipboardCheck, Search } from 'lucide-react'
+import { Calculator, ClipboardCheck, Search, MessageCircle } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 type ServiceCategory = {
@@ -209,6 +209,14 @@ export function Navigation() {
                         </Link>
                       )
                     ))}
+                    <a
+                      href="#"
+                      data-open-arc=""
+                      className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
+                      Ask Arc
+                    </a>
                   </div>
                 </div>
               </div>
@@ -302,6 +310,16 @@ export function Navigation() {
                 </label>
               )
             )}
+            <label htmlFor="nav-toggle">
+              <a
+                href="#"
+                data-open-arc=""
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/50 transition-colors hover:bg-white/5 hover:text-white"
+              >
+                <MessageCircle className="h-4 w-4 shrink-0 text-[var(--ga-blue)]" />
+                Ask Arc
+              </a>
+            </label>
 
             <div className="my-2 border-t border-white/5" />
 
