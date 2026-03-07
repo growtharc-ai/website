@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Clock } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 import { StaggerContainer, StaggerItem } from '@/components/motion/stagger-children'
+import { getPublishedPosts } from '@/data/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Blog — Growth Arc',
@@ -27,40 +28,9 @@ export const metadata: Metadata = {
   },
 }
 
-const posts = [
-  {
-    category: 'AI Strategy',
-    categoryColor: 'text-[var(--ga-blue)]',
-    categoryBg: 'bg-[var(--ga-blue)]/10',
-    title: '5 Signs Your Business Is Ready for AI Automation',
-    excerpt:
-      "Not every business needs AI today. But these five signals mean you're leaving money on the table without it.",
-    readTime: '4 min read',
-    href: '/blog/signs-ready-for-ai',
-  },
-  {
-    category: 'CRM',
-    categoryColor: 'text-[var(--ga-green)]',
-    categoryBg: 'bg-[var(--ga-green)]/10',
-    title: 'HubSpot vs Salesforce vs Dynamics 365: Which CRM Fits Your Business?',
-    excerpt:
-      'We break down the three biggest CRM platforms by cost, complexity, and best fit.',
-    readTime: '6 min read',
-    href: '/blog/crm-comparison',
-  },
-  {
-    category: 'Marketing',
-    categoryColor: 'text-[var(--ga-green)]',
-    categoryBg: 'bg-[var(--ga-green)]/10',
-    title: 'Why AI Lead Generation Beats Traditional Outbound',
-    excerpt:
-      "AI agents don't sleep, don't forget to follow up, and learn from every interaction. Here's why that matters.",
-    readTime: '5 min read',
-    href: '/blog/ai-lead-generation-vs-outbound',
-  },
-]
-
 export default function Blog() {
+  const posts = getPublishedPosts()
+
   return (
     <main>
       {/* Hero */}
@@ -91,8 +61,8 @@ export default function Blog() {
         <div className="mx-auto max-w-7xl">
           <StaggerContainer className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
-              <StaggerItem key={post.href}>
-                <Link href={post.href} className="group block h-full">
+              <StaggerItem key={post.slug}>
+                <Link href={`/blog/${post.slug}`} className="group block h-full">
                   <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-white/10 hover:bg-white/[0.04]">
                     {/* Placeholder image */}
                     <div className="relative h-52 overflow-hidden">
@@ -116,7 +86,7 @@ export default function Blog() {
                       <h2 className="mt-4 text-xl font-semibold leading-snug transition-colors group-hover:text-white">
                         {post.title}
                       </h2>
-                      <p className="mt-3 line-clamp-2 text-[15px] leading-relaxed text-white/40">
+                      <p className="mt-3 flex-1 line-clamp-2 text-[15px] leading-relaxed text-white/40">
                         {post.excerpt}
                       </p>
                       <p className="mt-auto flex items-center gap-1.5 pt-5 text-sm font-medium text-[var(--ga-blue)] transition-all duration-300 group-hover:translate-x-1">
@@ -137,19 +107,27 @@ export default function Blog() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <h2 className="text-2xl font-bold md:text-3xl">
-              More articles on the way
+              Want personalised advice?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/50">
-              We&apos;re publishing new insights regularly. In the meantime, book a free
-              strategy call to discuss how AI can help your business.
+              Take our free AI Readiness Assessment or book a strategy call to discuss
+              how AI can help your business grow.
             </p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-105"
-            >
-              Book a Free Call
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Link
+                href="/tools/ai-readiness"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--ga-blue)] to-[var(--ga-green)] px-8 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-105"
+              >
+                AI Readiness Assessment
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-8 py-3.5 text-sm font-semibold text-white/70 transition-all hover:border-white/25 hover:text-white"
+              >
+                Book a Free Call
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
