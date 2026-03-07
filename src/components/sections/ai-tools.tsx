@@ -38,7 +38,7 @@ const tools = [
       "Enter your URL and get an instant AI-powered audit of your website's SEO, performance, and AI-readiness.",
     button: 'Audit My Site',
     href: '/tools/website-audit',
-    live: false,
+    live: true,
   },
   {
     icon: MessageCircle,
