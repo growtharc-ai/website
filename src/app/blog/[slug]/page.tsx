@@ -347,7 +347,7 @@ export default async function BlogPostPage({
       {/* Hero image */}
       <div className="relative mx-auto max-w-4xl px-6" style={{ marginTop: '-2rem' }}>
         <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/5">
-          <BlogHeroImage slug={post.slug} />
+          <BlogHeroImage slug={post.slug} animated />
         </div>
       </div>
 
