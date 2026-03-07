@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Custom CRM Development — Growth Arc',
+  title: 'Custom CRM Development — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'A CRM built from the ground up around your sales process. Custom pipelines, tailored workflows, and deep integrations — no compromises, no workarounds.',
   openGraph: {
-    title: 'Custom CRM Development — Growth Arc',
+    title: 'Custom CRM Development — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'A CRM built from the ground up around your sales process. Custom pipelines, tailored workflows, and deep integrations.',
-    url: 'https://growtharc.ai/services/crm-custom',
+    url: 'https://www.growtharc.ai/services/crm-custom',
     siteName: 'Growth Arc',
     images: [
       {

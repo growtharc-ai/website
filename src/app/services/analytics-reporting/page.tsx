@@ -19,14 +19,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Analytics & Reporting — Growth Arc',
+  title: 'Analytics & Reporting — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Real-time dashboards with clear attribution and ROI tracking. Growth Arc gives you the data clarity to make confident marketing decisions.',
   openGraph: {
-    title: 'Analytics & Reporting — Growth Arc',
+    title: 'Analytics & Reporting — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Real-time dashboards with clear attribution and ROI tracking so you always know what\'s working.',
-    url: 'https://growtharc.ai/services/analytics-reporting',
+    url: 'https://www.growtharc.ai/services/analytics-reporting',
     siteName: 'Growth Arc',
     images: [
       {

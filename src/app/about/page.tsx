@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: 'About — Growth Arc',
     description:
       'AI solutions company helping businesses grow with intelligent automation, CRM, and data-driven strategy.',
-    url: 'https://growtharc.ai/about',
+    url: 'https://www.growtharc.ai/about',
     siteName: 'Growth Arc',
     images: [
       {

@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Website & App Development — Growth Arc',
+  title: 'Website & App Development — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Custom websites, web apps, and mobile applications built with modern frameworks and AI-enhanced workflows. From landing pages to full-stack platforms — designed to convert, built to scale.',
   openGraph: {
-    title: 'Website & App Development — Growth Arc',
+    title: 'Website & App Development — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Custom websites, web apps, and mobile applications built with modern frameworks and AI-enhanced workflows. Designed to convert, built to scale.',
-    url: 'https://growtharc.ai/services/web-development',
+    url: 'https://www.growtharc.ai/services/web-development',
     siteName: 'Growth Arc',
     images: [
       {

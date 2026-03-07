@@ -19,14 +19,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'AI Virtual Assistants — Growth Arc',
+  title: 'AI Virtual Assistants — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Smart digital assistants for your team — managing schedules, drafting communications, summarising documents, answering internal questions, and streamlining daily workflows.',
   openGraph: {
-    title: 'AI Virtual Assistants — Growth Arc',
+    title: 'AI Virtual Assistants — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Smart digital assistants that manage schedules, draft communications, summarise documents, and streamline daily workflows for your team.',
-    url: 'https://growtharc.ai/services/ai-virtual-assistants',
+    url: 'https://www.growtharc.ai/services/ai-virtual-assistants',
     siteName: 'Growth Arc',
     images: [
       {

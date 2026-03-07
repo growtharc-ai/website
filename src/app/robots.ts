@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://growtharc.ai/sitemap.xml',
+    sitemap: 'https://www.growtharc.ai/sitemap.xml',
   }
 }

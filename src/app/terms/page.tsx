@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Terms of Service — Growth Arc',
     description:
       'Terms governing your use of growtharc.ai and our services.',
-    url: 'https://growtharc.ai/terms',
+    url: 'https://www.growtharc.ai/terms',
     siteName: 'Growth Arc',
   },
 }

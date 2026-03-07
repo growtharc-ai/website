@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Contact — Growth Arc',
     description:
       'Get in touch with Growth Arc. Tell us about your goals and we\'ll reply within 4 hours.',
-    url: 'https://growtharc.ai/contact',
+    url: 'https://www.growtharc.ai/contact',
     siteName: 'Growth Arc',
     images: [
       {

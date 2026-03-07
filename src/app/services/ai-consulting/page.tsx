@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'AI Strategy & Consulting — Growth Arc',
+  title: 'AI Strategy & Consulting — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Not sure where AI fits in your business? We audit your operations, identify high-impact opportunities, and build a clear roadmap to get you there — with ROI modelling and change management built in.',
   openGraph: {
-    title: 'AI Strategy & Consulting — Growth Arc',
+    title: 'AI Strategy & Consulting — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'We audit your operations, identify high-impact AI opportunities, and build a clear roadmap to get you there.',
-    url: 'https://growtharc.ai/services/ai-consulting',
+    url: 'https://www.growtharc.ai/services/ai-consulting',
     siteName: 'Growth Arc',
     images: [
       {

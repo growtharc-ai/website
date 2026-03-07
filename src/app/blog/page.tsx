@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Blog — Growth Arc',
     description:
       'Insights on AI automation, CRM strategy, and smarter marketing. Practical advice from the Growth Arc team.',
-    url: 'https://growtharc.ai/blog',
+    url: 'https://www.growtharc.ai/blog',
     siteName: 'Growth Arc',
     images: [
       {

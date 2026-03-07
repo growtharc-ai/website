@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'AI Chatbots — Growth Arc',
+  title: 'AI Chatbots — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Intelligent conversational AI for your website, apps, and messaging platforms. Handle customer enquiries, qualify leads, and book appointments — instantly, around the clock.',
   openGraph: {
-    title: 'AI Chatbots — Growth Arc',
+    title: 'AI Chatbots — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Intelligent conversational AI for your website and messaging platforms. Handle enquiries, qualify leads, and book appointments around the clock.',
-    url: 'https://growtharc.ai/services/ai-chatbots',
+    url: 'https://www.growtharc.ai/services/ai-chatbots',
     siteName: 'Growth Arc',
     images: [
       {
