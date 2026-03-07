@@ -95,110 +95,77 @@ The logo is "Growth Arc" — two words, capital G and A, with a tapered arc + up
 
 ## Site Structure
 
-## Messaging & Positioning (REVISED — March 2026)
+## Messaging & Positioning (Updated March 8, 2026)
 
-The website is being repositioned from a marketing-only agency to a broader
-AI solutions company. Marketing remains the lead vertical, but the site now
-signals the broader AI capability.
+Growth Arc is positioned as an AI solutions company. AI Solutions leads the site, followed by Marketing, CRM, and Development.
 
-**Full messaging brief:** See `/docs/messaging-brief.md` for all revised copy,
-new sections, and implementation priorities.
+**Full messaging brief:** See `/docs/messaging-brief.md` for all copy, services, tools, and implementation details.
 
-### Key Changes Summary
+### Service Architecture (20 services, 4 tiers)
 
-- **Hero**: "AI That Grows Your Business" (replaces "AI-Powered Marketing That Scales")
-- **Services**: Expanded from 6 marketing services to 15 across four tiers:
-  Tier 1 AI Marketing (6), Tier 2 AI Solutions (3 — merged BPA into AI Agents,
-  added Chatbots), Tier 3 CRM Solutions (4), Tier 4 Development & Data (2)
-- **How It Works**: Discover → Design → Build → Scale (replaces Audit → Strategy → Build → Scale)
-- **New Section**: "AI Across Your Business" — use cases for operations, customer
-  service, finance, HR
-- **About**: Repositioned as "AI solutions company" not "marketing agency"
-- **CTA**: "AI-powered growth engine" (replaces "marketing engine")
-- **Contact Form**: 4 new service options in dropdown
-- **Meta/SEO**: Updated title and description
+#### Tier 1: AI Solutions (LEADS THE SITE)
+1. AI Agents → /services/ai-agents
+2. AI Chatbots → /services/ai-chatbots
+3. AI Virtual Assistants → /services/ai-virtual-assistants
+4. AI Customer Service & Support → /services/ai-customer-service
+5. AI Content Creation & Management → /services/ai-content
+6. AI Strategy & Consulting → /services/ai-consulting
 
-### Service Categories
+#### Tier 2: AI Marketing
+7. AI Lead Generation → /services/ai-lead-generation
+8. Traffic & SEO → /services/traffic-seo
+9. Sales Automation → /services/sales-automation
+10. Smart Appointment Booking → /services/appointment-booking
+11. Ads Management → /services/ads-management
+12. Analytics & Reporting → /services/analytics-reporting
 
-#### AI Marketing (Tier 1)
-1. AI Lead Generation
-2. Traffic & SEO
-3. Sales Automation
-4. Smart Appointment Booking
-5. Ads Management
-6. Analytics & Reporting
+#### Tier 3: CRM Solutions
+13. Custom CRM Development → /services/crm-custom
+14. HubSpot Implementation → /services/crm-hubspot
+15. Salesforce Implementation → /services/crm-salesforce
+16. Microsoft Dynamics 365 → /services/crm-dynamics
 
-#### AI Solutions (Tier 2 — NEW)
-7. Custom AI Agents & Automation (merged with Business Process Automation)
-8. AI Chatbots & Virtual Assistants
-9. AI Strategy & Consulting
+#### Tier 4: Development & Data
+17. Website & App Development → /services/web-development
+18. Data & Analytics / BI Dashboards → /services/data-analytics
 
-#### CRM Solutions (Tier 3 — NEW)
-10. Custom CRM Development
-11. HubSpot Implementation
-12. Salesforce Implementation
-13. Microsoft Dynamics 365
+### AI Tools (4 tools)
+19. AI ROI Calculator → /tools/roi-calculator
+20. AI Readiness Assessment → /tools/ai-readiness
+21. AI Website Audit → /tools/website-audit (uses Google PageSpeed API)
+22. AI Assistant — Arc → chatbot modal (GPT-5.4)
 
-#### Development & Data (Tier 4 — NEW)
-14. Website & App Development
-15. Data & Analytics / BI Dashboards
+### Blog System
+- Admin dashboard at /admin/blog (password protected)
+- AI article generation via GPT-5.4
+- Weekly auto-generation cron Monday 9am NZST
+- 3 published articles in /blog/
 
-### Stat Pills (Hero)
-- AI-First → Strategy & Execution
-- End-to-End → Marketing to Operations (was "Full-Funnel → Lead to Close")
-- Always-On → 24/7 Automation
+### Arc Chatbot
+- Name: Arc
+- Model: GPT-5.4
+- Centre-screen modal, opens from bottom-left "Ask Arc" button
+- System prompt includes all services, process, and contact info
+- Lead capture after 3 messages
 
-### Implementation Priority
-1. Hero headline + sub-headline (low effort)
-2. Add 3 new AI Solutions service cards (medium effort)
-3. Update "How It Works" copy (low effort)
-4. Add "AI Across Your Business" section (medium effort)
-5. Revise About section copy (low effort)
-6. Update CTA copy (low effort)
-7. Update contact form dropdown (low effort)
-8. Update meta/SEO tags (low effort)
-9. Services section header update (low effort)
+### Navigation Structure
+- Services: Mega-menu with 4 tier columns
+- Tools: Dropdown with 4 tools
+- How It Works, About, Contact
+- Sticky "Book a Free Call" bottom-right
+- "Ask Arc" bottom-left
 
-### What NOT to Change
-- Brand identity (logo, colors, typography)
-- Single-page layout structure
-- 4-step process flow structure
-- Footer / navigation
-- Overall tone (professional, data-driven, results-focused)
+### Key Copy
+- Hero: "AI That Grows Your Business"
+- About: "We're not a traditional agency. We're an AI solutions company"
+- CTA: "AI-powered growth engine"
+- Footer: "AI-powered solutions that scale"
+- Process: Discover → Design → Build → Scale
 
-### Pages (Phase 1 — Launch)
-```
-/                   — Homepage (single page, multiple sections)
-/services           — Detailed services page (future)
-/about              — About page (future)
-/contact            — Contact page (future)
-/blog               — Blog index (future)
-```
-
-### Homepage Sections (in order)
-1. **Navigation** — Sticky, glassmorphism on scroll, logo left, links right, CTA button
-2. **Hero** — Full viewport, dark gradient bg, glow logo, bold headline, sub-headline, dual CTA buttons, animated stats
-3. **Trusted By / Social Proof** — Logo ticker strip (if clients exist) or "What We Do" intro
-4. **Services** — 6 service cards in a grid: AI Lead Generation, Traffic & SEO, Sales Automation, Appointment Booking, Ads Management, Analytics & Reporting
-5. **How It Works** — 3-4 step process: Audit → Strategy → Build → Scale
-6. **Results** — Animated counter metrics or case study highlights
-7. **About / Why Growth Arc** — Brief company story, differentiators, AI-first approach
-8. **CTA Section** — High-impact conversion banner with gradient background
-9. **Contact / Lead Capture** — Form with name, email, company, service interest, message
-10. **Footer** — Logo, nav links, social links, legal, copyright
-
-### Navigation Links
-- Services
-- How It Works
-- About
-- Contact (CTA button style)
-
-### Social Links
-- Instagram: @growtharc.ai
-- X: @growtharc_ai
-- LinkedIn: /company/growtharc
-- YouTube: @GrowthArc-Ai
-- GitHub: growtharc-ai
+### Environment Variables Required
+- OPENAI_API_KEY (GPT-5.4 for chatbot, tools, blog)
+- GOOGLE_PAGESPEED_API_KEY (website audit tool)
+- ADMIN_PASSWORD (blog admin dashboard)
 
 ## Services to Feature
 1. **AI Lead Generation** — Intelligent prospecting, automated outreach, lead scoring
