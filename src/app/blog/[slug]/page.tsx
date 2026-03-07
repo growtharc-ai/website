@@ -32,7 +32,7 @@ export async function generateMetadata({
       siteName: 'Growth Arc',
       images: [
         {
-          url: '/og-image-1200x630.png',
+          url: post.heroImage || '/og-image-1200x630.png',
           width: 1200,
           height: 630,
           alt: post.title,
@@ -347,7 +347,7 @@ export default async function BlogPostPage({
       {/* Hero image */}
       <div className="relative mx-auto max-w-4xl px-6" style={{ marginTop: '-2rem' }}>
         <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/5">
-          <BlogHeroImage slug={post.slug} animated />
+          <BlogHeroImage slug={post.slug} animated heroImage={post.heroImage} />
         </div>
       </div>
 
@@ -379,7 +379,7 @@ export default async function BlogPostPage({
                   <Link href={`/blog/${rp.slug}`} className="group block h-full">
                     <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-white/10 hover:bg-white/[0.04]">
                       <div className="relative aspect-video overflow-hidden">
-                        <BlogHeroImage slug={rp.slug} />
+                        <BlogHeroImage slug={rp.slug} heroImage={rp.heroImage} />
                       </div>
                       <div className="flex flex-1 flex-col p-6">
                         <div className="flex items-center gap-3">

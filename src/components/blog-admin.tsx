@@ -13,6 +13,8 @@ import {
   Send,
   ArrowLeft,
   Loader2,
+  ImageIcon,
+  RefreshCw,
 } from 'lucide-react'
 
 type BlogPost = {
@@ -30,6 +32,7 @@ type BlogPost = {
   content: string
   status: 'published' | 'draft'
   publishedAt?: string
+  heroImage?: string
 }
 
 type Suggestion = {
@@ -59,6 +62,7 @@ export function BlogAdmin() {
   const [loadingSuggestions, setLoadingSuggestions] = useState(false)
   const [generateTopic, setGenerateTopic] = useState('')
   const [generateInstructions, setGenerateInstructions] = useState('')
+  const [generatingImage, setGeneratingImage] = useState(false)
   const [message, setMessage] = useState('')
 
   // Check auth on mount
@@ -179,6 +183,45 @@ export function BlogAdmin() {
       await loadPosts()
       setMessage('Deleted')
     }
+  }
+
+  async function generateImage(slug?: string, title?: string, category?: string) {
+    const s = slug || editingPost?.slug
+    const t = title || editingPost?.title
+    const c = category || editingPost?.category
+    if (!s || !t) return
+
+    if (!confirm('Generate hero image? (~$0.04 per image)')) return
+
+    setGeneratingImage(true)
+    setMessage('')
+
+    const res = await fetch('/api/admin/generate-image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: s, title: t, category: c }),
+    })
+
+    if (res.ok) {
+      const { heroImage } = await res.json()
+      if (editingPost) {
+        setEditingPost({ ...editingPost, heroImage })
+      }
+      // If called from list view (not editing), save heroImage to post directly
+      if (!editingPost || editingPost.slug !== s) {
+        await fetch('/api/admin/posts', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ slug: s, heroImage }),
+        })
+        await loadPosts()
+      }
+      setMessage('Image generated!')
+    } else {
+      const err = await res.json()
+      setMessage(`Image error: ${err.error}`)
+    }
+    setGeneratingImage(false)
   }
 
   async function generateArticle() {
@@ -421,6 +464,45 @@ export function BlogAdmin() {
               />
             </div>
 
+            {/* Hero Image */}
+            <div>
+              <label className="text-xs font-semibold text-white/30 uppercase">Hero Image</label>
+              {editingPost.heroImage ? (
+                <div className="mt-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={editingPost.heroImage}
+                    alt="Hero preview"
+                    className="w-full rounded-lg border border-white/10"
+                  />
+                  <div className="mt-2 flex gap-2">
+                    <button
+                      onClick={() => generateImage()}
+                      disabled={generatingImage}
+                      className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-1.5 text-xs text-white/40 hover:text-white disabled:opacity-50"
+                    >
+                      {generatingImage ? <Loader2 className="h-3 w-3 animate-spin" /> : <RefreshCw className="h-3 w-3" />}
+                      Regenerate (~$0.04)
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-2">
+                  <button
+                    onClick={() => generateImage()}
+                    disabled={generatingImage || !editingPost.slug || !editingPost.title}
+                    className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white/50 hover:border-white/20 hover:text-white disabled:opacity-50"
+                  >
+                    {generatingImage ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageIcon className="h-4 w-4" />}
+                    {generatingImage ? 'Generating image...' : 'Generate Hero Image (~$0.04)'}
+                  </button>
+                  {(!editingPost.slug || !editingPost.title) && (
+                    <p className="mt-1 text-xs text-white/20">Add a title first</p>
+                  )}
+                </div>
+              )}
+            </div>
+
             {/* Content */}
             <div>
               <label className="text-xs font-semibold text-white/30 uppercase">
@@ -577,19 +659,30 @@ export function BlogAdmin() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-lg border border-white/10 p-2 text-white/30 hover:text-white"
+                    title="View"
                   >
                     <Eye className="h-4 w-4" />
                   </a>
                 )}
                 <button
+                  onClick={() => generateImage(post.slug, post.title, post.category)}
+                  disabled={generatingImage}
+                  className={`rounded-lg border border-white/10 p-2 transition-colors ${post.heroImage ? 'text-[var(--ga-green)]/50 hover:text-[var(--ga-green)]' : 'text-white/30 hover:text-white'} disabled:opacity-50`}
+                  title={post.heroImage ? 'Regenerate image' : 'Generate image'}
+                >
+                  {generatingImage ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageIcon className="h-4 w-4" />}
+                </button>
+                <button
                   onClick={() => editPost(post)}
                   className="rounded-lg border border-white/10 p-2 text-white/30 hover:text-white"
+                  title="Edit"
                 >
                   <Pencil className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => deletePost(post.slug)}
                   className="rounded-lg border border-white/10 p-2 text-white/30 hover:text-red-400"
+                  title="Delete"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
