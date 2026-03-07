@@ -3,6 +3,7 @@ import { ArrowRight, Clock } from 'lucide-react'
 import { FadeIn } from '@/components/motion/fade-in'
 import { StaggerContainer, StaggerItem } from '@/components/motion/stagger-children'
 import { getPublishedPosts } from '@/data/blog-posts'
+import { BlogHeroImage } from '@/components/blog-hero-image'
 
 export function Insights() {
   const posts = getPublishedPosts().slice(0, 3)
@@ -30,10 +31,9 @@ export function Insights() {
             <StaggerItem key={post.slug}>
               <Link href={`/blog/${post.slug}`} className="group block h-full">
                 <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-white/10 hover:bg-white/[0.04]">
-                  {/* Placeholder image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--ga-blue)]/20 to-[var(--ga-green)]/10" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(0,119,238,0.15),transparent_60%)]" />
+                  {/* Hero image */}
+                  <div className="relative aspect-video overflow-hidden">
+                    <BlogHeroImage slug={post.slug} />
                   </div>
 
                   {/* Content */}

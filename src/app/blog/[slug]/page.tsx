@@ -6,6 +6,7 @@ import { FadeIn } from '@/components/motion/fade-in'
 import { StaggerContainer, StaggerItem } from '@/components/motion/stagger-children'
 import { getPostBySlug, getRelatedPosts, getPublishedPosts } from '@/data/blog-posts'
 import { ShareButtons } from '@/components/share-buttons'
+import { BlogHeroImage } from '@/components/blog-hero-image'
 
 export async function generateStaticParams() {
   const posts = getPublishedPosts()
@@ -343,6 +344,13 @@ export default async function BlogPostPage({
         </div>
       </section>
 
+      {/* Hero image */}
+      <div className="relative mx-auto max-w-4xl px-6" style={{ marginTop: '-2rem' }}>
+        <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/5">
+          <BlogHeroImage slug={post.slug} />
+        </div>
+      </div>
+
       {/* Article body */}
       <section className="px-6 py-16 md:py-20" style={{ background: '#07080E' }}>
         <div className="mx-auto max-w-3xl">
@@ -370,9 +378,8 @@ export default async function BlogPostPage({
                 <StaggerItem key={rp.slug}>
                   <Link href={`/blog/${rp.slug}`} className="group block h-full">
                     <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-white/10 hover:bg-white/[0.04]">
-                      <div className="relative h-48 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--ga-blue)]/20 to-[var(--ga-green)]/10" />
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(0,119,238,0.15),transparent_60%)]" />
+                      <div className="relative aspect-video overflow-hidden">
+                        <BlogHeroImage slug={rp.slug} />
                       </div>
                       <div className="flex flex-1 flex-col p-6">
                         <div className="flex items-center gap-3">
