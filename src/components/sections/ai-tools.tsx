@@ -29,7 +29,7 @@ const tools = [
       'Find out how ready your business is for AI. Take a quick quiz and get tailored recommendations.',
     button: 'Take the Quiz',
     href: '/tools/ai-readiness',
-    live: false,
+    live: true,
   },
   {
     icon: Search,
