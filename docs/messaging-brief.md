@@ -1,347 +1,218 @@
-# Growth Arc — Revised Website Messaging Brief
-## Repositioning: From Marketing Agency → AI Solutions Company
+# Growth Arc — Website Messaging Brief (Updated March 8, 2026)
+## Positioning: AI Solutions Company
 
 ---
 
-## 1. Strategic Shift Summary
+## 1. Company Overview
 
-**Current positioning:** AI-powered marketing agency (six marketing services)
-**New positioning:** AI solutions company that helps businesses grow through intelligent automation — with marketing as the flagship vertical
-
-**Why:** The current site undersells the vision. Growth Arc's ambition includes building AI agents (OpenClaw), custom business automation, and AI-powered operational tools. The name "Growth Arc" naturally supports this broader scope — growth isn't limited to marketing.
-
-**Approach:** Option A/C hybrid — lead with marketing (it's tangible and ready to sell), but reframe the entire site to signal the broader AI capability. Add a dedicated "AI Solutions" section for the agent-building and automation offering.
-
----
-
-## 2. Revised Hero Section
-
-### Current
-> **AI-Powered Marketing That Scales**
-> We help businesses grow faster with intelligent lead generation, sales automation, and data-driven marketing strategy.
-
-### Proposed
-> **AI That Grows Your Business**
-> We build intelligent systems that automate your marketing, streamline your operations, and unlock growth — so you can focus on what matters.
-
-**Alt headlines:**
-- "Intelligent Automation for Growing Businesses"
-- "Your Business, Supercharged by AI"
-- "AI Solutions That Scale With You"
-
-**Alt sub-headlines:**
-- "From marketing automation to custom AI agents — we help businesses work smarter, grow faster, and scale without limits."
-- "Marketing. Operations. Automation. One AI-powered partner for every stage of growth."
-
-### Hero Stat Pills (revised)
-- **AI-First** → Strategy & Execution *(keep)*
-- **Full-Funnel** → Lead to Close → change to: **End-to-End** → Marketing to Operations
-- **Always-On** → 24/7 Automation *(keep)*
+**Company:** NextGen AI Marketing Limited, trading as Growth Arc
+**Brand:** GrowthArc (growtharc.ai)
+**Positioning:** AI solutions company that helps businesses grow through intelligent automation — with AI solutions as the lead vertical, supported by marketing, CRM, and development services
+**Location:** New Zealand, serving clients globally
+**Trademark:** GROWTHARC — filed with IPONZ (SPA 23097), response to preliminary advice prepared
 
 ---
 
-## 3. Revised Services Section
+## 2. Hero Section
 
-### Current header
-> **Everything You Need to Grow** — Six core services, one integrated strategy.
+**Headline:** AI That Grows Your Business
+**Sub-headline:** We build intelligent systems that automate your marketing, streamline your operations, and unlock growth — so you can focus on what matters.
 
-### Proposed header
-> **Everything You Need to Grow** — AI-powered solutions across marketing, operations, and automation. One integrated partner.
+**Stat Pills:**
+- AI-First → Strategy & Execution
+- End-to-End → Marketing to Operations
+- Always-On → 24/7 Automation
 
-### Service Categories (Two-Tier Structure)
+---
 
-#### Tier 1: AI Marketing (existing, refined)
-These stay largely the same but with tighter, less generic copy.
+## 3. Services (20 services across 4 tiers)
 
-1. **AI Lead Generation**
-   - *Current:* "Intelligent prospecting and automated outreach with AI-powered lead scoring to fill your pipeline with qualified opportunities."
-   - *Revised:* "AI agents that research, qualify, and engage prospects around the clock — filling your pipeline while you sleep."
+### Tier 1: AI Solutions (6 services) — LEADS THE SITE
 
-2. **Traffic & SEO**
-   - *Current:* "Data-driven content strategy and technical SEO that drives sustainable organic growth at scale."
-   - *Revised:* "AI-driven content strategy and technical SEO that compounds organic traffic month after month."
+1. **AI Agents**
+   - "Autonomous AI agents that execute business processes, automate workflows, and handle repetitive tasks independently — purpose-built for your business, running 24/7."
+   - Link: /services/ai-agents
 
-3. **Sales Automation**
-   - *Current:* "CRM setup, pipeline automation, and smart follow-up sequences that convert leads while you sleep."
-   - *Revised:* "End-to-end pipeline automation — from first touch to closed deal — with AI handling the follow-ups."
+2. **AI Chatbots**
+   - "Intelligent conversational AI for your website, apps, and messaging platforms. Handle customer enquiries, qualify leads, and book appointments — instantly, around the clock."
+   - Link: /services/ai-chatbots
 
-4. **Smart Appointment Booking**
-   - *Revised:* "AI-powered scheduling that qualifies leads, books meetings, and sends reminders — no manual coordination."
+3. **AI Virtual Assistants**
+   - "Smart digital assistants for your team — managing schedules, drafting communications, summarising documents, answering internal questions, and streamlining daily workflows."
+   - Link: /services/ai-virtual-assistants
 
-5. **Ads Management**
-   - *Revised:* "Google, Meta, and LinkedIn campaigns managed by AI — optimising bids, budgets, and creative in real time."
+4. **AI Customer Service & Support**
+   - "Transform your support operations with AI that handles tickets, routes enquiries, analyses customer sentiment, and resolves issues instantly — 24/7. Escalate to humans only when it matters."
+   - Link: /services/ai-customer-service
 
-6. **Analytics & Reporting**
-   - *Revised:* "Live dashboards with clear attribution and ROI tracking. Always know what's working and where to invest."
+5. **AI Content Creation & Management**
+   - "AI-powered content at scale — blog posts, social media, email campaigns, product descriptions, and brand-consistent copy. Created faster, published smarter, optimised continuously."
+   - Link: /services/ai-content
 
-#### Tier 2: AI Solutions (NEW)
-New section, positioned after or alongside marketing services.
-
-7. **Custom AI Agents & Automation**
-   - "Purpose-built AI agents that handle repetitive tasks, answer customer queries, automate workflows, and execute business processes autonomously — from data entry to document processing, invoicing to onboarding. Tailored to your business, running 24/7."
-   - *Icon suggestion:* Robot/agent icon
-   - *Note: This combines the original AI Agents and Business Process Automation into one powerful offering*
-
-8. **AI Chatbots & Virtual Assistants**
-   - "Intelligent conversational AI for your website, app, or internal tools. Handle customer enquiries, qualify leads, book appointments, and provide instant support — without adding headcount."
-   - *Icon suggestion:* Chat bubble / conversation icon
-   - *Key capabilities:*
-     - Website live chat with AI-powered responses
-     - WhatsApp, Messenger, and SMS chatbots
-     - Internal knowledge base assistants for teams
-     - Multilingual support
-     - Escalation to human agents when needed
-
-9. **AI Strategy & Consulting**
+6. **AI Strategy & Consulting**
    - "Not sure where AI fits in your business? We audit your operations, identify high-impact opportunities, and build a roadmap to get you there."
-   - *Icon suggestion:* Compass/map icon
+   - Link: /services/ai-consulting
 
-#### Tier 3: CRM Solutions (NEW)
-Your sales engine deserves its own category. We don't just set up CRMs — we build, customise, and AI-enhance them.
+### Tier 2: AI Marketing (6 services)
 
-10. **Custom CRM Development**
-    - "A CRM built from the ground up around your sales process — no compromises, no workarounds. Designed to fit the way your team actually works."
-    - *Icon suggestion:* Code/database icon
+7. **AI Lead Generation** → /services/ai-lead-generation
+8. **Traffic & SEO** → /services/traffic-seo
+9. **Sales Automation** → /services/sales-automation
+10. **Smart Appointment Booking** → /services/appointment-booking
+11. **Ads Management** → /services/ads-management
+12. **Analytics & Reporting** → /services/analytics-reporting
 
-11. **HubSpot Implementation**
-    - "Full HubSpot setup, migration, and optimisation — from CRM and marketing hub to sales automation and reporting. We're hands-on from day one."
-    - *Icon suggestion:* HubSpot logo or hub icon
+### Tier 3: CRM Solutions (4 services)
 
-12. **Salesforce Implementation**
-    - "Enterprise-grade Salesforce deployment, customisation, and integration. Built for complex sales teams that need power and flexibility."
-    - *Icon suggestion:* Salesforce logo or cloud icon
+13. **Custom CRM Development** → /services/crm-custom
+14. **HubSpot Implementation** → /services/crm-hubspot
+15. **Salesforce Implementation** → /services/crm-salesforce
+16. **Microsoft Dynamics 365** → /services/crm-dynamics
 
-13. **Microsoft Dynamics 365**
-    - "Dynamics 365 setup and customisation for businesses already in the Microsoft ecosystem. Seamless integration with Outlook, Teams, and Azure."
-    - *Icon suggestion:* Microsoft/Dynamics logo or grid icon
+### Tier 4: Development & Data (2 services)
 
-*Across all CRM services:*
-- CRM selection advisory and migration from legacy systems
-- AI-powered lead scoring, pipeline forecasting, and automated follow-ups
-- Integration with existing tools (email, accounting, support, marketing)
-- Training, onboarding, and ongoing optimisation
-
-#### Tier 4: Development & Data (NEW)
-
-14. **Website & App Development**
-    - "Custom websites, web apps, and mobile applications built with modern frameworks and AI-enhanced workflows. From landing pages to full-stack platforms — designed to convert, built to scale."
-    - *Icon suggestion:* Code/browser icon
-    - *Key capabilities:*
-      - Marketing websites and landing pages
-      - Web applications and client portals
-      - Mobile-responsive design
-      - E-commerce solutions
-      - API development and third-party integrations
-
-15. **Data & Analytics / BI Dashboards**
-    - "Turn your business data into clear, actionable insights. We build custom dashboards and reporting systems that connect your tools, visualise KPIs, and surface the metrics that drive decisions."
-    - *Icon suggestion:* Chart/graph icon
-    - *Key capabilities:*
-      - Custom BI dashboard development
-      - Data pipeline setup and integration
-      - KPI tracking and automated reporting
-      - Data visualisation and storytelling
-      - Integration with CRMs, marketing tools, and financial systems
-
-### Alternative: Combined Grid Layout
-Present all 15 services in a single grid with category labels:
-
-```
-[AI MARKETING]
-- AI Lead Generation
-- Traffic & SEO
-- Sales Automation
-- Smart Appointment Booking
-- Ads Management
-- Analytics & Reporting
-
-[AI SOLUTIONS]
-- Custom AI Agents & Automation
-- AI Chatbots & Virtual Assistants
-- AI Strategy & Consulting
-
-[CRM SOLUTIONS]
-- Custom CRM Development
-- HubSpot Implementation
-- Salesforce Implementation
-- Microsoft Dynamics 365
-
-[DEVELOPMENT & DATA]
-- Website & App Development
-- Data & Analytics / BI Dashboards
-```
+17. **Website & App Development** → /services/web-development
+18. **Data & Analytics / BI Dashboards** → /services/data-analytics
 
 ---
 
-## 4. Revised "How It Works" Section
+## 4. AI Tools (4 interactive tools)
 
-### Current
-Audit → Strategy → Build → Scale
+19. **AI ROI Calculator** → /tools/roi-calculator
+    - Calculates time/money savings from AI adoption
+    - Uses OpenAI gpt-5.4 for personalised analysis
+    - Lead capture before full results
 
-### Proposed (works for both marketing and AI solutions)
+20. **AI Readiness Assessment** → /tools/ai-readiness
+    - 7-question quiz scoring 0-21
+    - Bands: AI Starter, Explorer, Adopter, Leader
+    - Personalised recommendations via gpt-5.4
 
-**Step 01 — Discover**
-"We learn your business inside out — your goals, pain points, tech stack, and untapped opportunities."
-*(Changed from "Audit" to "Discover" — broader, works for non-marketing clients too)*
+21. **AI Website Audit** → /tools/website-audit
+    - Real Google PageSpeed Insights API data
+    - Combined with gpt-5.4 expert analysis
+    - Scores: Performance, SEO, Accessibility, Best Practices, AI-Readiness
 
-**Step 02 — Design**
-"We architect a custom AI solution tailored to your goals — whether that's a marketing engine, an automation workflow, or a purpose-built AI agent."
-*(Changed from "Strategy" to "Design" — implies building something, not just planning)*
-
-**Step 03 — Build**
-"We develop, integrate, and deploy your AI-powered systems — connecting seamlessly with your existing tools and processes."
-*(Largely the same, but broadened beyond campaigns)*
-
-**Step 04 — Scale**
-"We optimise, expand, and compound your results with continuous AI-driven iteration. What works gets amplified. What doesn't gets fixed."
-*(Keep as-is — this works universally)*
-
----
-
-## 5. New Section: "Beyond Marketing" or "AI That Works Across Your Business"
-
-This is the key addition that addresses Vickie's feedback. It bridges the marketing services with the broader vision.
-
-### Proposed Copy
-
-**Section Header:**
-> **AI Across Your Business**
-
-**Section Sub-header:**
-> "Marketing is just the beginning. We build AI solutions that save time, reduce costs, and unlock growth across every part of your business."
-
-**Use Case Cards (3-4 examples):**
-
-**Operations & Workflow**
-"Automate repetitive tasks — from data entry to document processing — and free your team to focus on high-value work."
-
-**Customer Service**
-"AI agents that handle enquiries, resolve issues, and escalate intelligently — available 24/7 without growing your headcount."
-
-**Finance & Admin**
-"Smart automation for invoicing, expense tracking, and reporting. Reduce errors and reclaim hours every week."
-
-**HR & People**
-"Streamline recruitment screening, onboarding workflows, and employee communications with AI-powered systems."
+22. **AI Assistant — Arc** → Opens chatbot modal
+    - GPT-5.4 powered chatbot
+    - Centre-screen modal experience
+    - Answers questions, qualifies leads, recommends services
+    - Lead capture after 3 messages
 
 ---
 
-## 6. Revised "About / Why Growth Arc" Section
+## 5. Homepage Sections (in order)
 
-### Current
-> "Growth Arc was founded on a simple belief: every business deserves access to the same AI-powered marketing tools that drive the world's fastest-growing companies."
-
-### Proposed
-> "Growth Arc was founded on a simple belief: every business deserves access to the AI tools and automation that drive the world's fastest-growing companies."
->
-> "We're not a traditional agency. We're an AI solutions company — building intelligent systems that help businesses market smarter, operate leaner, and scale faster."
->
-> "Based in New Zealand and serving clients globally, we combine deep technical expertise with practical business thinking to deliver AI that doesn't just work — it compounds."
-
-### Differentiator Cards (revised)
-
-**AI-Native** *(keep, refine)*
-"We don't bolt AI onto old methods. Every solution — from marketing campaigns to business automation — is built AI-first from the ground up."
-
-**Data-Driven** *(keep as-is)*
-
-**Transparent** *(keep as-is)*
-
-**Full-Stack** *(revise)*
-- *Current:* "From lead gen to close, SEO to ads, CRM to analytics — one integrated team replaces a dozen tools."
-- *Revised:* "From marketing to operations, lead gen to automation — one integrated partner replaces a dozen tools and agencies."
+1. Navigation — Mega-menu with 4 service tier columns + Tools dropdown
+2. Hero — Headline, sub-headline, dual CTAs, stat pills
+3. Technology Partners — Scrolling logo strip (HubSpot, Salesforce, Microsoft, Cloudflare, OpenAI, Anthropic, Vercel, Google Cloud)
+4. Services — All 4 tiers with clickable cards
+5. AI Across Your Business — Use case cards (Operations, Customer Service, Finance, HR)
+6. AI Tools — 4 tool cards (ROI Calculator, Readiness Assessment, Website Audit, Ask Arc)
+7. How It Works — Discover → Design → Build → Scale
+8. Results / Stats — 500+ Leads, 10x ROI, 98% Retention, 24/7 Automation
+9. Testimonials — 3 client testimonial cards (placeholder — replace with real)
+10. About / Why Growth Arc — Company story + 4 differentiator cards
+11. How We Compare — Comparison table (Traditional Agency vs Growth Arc)
+12. FAQ — Accordion with 6 questions + link to Arc
+13. Latest Insights — 3 blog post cards
+14. CTA — "Ready to Grow Faster?" + "Book a Free Strategy Call"
+15. Contact Form — 19 service options in dropdown
+16. Footer — Updated tagline, nav links, social links
 
 ---
 
-## 7. Revised CTA Section
+## 6. How It Works
 
-### Current
-> "Ready to Grow Faster? Let's build an AI-powered marketing engine for your business."
-
-### Proposed
-> "Ready to Grow Faster?"
-> "Let's build an AI-powered growth engine for your business. Book a free strategy call and see what's possible."
-
-*(Simple change — removed "marketing" to broaden the invitation)*
+- Step 01 — **Discover**: "We learn your business inside out — your goals, pain points, tech stack, and untapped opportunities."
+- Step 02 — **Design**: "We architect a custom AI solution tailored to your goals — whether that's a marketing engine, an automation workflow, or a purpose-built AI agent."
+- Step 03 — **Build**: "We develop, integrate, and deploy your AI-powered systems — connecting seamlessly with your existing tools and processes."
+- Step 04 — **Scale**: "We optimise, expand, and compound your results with continuous AI-driven iteration. What works gets amplified. What doesn't gets fixed."
 
 ---
 
-## 8. Revised Contact Form
+## 7. About Section
 
-### Current "Service Interest" dropdown:
-- AI Lead Generation
-- Traffic & SEO
-- Sales Automation
-- Smart Appointment Booking
-- Ads Management
-- Analytics & Reporting
-- Not Sure / Multiple
+"Growth Arc was founded on a simple belief: every business deserves access to the AI tools and automation that drive the world's fastest-growing companies."
 
-### Proposed dropdown:
-- AI Lead Generation
-- Traffic & SEO
-- Sales Automation
-- Smart Appointment Booking
-- Ads Management
-- Analytics & Reporting
-- **Custom AI Agents & Automation**
-- **AI Chatbots & Virtual Assistants**
-- **AI Strategy & Consulting**
-- **CRM — Custom Build**
-- **CRM — HubSpot**
-- **CRM — Salesforce**
-- **CRM — Microsoft Dynamics 365**
-- **Website & App Development**
-- **Data & Analytics / BI Dashboards**
-- Not Sure / Multiple
+"We're not a traditional agency. We're an AI solutions company — building intelligent systems that help businesses market smarter, operate leaner, and scale faster."
+
+"Based in New Zealand and serving clients globally, we combine deep technical expertise with practical business thinking to deliver AI that doesn't just work — it compounds."
+
+**Differentiator Cards:**
+- AI-Native: "We don't bolt AI onto old methods. Every solution — from marketing campaigns to business automation — is built AI-first from the ground up."
+- Data-Driven: "No vanity metrics. We track what matters — pipeline, revenue, and ROI — so you always see the real picture."
+- Transparent: "Real-time dashboards, clear reporting, and no lock-in contracts. You own your data and your results."
+- Full-Stack: "From marketing to operations, lead gen to automation — one integrated partner replaces a dozen tools and agencies."
 
 ---
 
-## 9. Meta / SEO Updates
+## 8. CTA Section
 
-### Page Title
-- *Current:* "Growth Arc — AI-Powered Marketing That Scales"
-- *Proposed:* "Growth Arc — AI Solutions That Grow Your Business"
-
-### Meta Description
-- *Current:* (likely marketing-focused)
-- *Proposed:* "Growth Arc builds AI-powered marketing, CRM solutions, custom AI agents, and business automation that help companies grow faster. Based in NZ, serving globally."
+"Ready to Grow Faster?"
+"Let's build an AI-powered growth engine for your business. Book a free strategy call and see what's possible."
 
 ---
 
-## 10. Implementation Priority
+## 9. Blog
 
-| Priority | Change | Effort |
-|----------|--------|--------|
-| 1 | Hero headline + sub-headline | Low — copy change |
-| 2 | Add 3 new AI Solutions service cards | Medium — new components |
-| 3 | Update "How It Works" copy | Low — copy change |
-| 4 | Add "AI Across Your Business" section | Medium — new section |
-| 5 | Revise About section copy | Low — copy change |
-| 6 | Update CTA copy | Low — copy change |
-| 7 | Update contact form dropdown | Low — code change |
-| 8 | Update meta/SEO tags | Low — code change |
-| 9 | Services section header update | Low — copy change |
+**Admin Dashboard:** /admin/blog (password protected)
+- AI article generation via gpt-5.4
+- Topic suggestion
+- Draft/publish workflow
+- Weekly auto-generation cron (Monday 9am NZST)
 
----
-
-## 11. What NOT to Change (Yet)
-
-- **Brand identity** — logo, colors, typography all work perfectly for the broader positioning
-- **Site structure** — single-page layout still works. Separate service pages can come later
-- **Process flow** — 4-step structure is solid, just needs copy tweaks
-- **Footer / navigation** — no changes needed
-- **Overall tone** — professional, data-driven, results-focused still applies
+**Published Articles:**
+1. "5 Signs Your Business Is Ready for AI Automation" → /blog/signs-ready-for-ai
+2. "HubSpot vs Salesforce vs Dynamics 365: Which CRM Fits Your Business?" → /blog/crm-comparison
+3. "Why AI Lead Generation Beats Traditional Outbound" → /blog/ai-lead-generation-vs-outbound
 
 ---
 
-## 12. Future Site Expansion (Phase 2+)
+## 10. Meta / SEO
 
-Once the broader positioning is live and you're landing AI solutions clients:
+- **Page Title:** Growth Arc — AI Solutions That Grow Your Business
+- **Meta Description:** Growth Arc builds AI-powered marketing, CRM solutions, custom AI agents, and business automation that help companies grow faster. Based in NZ, serving globally.
+- **Sitemap:** /sitemap.xml (28 pages discovered by Google)
+- **Google Search Console:** Verified, sitemap submitted
 
-- **/services/marketing** — dedicated marketing services page
-- **/services/ai-agents** — dedicated AI agents/automation page
-- **/services/consulting** — AI strategy consulting page
-- **/case-studies** — proof points for both verticals
-- **/blog** — thought leadership on AI in business (not just marketing)
-- **Client portal** — dashboard for active clients
+---
+
+## 11. Technology Stack
+
+- **Framework:** Next.js 15 (App Router, TypeScript)
+- **Styling:** Tailwind CSS 4
+- **Hosting:** Vercel
+- **DNS/Security:** Cloudflare (Turnstile, rate limiting, security headers)
+- **AI APIs:** OpenAI (gpt-5.4 for chatbot, tools, blog generation), Google PageSpeed Insights API
+- **CRM:** HubSpot (analytics, forms)
+- **Font:** Sora
+- **Git:** GitHub (growtharc-ai/website), main + dev branches
+
+---
+
+## 12. Persistent UI Elements
+
+- **Arc chatbot:** "Ask Arc" button bottom-left, opens centre-screen modal
+- **Book a Free Call:** Sticky button bottom-right
+- **Mega-menu:** 4-column service dropdown + Tools dropdown in nav
+
+---
+
+## 13. Future Roadmap
+
+### AI Agent Platform (OpenClaw)
+Phased build — Content Writer Agent first, then SEO, Social Media, Site Audit, Lead Gen, CRM, Customer Support, Analytics, Email Campaign agents.
+
+### AI Tools to Build
+- AI ROI Calculator ✅
+- AI Readiness Assessment ✅
+- AI Website Audit ✅
+- Arc Chatbot ✅
+
+### Outstanding Items
+- Replace placeholder testimonials with real client quotes
+- Mobile responsiveness full check
+- Fix remaining copy: stats section "marketing funnel" → "your business", CTA button "Get Your Free Audit" → "Book a Free Strategy Call"
+- OpenAI Services Partnership application (submitted)
+- IPONZ trademark application (filed, response prepared)
