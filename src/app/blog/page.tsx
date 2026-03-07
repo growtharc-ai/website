@@ -67,7 +67,7 @@ export default function Blog() {
                   <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-white/10 hover:bg-white/[0.04]">
                     {/* Hero image */}
                     <div className="relative aspect-video overflow-hidden">
-                      <BlogHeroImage slug={post.slug} />
+                      <BlogHeroImage slug={post.slug} heroImage={post.heroImage} />
                     </div>
 
                     {/* Content */}

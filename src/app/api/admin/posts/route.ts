@@ -68,6 +68,7 @@ export async function POST(req: NextRequest) {
     tags: ${JSON.stringify(post.tags || [])},
     status: ${JSON.stringify(post.status || 'draft')} as const,
     publishedAt: ${JSON.stringify(post.publishedAt || '')},
+    heroImage: ${JSON.stringify(post.heroImage || '')},
     content: ${JSON.stringify(post.content)},
   }`
 
@@ -151,6 +152,7 @@ function rewritePostsFile(posts: Array<Record<string, unknown>>) {
     tags: ${JSON.stringify(p.tags)},
     status: ${JSON.stringify(p.status)} as const,
     publishedAt: ${JSON.stringify(p.publishedAt)},
+    heroImage: ${JSON.stringify(p.heroImage || '')},
     content: ${JSON.stringify(p.content)},
   }`
     )
@@ -171,6 +173,7 @@ function rewritePostsFile(posts: Array<Record<string, unknown>>) {
   content: string // markdown
   status: 'published' | 'draft'
   publishedAt?: string
+  heroImage?: string
 }
 
 export const blogPosts: BlogPost[] = [

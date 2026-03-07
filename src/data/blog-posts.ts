@@ -13,6 +13,7 @@ export type BlogPost = {
   content: string // markdown
   status: 'published' | 'draft'
   publishedAt?: string
+  heroImage?: string
 }
 
 export const blogPosts: BlogPost[] = [

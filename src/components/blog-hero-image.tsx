@@ -407,7 +407,20 @@ const heroImages: Record<string, (props: { animated?: boolean }) => React.ReactN
   'ai-lead-generation-vs-outbound': LeadGenPattern,
 }
 
-export function BlogHeroImage({ slug, animated }: { slug: string; animated?: boolean }) {
+export function BlogHeroImage({ slug, animated, heroImage }: { slug: string; animated?: boolean; heroImage?: string }) {
+  // Use DALL-E generated image if available
+  if (heroImage) {
+    return (
+      /* eslint-disable-next-line @next/next/no-img-element */
+      <img
+        src={heroImage}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+        loading={animated ? 'eager' : 'lazy'}
+      />
+    )
+  }
+
   const Component = heroImages[slug]
 
   if (!Component) {
