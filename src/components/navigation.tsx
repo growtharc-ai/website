@@ -23,6 +23,7 @@ import {
   BarChart3,
 } from 'lucide-react'
 
+import { Calculator } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 type ServiceCategory = {
@@ -69,6 +70,10 @@ const serviceCategories: ServiceCategory[] = [
       { label: 'Data & Analytics / BI Dashboards', href: '/services/data-analytics', icon: BarChart3 },
     ],
   },
+]
+
+const toolsItems = [
+  { label: 'AI ROI Calculator', href: '/tools/roi-calculator', icon: Calculator },
 ]
 
 const navLinks = [
@@ -159,6 +164,30 @@ export function Navigation() {
               </div>
             </div>
 
+            {/* Tools dropdown */}
+            <div className="nav-services -mx-3 px-3 -my-2 py-2">
+              <button className="flex items-center gap-1 text-sm font-medium text-white/60 transition-colors hover:text-white">
+                Tools
+                <ChevronDown className="h-3.5 w-3.5" />
+              </button>
+              <div className="nav-mega fixed left-auto right-auto top-[72px] z-50">
+                <div className="border-t border-white/5 bg-[#0D0F18]/95 shadow-2xl backdrop-blur-xl">
+                  <div className="px-4 py-3">
+                    {toolsItems.map((tool) => (
+                      <Link
+                        key={tool.href}
+                        href={tool.href}
+                        className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                      >
+                        <tool.icon className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
+                        {tool.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -224,6 +253,21 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
+            ))}
+
+            <div className="my-2 border-t border-white/5" />
+
+            <p className="mb-1 text-xs font-semibold tracking-wider text-white/30 uppercase">Tools</p>
+            {toolsItems.map((tool) => (
+              <label key={tool.href} htmlFor="nav-toggle">
+                <Link
+                  href={tool.href}
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/50 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  <tool.icon className="h-4 w-4 shrink-0 text-[var(--ga-blue)]" />
+                  {tool.label}
+                </Link>
+              </label>
             ))}
 
             <div className="my-2 border-t border-white/5" />
