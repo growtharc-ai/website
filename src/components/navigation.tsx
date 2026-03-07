@@ -215,7 +215,7 @@ export function Navigation() {
                       className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       <MessageCircle className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
-                      Ask Arc
+                      AI Assistant — Arc
                     </a>
                   </div>
                 </div>
@@ -317,7 +317,7 @@ export function Navigation() {
                 className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/50 transition-colors hover:bg-white/5 hover:text-white"
               >
                 <MessageCircle className="h-4 w-4 shrink-0 text-[var(--ga-blue)]" />
-                Ask Arc
+                AI Assistant — Arc
               </a>
             </label>
 
