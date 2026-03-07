@@ -23,7 +23,7 @@ import {
   BarChart3,
 } from 'lucide-react'
 
-import { Calculator } from 'lucide-react'
+import { Calculator, ClipboardCheck, Search } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 type ServiceCategory = {
@@ -72,8 +72,12 @@ const serviceCategories: ServiceCategory[] = [
   },
 ]
 
-const toolsItems = [
+type ToolItem = { label: string; href: string; icon: LucideIcon; comingSoon?: boolean }
+
+const toolsItems: ToolItem[] = [
   { label: 'AI ROI Calculator', href: '/tools/roi-calculator', icon: Calculator },
+  { label: 'AI Readiness Assessment', href: '/tools/ai-readiness', icon: ClipboardCheck, comingSoon: true },
+  { label: 'AI Website Audit', href: '/tools/website-audit', icon: Search, comingSoon: true },
 ]
 
 const navLinks = [
@@ -164,6 +168,16 @@ export function Navigation() {
               </div>
             </div>
 
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-white/60 transition-colors hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
+
             {/* Tools dropdown */}
             <div className="nav-services -mx-3 px-3 -my-2 py-2">
               <button className="flex items-center gap-1 text-sm font-medium text-white/60 transition-colors hover:text-white">
@@ -174,29 +188,31 @@ export function Navigation() {
                 <div className="border-t border-white/5 bg-[#0D0F18]/95 shadow-2xl backdrop-blur-xl">
                   <div className="px-4 py-3">
                     {toolsItems.map((tool) => (
-                      <Link
-                        key={tool.href}
-                        href={tool.href}
-                        className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
-                      >
-                        <tool.icon className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
-                        {tool.label}
-                      </Link>
+                      tool.comingSoon ? (
+                        <span
+                          key={tool.href}
+                          className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/30"
+                        >
+                          <tool.icon className="h-3.5 w-3.5 shrink-0 text-white/20" />
+                          {tool.label}
+                          <span className="ml-auto rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-white/25">Soon</span>
+                        </span>
+                      ) : (
+                        <Link
+                          key={tool.href}
+                          href={tool.href}
+                          className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                        >
+                          <tool.icon className="h-3.5 w-3.5 shrink-0 text-[var(--ga-blue)]" />
+                          {tool.label}
+                        </Link>
+                      )
                     ))}
                   </div>
                 </div>
               </div>
             </div>
 
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-white/60 transition-colors hover:text-white"
-              >
-                {link.label}
-              </Link>
-            ))}
             <Link
               href="/contact"
               className="rounded-full bg-gradient-to-r from-ga-blue to-ga-green px-5 py-2 text-sm font-semibold text-white transition-transform hover:scale-105"
@@ -258,17 +274,28 @@ export function Navigation() {
             <div className="my-2 border-t border-white/5" />
 
             <p className="mb-1 text-xs font-semibold tracking-wider text-white/30 uppercase">Tools</p>
-            {toolsItems.map((tool) => (
-              <label key={tool.href} htmlFor="nav-toggle">
-                <Link
-                  href={tool.href}
-                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/50 transition-colors hover:bg-white/5 hover:text-white"
+            {toolsItems.map((tool) =>
+              tool.comingSoon ? (
+                <span
+                  key={tool.href}
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/25"
                 >
-                  <tool.icon className="h-4 w-4 shrink-0 text-[var(--ga-blue)]" />
+                  <tool.icon className="h-4 w-4 shrink-0 text-white/15" />
                   {tool.label}
-                </Link>
-              </label>
-            ))}
+                  <span className="ml-auto rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-white/20">Soon</span>
+                </span>
+              ) : (
+                <label key={tool.href} htmlFor="nav-toggle">
+                  <Link
+                    href={tool.href}
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-white/50 transition-colors hover:bg-white/5 hover:text-white"
+                  >
+                    <tool.icon className="h-4 w-4 shrink-0 text-[var(--ga-blue)]" />
+                    {tool.label}
+                  </Link>
+                </label>
+              )
+            )}
 
             <div className="my-2 border-t border-white/5" />
 

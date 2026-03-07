@@ -3,6 +3,7 @@ import { Hero } from '@/components/sections/hero'
 import { TechPartners } from '@/components/sections/tech-partners'
 import { Services } from '@/components/sections/services'
 import { AiAcross } from '@/components/sections/ai-across'
+import { AiTools } from '@/components/sections/ai-tools'
 import { HowItWorks } from '@/components/sections/how-it-works'
 import { Results } from '@/components/sections/results'
 import { Testimonials } from '@/components/sections/testimonials'
@@ -24,6 +25,7 @@ export default function Home() {
       <TechPartners />
       <Services />
       <AiAcross />
+      <AiTools />
       <HowItWorks />
       <Results />
       <Testimonials />
