@@ -108,6 +108,7 @@ export function Navigation() {
         }
         /* Mobile menu */
         .nav-mobile-toggle:checked ~ .nav-mobile-menu { display: flex; }
+        .nav-mobile-toggle:checked ~ .nav-mobile-overlay { display: block; }
         .nav-mobile-toggle:checked ~ .nav-mobile-label .nav-icon-menu { display: none; }
         .nav-mobile-toggle:checked ~ .nav-mobile-label .nav-icon-close { display: block; }
         .nav-mobile-toggle:not(:checked) ~ .nav-mobile-label .nav-icon-close { display: none; }
@@ -237,8 +238,13 @@ export function Navigation() {
             <X size={24} className="nav-icon-close" />
           </label>
 
+          {/* Mobile overlay — blocks page content behind menu */}
+          <div className="nav-mobile-overlay fixed inset-0 top-[72px] z-40 hidden bg-[#07080E] md:hidden">
+            <label htmlFor="nav-toggle" className="block h-full w-full" />
+          </div>
+
           {/* Mobile menu */}
-          <div className="nav-mobile-menu fixed inset-x-0 top-[72px] hidden max-h-[calc(100dvh-72px)] flex-col gap-2 overflow-y-auto border-t border-white/5 bg-[#07080E]/95 px-6 py-6 backdrop-blur-xl md:hidden">
+          <div className="nav-mobile-menu fixed inset-x-0 top-[72px] z-50 hidden max-h-[calc(100dvh-72px)] flex-col gap-2 overflow-y-auto border-t border-white/5 bg-[#07080E] px-6 py-6 md:hidden">
             {/* Services accordion — one checkbox per category */}
             <p className="mb-1 text-xs font-semibold tracking-wider text-white/30 uppercase">Services</p>
             {serviceCategories.map((category, i) => (
