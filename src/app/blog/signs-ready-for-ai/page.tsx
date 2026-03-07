@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: '5 Signs Your Business Is Ready for AI Automation — Growth Arc',
     description:
       "Not every business needs AI today. But these five signals mean you're leaving money on the table without it.",
-    url: 'https://growtharc.ai/blog/signs-ready-for-ai',
+    url: 'https://www.growtharc.ai/blog/signs-ready-for-ai',
     siteName: 'Growth Arc',
     images: [
       {

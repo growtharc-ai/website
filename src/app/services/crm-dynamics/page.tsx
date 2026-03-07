@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Microsoft Dynamics 365 — Growth Arc',
+  title: 'Microsoft Dynamics 365 — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Dynamics 365 setup and customisation for businesses in the Microsoft ecosystem. Seamless integration with Outlook, Teams, Azure, and the Power Platform.',
   openGraph: {
-    title: 'Microsoft Dynamics 365 — Growth Arc',
+    title: 'Microsoft Dynamics 365 — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Dynamics 365 setup and customisation for businesses in the Microsoft ecosystem. Seamless integration with Outlook, Teams, and Azure.',
-    url: 'https://growtharc.ai/services/crm-dynamics',
+    url: 'https://www.growtharc.ai/services/crm-dynamics',
     siteName: 'Growth Arc',
     images: [
       {

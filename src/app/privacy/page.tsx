@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy — Growth Arc',
     description:
       'How we collect, use, store, and protect your personal information.',
-    url: 'https://growtharc.ai/privacy',
+    url: 'https://www.growtharc.ai/privacy',
     siteName: 'Growth Arc',
   },
 }

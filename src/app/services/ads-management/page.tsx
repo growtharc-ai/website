@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Ads Management — Growth Arc',
+  title: 'Ads Management — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'AI-optimised Google, Meta, and LinkedIn ad campaigns that maximise every dollar of ad spend. Growth Arc delivers leads, not impressions.',
   openGraph: {
-    title: 'Ads Management — Growth Arc',
+    title: 'Ads Management — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'AI-optimised Google, Meta, and LinkedIn ad campaigns that maximise every dollar of ad spend.',
-    url: 'https://growtharc.ai/services/ads-management',
+    url: 'https://www.growtharc.ai/services/ads-management',
     siteName: 'Growth Arc',
     images: [
       {

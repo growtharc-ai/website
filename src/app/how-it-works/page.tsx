@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'How It Works — Growth Arc',
     description:
       'A proven 4-step AI-powered process: Discover, Design, Build, Scale. See how we drive measurable growth.',
-    url: 'https://growtharc.ai/how-it-works',
+    url: 'https://www.growtharc.ai/how-it-works',
     siteName: 'Growth Arc',
     images: [
       {

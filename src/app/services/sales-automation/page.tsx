@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Sales Automation — Growth Arc',
+  title: 'Sales Automation — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Automate your sales pipeline with AI-powered CRM setup, follow-up sequences, and deal tracking. Growth Arc helps you close more deals with less manual work.',
   openGraph: {
-    title: 'Sales Automation — Growth Arc',
+    title: 'Sales Automation — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Automate your sales pipeline with AI-powered CRM setup, follow-up sequences, and deal tracking.',
-    url: 'https://growtharc.ai/services/sales-automation',
+    url: 'https://www.growtharc.ai/services/sales-automation',
     siteName: 'Growth Arc',
     images: [
       {

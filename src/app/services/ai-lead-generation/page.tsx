@@ -17,14 +17,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'AI Lead Generation — Growth Arc',
+  title: 'AI Lead Generation — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Fill your pipeline with qualified opportunities using AI-powered prospecting, automated outreach, and intelligent lead scoring. Growth Arc delivers leads ready to buy.',
   openGraph: {
-    title: 'AI Lead Generation — Growth Arc',
+    title: 'AI Lead Generation — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Fill your pipeline with qualified opportunities using AI-powered prospecting, automated outreach, and intelligent lead scoring.',
-    url: 'https://growtharc.ai/services/ai-lead-generation',
+    url: 'https://www.growtharc.ai/services/ai-lead-generation',
     siteName: 'Growth Arc',
     images: [
       {

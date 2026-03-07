@@ -19,14 +19,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'AI Content Creation & Management — Growth Arc',
+  title: 'AI Content Creation & Management — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'AI-powered content at scale — blog posts, social media, email campaigns, product descriptions, and brand-consistent copy. Created faster, published smarter, optimised continuously.',
   openGraph: {
-    title: 'AI Content Creation & Management — Growth Arc',
+    title: 'AI Content Creation & Management — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'AI-powered content at scale — blog posts, social media, email campaigns, and brand-consistent copy. Created faster, published smarter, optimised continuously.',
-    url: 'https://growtharc.ai/services/ai-content',
+    url: 'https://www.growtharc.ai/services/ai-content',
     siteName: 'Growth Arc',
     images: [
       {

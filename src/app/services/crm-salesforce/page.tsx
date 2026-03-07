@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Salesforce Implementation — Growth Arc',
+  title: 'Salesforce Implementation — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Enterprise-grade Salesforce deployment, customisation, and integration. Built for complex sales teams that need power, flexibility, and AI-driven insights.',
   openGraph: {
-    title: 'Salesforce Implementation — Growth Arc',
+    title: 'Salesforce Implementation — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Enterprise-grade Salesforce deployment, customisation, and integration. Built for complex sales teams that need power and flexibility.',
-    url: 'https://growtharc.ai/services/crm-salesforce',
+    url: 'https://www.growtharc.ai/services/crm-salesforce',
     siteName: 'Growth Arc',
     images: [
       {

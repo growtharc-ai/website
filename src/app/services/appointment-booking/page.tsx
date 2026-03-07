@@ -19,14 +19,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Smart Appointment Booking — Growth Arc',
+  title: 'Smart Appointment Booking — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'AI-powered scheduling with automated qualification, reminders, and follow-ups. Growth Arc keeps your calendar full with qualified meetings.',
   openGraph: {
-    title: 'Smart Appointment Booking — Growth Arc',
+    title: 'Smart Appointment Booking — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'AI-powered scheduling with automated qualification, reminders, and follow-ups that keep your calendar full.',
-    url: 'https://growtharc.ai/services/appointment-booking',
+    url: 'https://www.growtharc.ai/services/appointment-booking',
     siteName: 'Growth Arc',
     images: [
       {

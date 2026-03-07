@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'HubSpot Implementation — Growth Arc',
+  title: 'HubSpot Implementation — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Full HubSpot setup, migration, and optimisation. CRM, Marketing Hub, Sales Hub, and Service Hub — configured for your business and ready to perform from day one.',
   openGraph: {
-    title: 'HubSpot Implementation — Growth Arc',
+    title: 'HubSpot Implementation — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Full HubSpot setup, migration, and optimisation. CRM, Marketing Hub, Sales Hub, and Service Hub — configured for your business.',
-    url: 'https://growtharc.ai/services/crm-hubspot',
+    url: 'https://www.growtharc.ai/services/crm-hubspot',
     siteName: 'Growth Arc',
     images: [
       {

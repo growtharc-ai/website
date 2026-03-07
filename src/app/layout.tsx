@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: 'Growth Arc — AI Solutions That Grow Your Business',
     description:
       'Growth Arc builds AI-powered marketing, CRM solutions, custom AI agents, and business automation that help companies grow faster. Based in NZ, serving globally.',
-    url: 'https://growtharc.ai',
+    url: 'https://www.growtharc.ai',
     siteName: 'Growth Arc',
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       'Growth Arc builds AI-powered marketing, CRM solutions, custom AI agents, and business automation that help companies grow faster.',
     images: ['/og-image-1200x630.png'],
   },
-  metadataBase: new URL('https://growtharc.ai'),
+  metadataBase: new URL('https://www.growtharc.ai'),
   icons: {
     icon: [
       { url: '/logo/08-icon-gradient-dark.svg', type: 'image/svg+xml' },

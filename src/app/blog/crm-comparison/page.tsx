@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'HubSpot vs Salesforce vs Dynamics 365: Which CRM Fits Your Business? — Growth Arc',
     description:
       'We break down the three biggest CRM platforms by cost, complexity, and best fit.',
-    url: 'https://growtharc.ai/blog/crm-comparison',
+    url: 'https://www.growtharc.ai/blog/crm-comparison',
     siteName: 'Growth Arc',
     images: [
       {

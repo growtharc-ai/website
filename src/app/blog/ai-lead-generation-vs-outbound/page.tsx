@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Why AI Lead Generation Beats Traditional Outbound — Growth Arc',
     description:
       "AI agents don't sleep, don't forget to follow up, and learn from every interaction. Here's why that matters.",
-    url: 'https://growtharc.ai/blog/ai-lead-generation-vs-outbound',
+    url: 'https://www.growtharc.ai/blog/ai-lead-generation-vs-outbound',
     siteName: 'Growth Arc',
     images: [
       {

@@ -17,14 +17,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Traffic & SEO — Growth Arc',
+  title: 'Traffic & SEO — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Drive sustainable organic growth with AI-powered content strategy, technical SEO, and data-driven keyword targeting. Growth Arc scales your search visibility.',
   openGraph: {
-    title: 'Traffic & SEO — Growth Arc',
+    title: 'Traffic & SEO — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Drive sustainable organic growth with AI-powered content strategy, technical SEO, and data-driven keyword targeting.',
-    url: 'https://growtharc.ai/services/traffic-seo',
+    url: 'https://www.growtharc.ai/services/traffic-seo',
     siteName: 'Growth Arc',
     images: [
       {

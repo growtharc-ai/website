@@ -18,14 +18,14 @@ import { ServiceMetrics } from '@/components/sections/service/service-metrics'
 import { ServiceCTA } from '@/components/sections/service/service-cta'
 
 export const metadata: Metadata = {
-  title: 'Data & Analytics / BI Dashboards — Growth Arc',
+  title: 'Data & Analytics / BI Dashboards — Growth Arc | AI Solutions That Grow Your Business',
   description:
     'Turn your business data into clear, actionable insights. We build custom dashboards and reporting systems that connect your tools, visualise KPIs, and surface the metrics that drive decisions.',
   openGraph: {
-    title: 'Data & Analytics / BI Dashboards — Growth Arc',
+    title: 'Data & Analytics / BI Dashboards — Growth Arc | AI Solutions That Grow Your Business',
     description:
       'Custom dashboards and reporting systems that connect your tools, visualise KPIs, and surface the metrics that drive decisions.',
-    url: 'https://growtharc.ai/services/data-analytics',
+    url: 'https://www.growtharc.ai/services/data-analytics',
     siteName: 'Growth Arc',
     images: [
       {
