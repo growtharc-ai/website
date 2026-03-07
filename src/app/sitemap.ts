@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
+import { getPublishedPosts } from '@/data/blog-posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: 'https://www.growtharc.ai',
       lastModified: new Date(),
@@ -141,24 +142,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://www.growtharc.ai/blog/signs-ready-for-ai',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: 'https://www.growtharc.ai/blog/crm-comparison',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: 'https://www.growtharc.ai/blog/ai-lead-generation-vs-outbound',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
       url: 'https://www.growtharc.ai/tools/roi-calculator',
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -189,4 +172,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   ]
+
+  // Dynamic blog post URLs
+  const blogPages: MetadataRoute.Sitemap = getPublishedPosts().map((post) => ({
+    url: `https://www.growtharc.ai/blog/${post.slug}`,
+    lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }))
+
+  return [...staticPages, ...blogPages]
 }
