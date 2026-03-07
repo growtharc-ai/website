@@ -28,10 +28,10 @@ export const blogPosts: BlogPost[] = [
       "Not every business needs AI today. But these five signals mean you're leaving money on the table without it.",
     readTime: '4 min read',
     author: 'Growth Arc Team',
-    date: 'March 2026',
+    date: 'March 7, 2026',
     tags: ['AI', 'Automation', 'Strategy', 'SMB'],
     status: 'published',
-    publishedAt: '2026-03-01',
+    publishedAt: '2026-03-07',
     content: `AI automation is transforming how businesses operate — but not every company is ready to make the leap. Timing matters, and implementing AI too early (or without the right foundations) can waste resources.
 
 So how do you know when your business is actually ready? Here are five signals that suggest it's time to explore AI-powered automation.
@@ -84,10 +84,10 @@ If two or more of these signs resonate, your business is primed for AI. The ques
       'We break down the three biggest CRM platforms by cost, complexity, and best fit.',
     readTime: '6 min read',
     author: 'Growth Arc Team',
-    date: 'March 2026',
+    date: 'March 7, 2026',
     tags: ['CRM', 'HubSpot', 'Salesforce', 'Dynamics 365', 'Comparison'],
     status: 'published',
-    publishedAt: '2026-03-03',
+    publishedAt: '2026-03-07',
     content: `Choosing the right CRM is one of the most impactful decisions a growing business can make. The right platform streamlines your sales pipeline, improves customer relationships, and gives you data-driven clarity on what's working.
 
 But with HubSpot, Salesforce, and Microsoft Dynamics 365 all competing for your attention, it's not always obvious which one is the best fit. Let's break it down.
@@ -182,10 +182,10 @@ You can also **[try our AI ROI Calculator](/tools/roi-calculator)** to estimate 
       "AI agents don't sleep, don't forget to follow up, and learn from every interaction. Here's why that matters.",
     readTime: '5 min read',
     author: 'Growth Arc Team',
-    date: 'March 2026',
+    date: 'March 7, 2026',
     tags: ['AI', 'Lead Generation', 'Marketing', 'Sales', 'Automation'],
     status: 'published',
-    publishedAt: '2026-03-05',
+    publishedAt: '2026-03-07',
     content: `Traditional outbound relies on manual effort — cold calls, mass emails, and follow-up spreadsheets. It works, but it doesn't scale. And it burns out your sales team in the process.
 
 AI-powered lead generation flips the model. Intelligent agents prospect, qualify, and nurture leads around the clock — learning from every interaction and improving over time.
