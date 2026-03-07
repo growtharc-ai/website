@@ -76,7 +76,7 @@ type ToolItem = { label: string; href: string; icon: LucideIcon; comingSoon?: bo
 
 const toolsItems: ToolItem[] = [
   { label: 'AI ROI Calculator', href: '/tools/roi-calculator', icon: Calculator },
-  { label: 'AI Readiness Assessment', href: '/tools/ai-readiness', icon: ClipboardCheck, comingSoon: true },
+  { label: 'AI Readiness Assessment', href: '/tools/ai-readiness', icon: ClipboardCheck },
   { label: 'AI Website Audit', href: '/tools/website-audit', icon: Search, comingSoon: true },
 ]
 
